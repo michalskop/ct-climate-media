@@ -1,0 +1,12 @@
+criterion,indicator,value,value_num,benchmark,verdict,finding
+De-polarization,S1 denial rate (all classified segments),1.0%,1.0,<5% = good,MEETS,"48 S1 (denier) segments out of 4,902 classified. No scientist (M3) ever classified as S1."
+De-polarization,False balance rate (S1/S2/S3 + S6 in same article),10.2%,10.2,<15% = acceptable,PARTIALLY MEETS,"121 of 1,189 articles with non-neutral stances show false balance. Concentrated in M6 politicians as the problematic voice."
+De-polarization,M4 pseudoscientist share of all mentions,0.2%,0.2,<1% = good,MEETS,Only 87 M4 mentions across 10 years. ČT does not platform alternative-science voices.
+Urgency & solution framing,Action call / crisis framing ratio,0.09–0.26,0.13,>0.4 = good,DOES NOT MEET,Crisis language is common (40–104 per 100 docs) but explicit action calls are rare (5–16 per 100 docs). Ratio declining over time — crisis without agency.
+Urgency & solution framing,Neutral/procedural stance share (S0),57.1%,57.1,<40% = good,DOES NOT MEET,"2,799 of 4,902 classified segments express no stance on climate action. Climate treated as information item, not as crisis requiring action."
+Urgency & solution framing,Mitigation vs adaptation topic balance,18% vs 15%,55.0,Balanced = good; mitigation-dominated = meets,PARTIALLY MEETS,Mitigation (18%) and adaptation (15%) topics roughly comparable. 2022 spike: geopolitics (Ukraine/energy) crowded out both frames.
+Urgency & solution framing,EU Green Deal coverage growth,1.0 → 25.4 per 100 docs,25.4,Growth = positive signal,PARTIALLY MEETS,"EU Green Deal language grew 25× post-2020 — policy solutions are entering coverage. But driven by EU events, not ČT editorial initiative."
+Just transformation,Citizen (M2) share of non-journalist mentions,2.0%,2.0,>10% = good,DOES NOT MEET,"Citizens produce only 1,143 of 56,613 mentions. Coverage is dominated by élites (M6 politicians: 22.6%)."
+Just transformation,Climate justice keyword rate,<2 per 100 docs,1.0,>10 per 100 docs = good,DOES NOT MEET,"Climate justice, just transition, and global south framing virtually absent throughout the entire 10-year period."
+Just transformation,Female speaker share,27.6%,27.6,>40% = good,DOES NOT MEET,"Female speakers: 39.4% among journalists but only 10.7–12.6% among scientists, stakeholders, and politicians."
+Just transformation,Global South country coverage share,8.5%,8.5,>15% = good,DOES NOT MEET,"Low-income countries = 2.5%, lower-middle = 6.0% of all country mentions. 101 countries (inc. most climate-vulnerable) appear in <10 docs over 10 years."
