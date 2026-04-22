@@ -114,6 +114,8 @@ příjmem – tedy regiony nejohroženější klimatickou změnou – tvoří po
 101 zemí se za 10 let objevilo v méně než 10 dokumentech.
 </p>
 
+{charts.get('worldmap', '')}
+
 {charts.get('gni', '')}
 
 <div class="finding-box">
@@ -286,6 +288,9 @@ def main():
         'radar':    img_tag(VIZ5 / 'P3.9_tj_radar_v2.png',
                             'Transformative journalism radar',
                             'Hodnocení transformativní žurnalistiky (0–10)'),
+        'worldmap': img_tag(VIZ5 / 'P1.11_world_map_climate_v2.png',
+                            'World map of country mentions in ČT climate coverage',
+                            'Počet dokumentů zmiňujících danou zemi (logaritmická škála, 2012–2022)'),
     }
 
     html = html_body(charts)
