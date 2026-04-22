@@ -83,8 +83,8 @@ Andrea flagged errors caused by variant Czech country name forms (`Německo` vs 
 | P1.8 | Re-run country detection on whole corpus with corrected table — map to canonical names + World Bank GNI 2022 categories | ⬜ TODO | Script ready: `analysis/article1/country_detection.py --corpus climate/social/motor/covid/terror`; ~33s per 3k docs |
 | P1.9 | Re-run country detection on climate subcorpus v4 — same process | ✅ DONE | `data/country_counts_climate.csv` — 9,973 rows; CZE=2076, USA=951, DEU=647, GBR=530, RUS=520; High income=7538, UpperMid=1577, LowerMid=599, Low=252 |
 | P1.10 | Special check: Palestine vs Israel disproportion — verify counts, flag explicitly | ✅ DONE | ISR=79 docs vs PSE=13 docs in climate subcorpus — 6:1 ratio; Andrea's noted finding confirmed |
-| P1.11 | Produce geographic blind-spots map — global map, countries with <100 mentions over 10 years; separate for whole corpus + climate subcorpus | 🔄 PARTIAL | GNI bar charts done; world map still needed |
-| P1.12 | Yearly GNI category trend charts — line charts by income category (whole corpus + climate subcorpus) | ✅ DONE | Both in Poznan; reproduce in Python with corrected data |
+| P1.11 | Produce geographic blind-spots map — global map, countries with <100 mentions over 10 years; separate for whole corpus + climate subcorpus | ✅ DONE | `visualizations/article1/P1.11_world_map_climate.png` — 173 countries detected; 101 appear in <10 docs; Global South nearly invisible (SSA, LatAm, Pacific) |
+| P1.12 | Yearly GNI category trend charts — line charts by income category (whole corpus + climate subcorpus) | ✅ DONE | `visualizations/article1/P1.12_gni_trends_climate.png` — High income 67–83%; spike in Upper middle 2014+2022 (Russia/Ukraine); Low income never exceeds 6% |
 
 ### 1C — Subcorpus Frequency & Time Trend Visualizations *(core Article 1 charts)*
 
