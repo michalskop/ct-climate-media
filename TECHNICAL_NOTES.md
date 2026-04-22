@@ -211,6 +211,69 @@ Use `datetime.strptime(f"{year} {doy}", "%Y %j")` instead.
 | Speaker regex extraction | 2,914 | ~15s | Fast — pure regex |
 | Rule-based type classification | 56,613 | <1s | In-memory set lookup |
 | LLM classification (Haiku) | 1,168 pairs | ~4min | 50 batches × 0.5s sleep + API latency |
+| Stance extraction (regex segments) | 2,914 docs | ~15s | Finds speaker turn boundaries |
+| Stance LLM classification (Haiku) | 5,928 segments | ~15min | 297 batches × 0.5s sleep; run with nohup |
+| NMF topic model (k=20, 5000 vocab) | 2,914 docs | ~30s | sklearn, single-core |
+
+---
+
+## 10. Stance Coding (Phase 3)
+
+### Speaker turn extraction
+To extract what a speaker actually said, find their `Firstname SURNAME role` match in the text, then take all words until the next speaker boundary:
+```python
+SPEAKER_BOUNDARY = re.compile(rf'{U}{L}{{1,11}}\s+{U}{{2,20}}...\s+{L}{W}*')
+next_m = SPEAKER_BOUNDARY.search(text, match_end + 1)
+end = next_m.start() if next_m else len(text)
+segment = text[match_end:end].strip()
+```
+Limit to `MAX_WORDS=200` — longer segments don't improve classification and inflate cost.
+
+### LLM stance prompt design
+- Include `S0 = Neutral/Other` as a valid label — this captures the majority of procedural/administrative speech (57% in this corpus). Without S0, the model over-assigns S3/S4.
+- Include `SKIP` for fragments too short to classify.
+- Return confidence 0–3 alongside type — useful for filtering uncertain classifications.
+- Batch size 20 (not 30 as in Phase 2) — stance segments are longer, stay within `max_tokens=800`.
+
+### Resume support is essential
+With 297 batches at ~3s each, runs take ~15 minutes and will timeout in any sandbox. Always implement resume:
+```python
+done_keys = set(zip(done["article_id"], done["name"]))
+records = [r for r in records if (r["article_id"], r["name"]) not in done_keys]
+pd.DataFrame(rows).to_csv(OUT_RESULTS, mode='a', header=write_header, index=False)
+```
+Run with `nohup python script.py > /tmp/run.log 2>&1 &` and monitor with `tail -3 /tmp/run.log`.
+
+### S0 dominance is expected
+57% of segments will be S0 (neutral/procedural). This is not a failure — it reflects that most TV exchanges are administrative ("thank you", "let's turn to…", factual descriptions). Only ~43% of non-journalist speech actually expresses a climate stance.
+
+### False balance detection
+Count articles where S1/S2/S3 and S6 co-occur: `art['false_balance'] = art['has_s6'] & art['has_prob']`. Expect ~10% of articles with any non-neutral stances.
+
+---
+
+## 11. Topic Modeling Without Lemmatization
+
+### Problem: journalist names pollute topics
+Czech TV transcripts begin every turn with `Firstname SURNAME role`. Without stripping names, NMF picks up anchor names as the most distinctive features (e.g., T00: "daniel, takáč, tomáš"). Fix:
+```python
+# Suppress all M1 journalist name tokens
+m1_names = set(token for name in m1['name'] for token in name.lower().split() if len(token)>3)
+all_stops = BASE_STOPWORDS + list(m1_names)
+vec = TfidfVectorizer(stop_words=all_stops, ...)
+```
+
+### No lemmatization — document in methods
+UDPipe is not installed (`pip install ufal.udpipe` and a Czech model file are needed). Without lemmatization, inflected Czech forms are separate terms ("změna", "změny", "změnou"). This reduces topic coherence but topics remain interpretable. **State this explicitly in the methods section** — reviewers will ask.
+
+### Choosing k
+- k=10: good overview, topics too broad
+- k=20: best balance — 8 substantive topics + named-entity / geopolitical topics
+- k=25: some topic splitting (drought→drought/agriculture, forests→bark beetle/forest policy)
+- Recommend k=20 for publication
+
+### Topic labels file
+After running, create `data/topic_labels_nmf{k}.csv` manually with columns: `topic, label, category, frame`. Categories used: MITIGATION, ADAPTATION, SCIENCE, POLICY, CZ POLICY, US POLICY, EU POLICY, INTERNATIONAL, GEOPOLITICS, ACTIVISM, OTHER.
 
 ---
 
