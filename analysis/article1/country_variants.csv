@@ -1,0 +1,492 @@
+token;lemma;Code;match_type
+Afghánistán;afghánistán;AFG;literal
+Afgánistán;afgánistán;AFG;literal
+Afghánská islámská republika;afghánský islámský republika;AFG;literal
+Albánie;albánie;ALB;literal
+Albánská republika;albánský republika;ALB;literal
+Alžírská demokratická a lidová republika;alžírský demokratický a lidový republika;DZA;literal
+Alžírsko;alžírsko;DZA;literal
+Americká Samoa;americký samoa;ASM;literal
+Americké Panenské ostrovy;americký panenský ostrov;VIR;literal
+Andorra;andorra;AND;literal
+Andorrské knížectví;andorrský knížectví;AND;literal
+Anglie;anglie;GBR;literal
+Angola;angola;AGO;literal
+Angolská republika;angolský republika;AGO;literal
+Anguilla;anguilla;AIA;literal
+Antigua a Barbuda;antigua a barbuda;ATG;literal
+Argentina;argentina;ARG;literal
+Argentinská republika;argentinský republika;ARG;literal
+Arménie;arménie;ARM;literal
+Arménská republika;arménský republika;ARM;literal
+Aruba;aruba;ABW;literal
+Austrálie;austrálie;AUS;literal
+Australské společenství;australský společenství;AUS;literal
+Ázerbájdžán;ázerbájdžán;AZE;literal
+Ázerbajdžán;ázerbajdžán;AZE;literal
+Ázerbájdžánská republika;ázerbájdžánský republika;AZE;literal
+Bahamské společenství;bahamský společenství;BHS;literal
+Bahamy;bahamy;BHS;literal
+Bahrajn;bahrajn;BHR;literal
+Bangladéš;bangladéš;BGD;literal
+Bangladéšská lidová republika;bangladéšský lidový republika;BGD;literal
+Barbados;barbados;BRB;literal
+Barma;barma;MMR;literal
+Belgické království;belgický království;BEL;literal
+Belgie;belgie;BEL;literal
+Belize;belize;BLZ;literal
+Běloruská republika;běloruský republika;BLR;literal
+Bělorusko;bělorusko;BLR;literal
+Benin;benin;BEN;literal
+Beninská republika;beninský republika;BEN;literal
+Bermudy;bermudy;BMU;literal
+Bhútán;bhútán;BTN;literal
+Bhútánské království;bhútánský království;BTN;literal
+Bolívarovská republika Venezuela;bolívarovský republika venezuela;VEN;literal
+Bolívie;bolívie;BOL;literal
+Bolivie;bolivie;BOL;literal
+Bonaire;bonaire;BES;literal
+Bosna;bosna;BIH;literal
+Bosna a Hercegovina;bosna a hercegovina;BIH;literal
+Bosna Hercegovina;bosna hercegovina;BIH;literal
+Botswana;botswana;BWA;literal
+Botswanská republika;botswanský republika;BWA;literal
+Brazílie;brazílie;BRA;literal
+Brazilská federativní republika;brazilský federativní republika;BRA;literal
+Británie;británie;GBR;literal
+Britské Panenské ostrovy;britský panenský ostrov;VGB;literal
+Brunej;brunej;BRN;literal
+Bulharská republika;bulharský republika;BGR;literal
+Bulharsko;bulharsko;BGR;literal
+Burkina Faso;burkina faso;BFA;literal
+Burundi;burundi;BDI;literal
+Burundská republika;burundský republika;BDI;literal
+Čad;čad;TCD;literal
+Čadská republika;čadský republika;TCD;literal
+Černá Hora;černý hora;MNE;literal
+Česká republika;český republika;CZE;literal
+Česko;česko;CZE;literal
+Chile;chile;CHL;literal
+Chilská republika;chilský republika;CHL;literal
+Chorvatská republika;chorvatský republika;HRV;literal
+Chorvatsko;chorvatsko;HRV;literal
+Čína;čína;CHN;literal
+ČLR;člr;CHN;literal
+Čínská lidová republika;čínský lidový republika;CHN;literal
+Čínský republika;čínský republika;CHN;literal
+Cookovy ostrovy;cookův ostrov;COK;literal
+ČR;čr;CZE;literal
+Curaçao;curaçao;CUW;literal
+Dánské království;dánský království;DNK;literal
+Dánsko;dánsko;DNK;literal
+Demokratická republika Svatý Tomáš a Princův ostrov;demokratický republika svatý tomáš a princův ostrov;STP;literal
+Demokratická republika Východní Timor;demokratický republika východní timor;TLS;literal
+Dominické společenství;dominický společenství;DMA;literal
+Dominika;dominika;DMA;literal
+Dominikánská republika;dominikánský republika;DOM;literal
+Džibutská republika;džibutský republika;DJI;literal
+Džibutsko;džibutsko;DJI;literal
+Egypt;egypt;EGY;literal
+Egyptská arabská republika;egyptský arabský republika;EGY;literal
+Ekvádor;ekvádor;ECU;literal
+Ekvádorská republika;ekvádorský republika;ECU;literal
+Eritrea;eritrea;ERI;literal
+Estonská republika;estonský republika;EST;literal
+Estonsko;estonsko;EST;literal
+Etiopie;etiopie;ETH;literal
+Etiopská federativní demokratická republika;etiopský federativní demokratický republika;ETH;literal
+Faerské ostrovy;faerský ostrov;FRO;literal
+Federace Svatý Kryštof a Nevis;federace svatý kryštof a nevis;KNA;literal
+Federativní státy Mikronésie;federativní stát mikronésie;FSM;literal
+Fidži;fidži;FJI;literal
+Fidžijská republika;fidžijský republika;FJI;literal
+Filipínská republika;filipínský republika;PHL;literal
+Filipíny;filipíny;PHL;literal
+Finská republika;finský republika;FIN;literal
+Finsko;finsko;FIN;literal
+Francie;francie;FRA;literal
+Francouzská Polynésie;francouzský polynésie;PYF;literal
+Francouzská republika;francouzský republika;FRA;literal
+Gabon;gabon;GAB;literal
+Gabonská republika;gabonský republika;GAB;literal
+Gambie;gambie;GMB;literal
+Gambijská republika;gambijský republika;GMB;literal
+Gaza;gaza;PSE;literal
+Ghana;ghana;GHA;literal
+Ghanská republika;ghanský republika;GHA;literal
+Gibraltar;gibraltar;GIB;literal
+Grenada;grenada;GRD;literal
+Grónsko;grónsko;GRL;literal
+Gruzie;gruzie;GEO;literal
+Guam;guam;GUM;literal
+Guatemala;guatemala;GTM;literal
+Guatemalská republika;guatemalský republika;GTM;literal
+Guinea;guinea;GIN;literal
+Guinea-Bissau;guinea - bissau;GNB;literal
+Guinejská republika;guinejský republika;GIN;literal
+Guyana;guyana;GUY;literal
+Guyanská kooperativní republika;guyanský kooperativní republika;GUY;literal
+Haiti;haiti;HTI;literal
+Holandsko;holandsko;NLD;literal
+Honduras;honduras;HND;literal
+Honduraská republika;honduraský republika;HND;literal
+Hongkong;hongkong;HKG;literal
+Indická republika;indický republika;IND;literal
+Indie;indie;IND;literal
+Indonésie;indonésie;IDN;literal
+Indonéská republika;indonéský republika;IDN;literal
+Irácká republika;irácký republika;IRQ;literal
+Irák;irák;IRQ;literal
+Írán;írán;IRN;literal
+Irán;irán;IRN;literal
+Íránská islámská republika;íránský islámský republika;IRN;literal
+Irsko;irsko;IRL;literal
+Irská republika;irský republika;IRL;literal
+Island;island;ISL;literal
+Islandská republika;islandský republika;ISL;literal
+Itálie;itálie;ITA;literal
+Italská republika;italský republika;ITA;literal
+Izrael;izrael;ISR;literal
+Jamajka;jamajka;JAM;literal
+Japonsko;japonsko;JPN;literal
+Jemen;jemen;YEM;literal
+Jemenská republika;jemenský republika;YEM;literal
+Jihoafrická republika;jihoafrický republika;ZAF;literal
+Jihosúdánská republika;jihosúdánský republika;SSD;literal
+Jižní Afrika;jižní afrika;ZAF;literal
+Jižní Korea;jižní korea;KOR;literal
+Jižní Súdán;jižní súdán;SSD;literal
+Jordánské hášimovské království;jordánský hášimovský království;JOR;literal
+Jordánsko;jordánsko;JOR;literal
+Kajmanské ostrovy;kajmanský ostrov;CYM;literal
+Kambodža;kambodža;KHM;literal
+Kambodžské království;kambodžský království;KHM;literal
+Kamerun;kamerun;CMR;literal
+Kamerunská republika;kamerunský republika;CMR;literal
+Kanada;kanada;CAN;literal
+Kapverdská republika;kapverdský republika;CPV;literal
+Kapverdy;kapverdy;CPV;literal
+Katar;katar;QAT;literal
+Kazachstán;kazachstán;KAZ;literal
+Keňa;keňa;KEN;literal
+Keňská republika;keňský republika;KEN;literal
+Kiribati;kiribati;KIR;literal
+KLDR;kldr;PRK;literal
+Kolumbie;kolumbie;COL;literal
+Kolumbijská republika;kolumbijský republika;COL;literal
+Komorský svaz;komorský svaz;COM;literal
+Kongo;kongo;COD;literal
+Konžská demokratická republika;konžský demokratický republika;COD;literal
+Konžská republika;konžský republika;COG;literal
+Korejská lidově demokratická republika;korejský lidově demokratický republika;PRK;literal
+Korejská republika;korejský republika;KOR;literal
+Kosovo;kosovo;XKX;literal
+Kosovská republika;kosovský republika;XKX;literal
+Kostarická republika;kostarický republika;CRI;literal
+Kostarika;kostarika;CRI;literal
+Království Bahrajn;království bahrajn;BHR;literal
+Království Saúdská Arábie;království saúdský arábie;SAU;literal
+Království Tonga;království tonga;TON;literal
+Kuba;kuba;CUB;literal
+Kubánská republika;kubánský republika;CUB;literal
+Kuvajt;kuvajt;KWT;literal
+Kuvajtský stát;kuvajtský stát;KWT;literal
+Kyperská republika;kyperský republika;CYP;literal
+Kypr;kypr;CYP;literal
+Kyrgyzská republika;kyrgyzský republika;KGZ;literal
+Kyrgyzstán;kyrgyzstán;KGZ;literal
+Laos;laos;LAO;literal
+Laoská lidově demokratická republika;laoský lidově demokratický republika;LAO;literal
+Lesotho;lesotho;LSO;literal
+Lesothské království;lesothský království;LSO;literal
+Libanon;libanon;LBN;literal
+Libanonská republika;libanonský republika;LBN;literal
+Libérie;libérie;LBR;literal
+Liberijská republika;liberijský republika;LBR;literal
+Libye;libye;LBY;literal
+Libyjský stát;libyjský stát;LBY;literal
+Lichtenštejnské knížectví;lichtenštejnský knížectví;LIE;literal
+Lichtenštejnsko;lichtenštejnsko;LIE;literal
+Litevská republika;litevský republika;LTU;literal
+Litva;litva;LTU;literal
+Lotyšská republika;lotyšský republika;LVA;literal
+Lotyšsko;lotyšsko;LVA;literal
+Lucemburské velkovévodství;lucemburské velkovévodství;LUX;literal
+Lucembursko;lucembursko;LUX;literal
+Macao;macao;MAC;literal
+Madagaskar;madagaskar;MDG;literal
+Madagaskarská republika;madagaskarský republika;MDG;literal
+Maďarsko;maďarsko;HUN;literal
+Makedonie;makedonie;MKD;literal
+Malajsie;malajsie;MYS;literal
+Malawi;malawi;MWI;literal
+Malawiská republika;malawiský republika;MWI;literal
+Maledivská republika;maledivský republika;MDV;literal
+Maledivy;maledivy;MDV;literal
+Mali;mali;MLI;literal
+Malta;malta;MLT;literal
+Maltská republika;maltský republika;MLT;literal
+Man;man;IMN;literal
+Marocké království;marocký království;MAR;literal
+Maroko;maroko;MAR;literal
+Marshallovy ostrovy;marshallův ostrov;MHL;literal
+Mauricijská republika;mauricijský republika;MUS;literal
+Mauricius;mauricius;MUS;literal
+Mauritánie;mauritánie;MRT;literal
+Mauretánie;mauretánie;MRT;literal
+Mauritánská islámská republika;mauritánský islámský republika;MRT;literal
+Mexiko;mexiko;MEX;literal
+Mikronésie;mikronésie;FSM;literal
+Mnohonárodní stát Bolívie;mnohonárodní stát bolívie;BOL;literal
+Moldavská republika;moldavský republika;MDA;literal
+Moldávie;moldávie;MDA;literal
+Moldavsko;moldavsko;MDA;literal
+Monacké knížectví;monacký knížectví;MCO;literal
+Monako;monako;MCO;literal
+Mongolsko;mongolsko;MNG;literal
+Montserrat;montserrat;MSR;literal
+Mosambická republika;mosambický republika;MOZ;literal
+Mosambik;mosambik;MOZ;literal
+Myanmar;myanmar;MMR;literal
+Namibie;namibie;NAM;literal
+Namibijská republika;namibijský republika;NAM;literal
+Nauru;nauru;NRU;literal
+Německo;německo;DEU;literal
+Nepál;nepál;NPL;literal
+Nepálská federativní demokratická republika;pálský federativní demokratický republika;NPL;literal
+Nezávislý stát Papua Nová Guinea;závislý stát papua nový guinea;PNG;literal
+Nezávislý stát Samoa;závislý stát samoa;WSM;literal
+Niger;niger;NER;literal
+Nigérie;nigérie;NGA;literal
+Nigerijská federativní republika;nigerijský federativní republika;NGA;literal
+Nigerská republika;nigerský republika;NER;literal
+Nikaragua;nikaragua;NIC;literal
+Nikaragujská republika;nikaragujský republika;NIC;literal
+Niue;niue;NIU;literal
+Nizozemí;nizozemí;NLD;literal
+Nizozemské království;nizozemský království;NLD;literal
+Nizozemsko;nizozemsko;NLD;literal
+Norské království;norský království;NOR;literal
+Norsko;norsko;NOR;literal
+Nová Kaledonie;nový kaledonie;NCL;literal
+Nový Zéland;nový zéland;NZL;literal
+Omán;omán;OMN;literal
+Ostrov Man;ostrov man;IMN;literal
+Ostrovy Turks a Caicos;ostrov turks a caicos;TCA;literal
+Pákistán;pákistán;PAK;literal
+Pákistánská islámská republika;pákistánský islámský republika;PAK;literal
+Palau;palau;PLW;literal
+Palestina;palestina;PSE;literal
+Palestinská autonomní území;palestinský autonomní území;PSE;literal
+Panama;panama;PAN;literal
+Panamská republika;panamský republika;PAN;literal
+Papua Nová Guinea;papua nový guinea;PNG;literal
+Paraguay;paraguay;PRY;literal
+Paraguayská republika;paraguayský republika;PRY;literal
+Peru;peru;PER;literal
+Peruánská republika;peruánský republika;PER;literal
+Pobřeží slonoviny;pobřeží slonovina;CIV;literal
+Polská republika;polský republika;POL;literal
+Polsko;polsko;POL;literal
+Portorické společenství;portorický společenství;PRI;literal
+Portoriko;portoriko;PRI;literal
+Portugalská republika;portugalský republika;PRT;literal
+Portugalsko;portugalsko;PRT;literal
+Předjordánsko;předjordánsko;PSE;literal
+Rakouská republika;rakouský republika;AUT;literal
+Rakousko;rakousko;AUT;literal
+Řecká republika;řecký republika;GRC;literal
+Řecko;řecko;GRC;literal
+Republika Guinea-Bissau;republika guinea - bissau;GNB;literal
+Republika Haiti;republika haiti;HTI;literal
+Republika Kazachstán;republika kazachstán;KAZ;literal
+Republika Kiribati;republika kiribati;KIR;literal
+Republika Mali;republika mali;MLI;literal
+Republika Marshallovy ostrovy;republika marshallův ostrov;MHL;literal
+Republika Myanmarský svaz;republika myanmarský svaz;MMR;literal
+Republika Nauru;republika nauru;NRU;literal
+Republika Palau;republika palau;PLW;literal
+Republika Pobřeží slonoviny;republika pobřeží slonovina;CIV;literal
+Republika Rovníková Guinea;republika rovníkový guinea;GNQ;literal
+Republika San Marino;republika san marino;SMR;literal
+Republika Severní Makedonie;republika severní makedonie;MKD;literal
+Republika Sierra Leone;republika sierra leone;SLE;literal
+Republika Tádžikistán;republika tádžikistán;TJK;literal
+Republika Trinidad a Tobago;republika trinidad a tobago;TTO;literal
+Republika Uzbekistán;republika uzbekistán;UZB;literal
+Republika Vanuatu;republika vanuatu;VUT;literal
+Rovníková Guinea;rovníkový guinea;GNQ;literal
+Rumunsko;rumunsko;ROU;literal
+Ruská federace;ruský federace;RUS;literal
+Rusko;rusko;RUS;literal
+Rwanda;rwanda;RWA;literal
+Rwandská republika;rwandský republika;RWA;literal
+Saint Pierre a Miquelon;saint pierre a miquelon;SPM;literal
+Šalomounovy ostrovy;šalomounův ostrov;SLB;literal
+Salvador;salvador;SLV;literal
+Salvadorská republika;salvadorský republika;SLV;literal
+Samoa;samoa;WSM;literal
+San Marino;san marino;SMR;literal
+Saúdská Arábie;saúdský arábie;SAU;literal
+Senegal;senegal;SEN;literal
+Senegalská republika;senegalský republika;SEN;literal
+Severní Irsko;severní irsko;GBR;literal
+Severní Korea;severní korea;PRK;literal
+Severní Makedonie;severní makedonie;MKD;literal
+Severní Mariany;severní mariany;MNP;literal
+Seychelská republika;seychelský republika;SYC;literal
+Seychely;seychel;SYC;literal
+Sierra Leone;sierra leone;SLE;literal
+Siera Leone;siera leone;SLE;literal
+Singapur;singapur;SGP;literal
+Singapurská republika;singapurský republika;SGP;literal
+Slovenská republika;slovenský republika;SVK;literal
+Slovensko;slovensko;SVK;literal
+Slovinská republika;slovinský republika;SVN;literal
+Slovinsko;slovinsko;SVN;literal
+Somálská federativní republika;somálský federativní republika;SOM;literal
+Somálsko;somálsko;SOM;literal
+Španělské království;španělský království;ESP;literal
+Španělsko;španělsko;ESP;literal
+Spojené arabské emiráty;spojený arabský emirát;ARE;literal
+Spojené království;spojený království;GBR;literal
+Spojené království Velké Británie a Severního Irska;spojený království velký británie a severní irsko;GBR;literal
+Spojené státy;spojený stát;USA;literal
+Spojené státy americké;spojený stát americký;USA;literal
+Spojené státy mexické;spojený stát mexický;MEX;literal
+Společenství Severní Mariany;společenství severní mariany;MNP;literal
+Společenství Svatý Martin;společenství svatý martin;MAF;literal
+Spolková republika;spolkový republika;DEU;literal
+Spolková republika Německo;spolkový republika německo;DEU;literal
+SR;sr;SVK;literal
+Srbská republika;srbský republika;SRB;literal
+Republika Srbská;republika srbský;SRB;literal
+Srbsko;srbsko;SRB;literal
+Srí Lanka;srí lanka;LKA;literal
+Šrí Lanka;šrí lanka;LKA;literal
+Šrílanská demokratická socialistická republika;šrílanský demokratický socialistický republika;LKA;literal
+SRN;srn;DEU;literal
+Stát Brunej Darussalam;stát brunej darussalam;BRN;literal
+Stát Eritrea;stát eritrea;ERI;literal
+Stát Izrael;stát izrael;ISR;literal
+Stát Katar;stát katar;QAT;literal
+Stát Spojené arabské emiráty;stát spojený arabský emirát;ARE;literal
+Středoafrická republika;středoafrický republika;CAF;literal
+Súdán;súdán;SDN;literal
+Súdánská republika;súdánský republika;SDN;literal
+Sultanát Omán;sultanát omán;OMN;literal
+Surinam;surinam;SUR;literal
+Surinamská republika;surinamský republika;SUR;literal
+Svatá Helena;svatý helena;SHN;literal
+Svatá Lucie;svatý lucie;LCA;literal
+Svatý Kryštof a Nevis;svatý kryštof a nevis;KNA;literal
+Svatý Martin (NL);svatý martin;SXM;literal
+Svatý Tomáš a Princův ostrov;svatý tomáš a princův ostrov;STP;literal
+Svatý Vincenc a Grenadiny;svatý vincenc a grenadiny;VCT;literal
+Svazijské království;svazijský království;SWZ;literal
+Svazijsko;svazijsko;SWZ;literal
+Švédské království;švédský království;SWE;literal
+Švédsko;švédsko;SWE;literal
+Švýcarská konfederace;švýcarský konfederace;CHE;literal
+Švýcarsko;švýcarsko;CHE;literal
+Sýrie;sýrie;SYR;literal
+Syrská arabská republika;syrský arabský republika;SYR;literal
+Tádžikistán;tádžikistán;TJK;literal
+Tanzanie;tanzanie;TZA;literal
+TANZÁNIE;tanzánie;TZA;literal
+Tanzanská sjednocená republika;tanzanský sjednocený republika;TZA;literal
+Tchaj wan;tchaj wan;TWN;literal
+Tchaj-wan;tchaj - wan;TWN;literal
+Tchajwan;tchajwan;TWN;literal
+Taiwan;taiwan;TWN;literal
+Teritorium Guam;teritorium guam;GUM;literal
+Teritorium Wallisovy ostrovy a Futuna;teritorium wallisův ostrov a futuna;WLF;literal
+Thajské království;thajský království;THA;literal
+Thajsko;thajsko;THA;literal
+Togo;togo;TGO;literal
+Tonga;tonga;TON;literal
+Tožská republika;tožský republika;TGO;literal
+Trinidad a Tobago;trinidad a tobago;TTO;literal
+Tuniská republika;tuniský republika;TUN;literal
+Tunisko;tunisko;TUN;literal
+Turecká republika;turecký republika;TUR;literal
+Turecko;turecko;TUR;literal
+Turkmenistán;turkmenistán;TKM;literal
+Turks a Caicos;turks a caicos;TCA;literal
+Tuvalu;tuvalu;TUV;literal
+Uganda;uganda;UGA;literal
+Ugandská republika;ugandský republika;UGA;literal
+Ukrajina;ukrajina;UKR;literal
+Uruguay;uruguay;URY;literal
+Uruguayská východní republika;uruguayský východní republika;URY;literal
+USA;usa;USA;literal
+Uzbekistán;uzbekistán;UZB;literal
+Území Americká Samoa;území americký samoa;ASM;literal
+Územní společenství Saint Pierre a Miquelon;územní společenství saint pierre a miquelon;SPM;literal
+Vanuatu;vanuatu;VUT;literal
+Vatikán;vatikán;VAT;literal
+Velká Británie;velký británie;GBR;literal
+Velká Británie a Severní Irsko;velký británie a severní irsko;GBR;literal
+Venezuela;venezuela;VEN;literal
+Vietnam;vietnam;VNM;literal
+Vietnamská socialistická republika;vietnamský socialistický republika;VNM;literal
+Východní Timor;východní timor;TLS;literal
+Wallis a Futuna;wallis a futuna;WLF;literal
+Zambie;zambie;ZMB;literal
+Zambijská republika;zambijský republika;ZMB;literal
+Západní břeh Jordánu;západní břeh jordán;PSE;literal
+Země Curaçao;země curaçao;CUW;literal
+Zimbabwe;zimbabwe;ZWE;literal
+Zimbabwská republika;zimbabwský republika;ZWE;literal
+Zvláštní administrativní oblast Čínské lidové republiky Hongkong;zvláštní administrativní oblast čínský lidový republika hongkong;HKG;literal
+Zvláštní administrativní oblast Čínské lidové republiky Macao;zvláštní administrativní oblast čínský lidový republika macao;MAC;literal
+česk;česk;CZE;stem
+německ;německ;DEU;stem
+rusk;rusk;RUS;stem
+ukrajinsk;ukrajinsk;UKR;stem
+francouzsk;francouzsk;FRA;stem
+slovensk;slovensk;SVK;stem
+polsk;polsk;POL;stem
+čínsk;čínsk;CHN;stem
+syrsk;syrsk;SYR;stem
+rakousk;rakousk;AUT;stem
+italsk;italsk;ITA;stem
+řeck;řeck;GRC;stem
+tureck;tureck;TUR;stem
+izraelsk;izraelsk;ISR;stem
+maďarsk;maďarsk;HUN;stem
+španělsk;španělsk;ESP;stem
+iráck;iráck;IRQ;stem
+afghánsk;afghánsk;AFG;stem
+íránsk;íránsk;IRN;stem
+japonsk;japonsk;JPN;stem
+švýcarsk;švýcarsk;CHE;stem
+švédsk;švédsk;SWE;stem
+kanadsk;kanadsk;CAN;stem
+belgick;belgick;BEL;stem
+egyptsk;egyptsk;EGY;stem
+kubánsk;kubánsk;CUB;stem
+australsk;australsk;AUS;stem
+chorvatsk;chorvatsk;HRV;stem
+indick;indick;IND;stem
+irsk;irsk;IRL;stem
+bulharsk;bulharsk;BGR;stem
+rumunsk;rumunsk;ROU;stem
+bělorusk;bělorusk;BLR;stem
+mexick;mexick;MEX;stem
+brazilsk;brazilsk;BRA;stem
+norsk;norsk;NOR;stem
+dánsk;dánsk;DNK;stem
+finsk;finsk;FIN;stem
+srbsk;srbsk;SRB;stem
+libyjsk;libyjsk;LBY;stem
+britsk;britsk;GBR;stem
+americk;americk;USA;stem
+palestinsk;palestinsk;PSE;stem
+libanons;libanons;LBN;stem
+saúdsk;saúdsk;SAU;stem
+jihokorejsk;jihokorejsk;KOR;stem
+severokorejsk;severokorejsk;PRK;stem
+UK;uk;GBR;literal
+Pásmo Gazy;pásmo gazy;PSE;literal
+Západní břeh;západní břeh;PSE;literal

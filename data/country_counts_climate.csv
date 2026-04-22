@@ -1,0 +1,859 @@
+year,Code,income,n_docs,n_mentions
+2012,CZE,High income,37,37
+2012,USA,High income,21,21
+2012,GBR,High income,12,12
+2012,CHN,Upper middle income,9,9
+2012,DEU,High income,7,7
+2012,FRA,High income,5,5
+2012,IND,Lower middle income,5,5
+2012,IRL,High income,5,5
+2012,SVK,High income,5,5
+2012,AUS,High income,4,4
+2012,SWE,High income,4,4
+2012,POL,High income,3,3
+2012,RUS,Upper middle income,3,3
+2012,DNK,High income,2,2
+2012,GRC,High income,2,2
+2012,GRL,High income,2,2
+2012,ISR,High income,2,2
+2012,JPN,High income,2,2
+2012,QAT,High income,2,2
+2012,TZA,Lower middle income,2,2
+2012,AFG,Low income,1,1
+2012,AGO,Lower middle income,1,1
+2012,AUT,High income,1,1
+2012,BLR,Upper middle income,1,1
+2012,BRA,Upper middle income,1,1
+2012,CAN,High income,1,1
+2012,CHE,High income,1,1
+2012,COD,Low income,1,1
+2012,EGY,Lower middle income,1,1
+2012,ESP,High income,1,1
+2012,ETH,Low income,1,1
+2012,IRN,Lower middle income,1,1
+2012,ISL,High income,1,1
+2012,ITA,High income,1,1
+2012,MDA,Upper middle income,1,1
+2012,MDV,Upper middle income,1,1
+2012,NOR,High income,1,1
+2012,NZL,High income,1,1
+2012,PHL,Lower middle income,1,1
+2012,PSE,Upper middle income,1,1
+2012,SAU,High income,1,1
+2012,SLE,Low income,1,1
+2012,SOM,Low income,1,1
+2012,SYR,Low income,1,1
+2012,UKR,Lower middle income,1,1
+2012,ZAF,Upper middle income,1,1
+2013,CZE,High income,54,54
+2013,USA,High income,26,26
+2013,POL,High income,19,19
+2013,DEU,High income,16,16
+2013,FRA,High income,8,8
+2013,GBR,High income,7,7
+2013,RUS,Upper middle income,7,7
+2013,SVK,High income,6,6
+2013,AUT,High income,5,5
+2013,CHN,Upper middle income,5,5
+2013,AUS,High income,4,4
+2013,SWE,High income,3,3
+2013,AFG,Low income,2,2
+2013,CAN,High income,2,2
+2013,CHE,High income,2,2
+2013,DNK,High income,2,2
+2013,EGY,Lower middle income,2,2
+2013,GRC,High income,2,2
+2013,IND,Lower middle income,2,2
+2013,JPN,High income,2,2
+2013,PHL,Lower middle income,2,2
+2013,ALB,Upper middle income,1,1
+2013,BRA,Upper middle income,1,1
+2013,CHL,High income,1,1
+2013,COL,Upper middle income,1,1
+2013,CRI,Upper middle income,1,1
+2013,CYP,High income,1,1
+2013,ESP,High income,1,1
+2013,HRV,High income,1,1
+2013,HUN,High income,1,1
+2013,ISR,High income,1,1
+2013,KIR,Lower middle income,1,1
+2013,LKA,Lower middle income,1,1
+2013,MDV,Upper middle income,1,1
+2013,MLI,Low income,1,1
+2013,MNG,Lower middle income,1,1
+2013,NLD,High income,1,1
+2013,NZL,High income,1,1
+2013,PAK,Lower middle income,1,1
+2013,PER,Upper middle income,1,1
+2013,SRB,Upper middle income,1,1
+2013,TUR,Upper middle income,1,1
+2013,UKR,Lower middle income,1,1
+2013,XKX,Upper middle income,1,1
+2013,ZAF,Upper middle income,1,1
+2014,CZE,High income,70,70
+2014,USA,High income,42,42
+2014,RUS,Upper middle income,24,24
+2014,CHN,Upper middle income,18,18
+2014,DEU,High income,18,18
+2014,FRA,High income,17,17
+2014,GBR,High income,15,15
+2014,POL,High income,11,11
+2014,AUS,High income,9,9
+2014,UKR,Lower middle income,9,9
+2014,SVK,High income,7,7
+2014,IND,Lower middle income,6,6
+2014,AUT,High income,5,5
+2014,PER,Upper middle income,5,5
+2014,BOL,Lower middle income,4,4
+2014,CAN,High income,4,4
+2014,FIN,High income,4,4
+2014,BEL,High income,3,3
+2014,IRN,Lower middle income,3,3
+2014,ITA,High income,3,3
+2014,JPN,High income,3,3
+2014,NOR,High income,3,3
+2014,TUR,Upper middle income,3,3
+2014,CHL,High income,2,2
+2014,CUB,Upper middle income,2,2
+2014,GRC,High income,2,2
+2014,IDN,Upper middle income,2,2
+2014,AFG,Low income,1,1
+2014,BGR,Upper middle income,1,1
+2014,BLR,Upper middle income,1,1
+2014,BRA,Upper middle income,1,1
+2014,CHE,High income,1,1
+2014,DNK,High income,1,1
+2014,ESP,High income,1,1
+2014,EST,High income,1,1
+2014,GIN,Lower middle income,1,1
+2014,GUY,High income,1,1
+2014,HRV,High income,1,1
+2014,HUN,High income,1,1
+2014,KOR,High income,1,1
+2014,LTU,High income,1,1
+2014,LVA,High income,1,1
+2014,MCO,High income,1,1
+2014,MHL,Upper middle income,1,1
+2014,PRK,Low income,1,1
+2014,SRB,Upper middle income,1,1
+2014,SYR,Low income,1,1
+2014,URY,High income,1,1
+2015,CZE,High income,131,131
+2015,USA,High income,78,78
+2015,FRA,High income,50,50
+2015,CHN,Upper middle income,36,36
+2015,DEU,High income,36,36
+2015,GBR,High income,30,30
+2015,RUS,Upper middle income,30,30
+2015,GRC,High income,19,19
+2015,SYR,Low income,18,18
+2015,ITA,High income,17,17
+2015,TUR,Upper middle income,16,16
+2015,IND,Lower middle income,13,13
+2015,UKR,Lower middle income,13,13
+2015,SVK,High income,12,12
+2015,AUS,High income,11,11
+2015,HUN,High income,11,11
+2015,ESP,High income,10,10
+2015,AUT,High income,8,8
+2015,CHE,High income,8,8
+2015,ISR,High income,7,7
+2015,LBY,Upper middle income,7,7
+2015,SAU,High income,7,7
+2015,SWE,High income,7,7
+2015,AFG,Low income,6,6
+2015,BEL,High income,6,6
+2015,CAN,High income,6,6
+2015,EGY,Lower middle income,6,6
+2015,IRQ,Upper middle income,6,6
+2015,POL,High income,6,6
+2015,GRL,High income,5,5
+2015,IRN,Lower middle income,5,5
+2015,NOR,High income,5,5
+2015,SRB,Upper middle income,5,5
+2015,CUB,Upper middle income,4,4
+2015,HRV,High income,4,4
+2015,JPN,High income,4,4
+2015,DNK,High income,3,3
+2015,ETH,Low income,3,3
+2015,IDN,Upper middle income,3,3
+2015,JOR,Lower middle income,3,3
+2015,MLI,Low income,3,3
+2015,NGA,Lower middle income,3,3
+2015,PAK,Lower middle income,3,3
+2015,PRY,Upper middle income,3,3
+2015,QAT,High income,3,3
+2015,SOM,Low income,3,3
+2015,ALB,Upper middle income,2,2
+2015,BRA,Upper middle income,2,2
+2015,CHL,High income,2,2
+2015,IRL,High income,2,2
+2015,LBN,Lower middle income,2,2
+2015,MKD,Upper middle income,2,2
+2015,MNG,Lower middle income,2,2
+2015,PRT,High income,2,2
+2015,PSE,Upper middle income,2,2
+2015,ROU,High income,2,2
+2015,YEM,Low income,2,2
+2015,ZAF,Upper middle income,2,2
+2015,ARG,Upper middle income,1,1
+2015,BGR,Upper middle income,1,1
+2015,BIH,Upper middle income,1,1
+2015,CAF,Low income,1,1
+2015,CYP,High income,1,1
+2015,FIN,High income,1,1
+2015,FSM,Lower middle income,1,1
+2015,GIN,Lower middle income,1,1
+2015,HTI,Lower middle income,1,1
+2015,KWT,High income,1,1
+2015,LCA,Upper middle income,1,1
+2015,LTU,High income,1,1
+2015,MAR,Lower middle income,1,1
+2015,MDG,Low income,1,1
+2015,MEX,Upper middle income,1,1
+2015,MHL,Upper middle income,1,1
+2015,MLT,High income,1,1
+2015,MYS,Upper middle income,1,1
+2015,NER,Low income,1,1
+2015,NIC,Lower middle income,1,1
+2015,NLD,High income,1,1
+2015,PER,Upper middle income,1,1
+2015,PHL,Lower middle income,1,1
+2015,PRK,Low income,1,1
+2015,SDN,Low income,1,1
+2015,SVN,High income,1,1
+2015,TUN,Lower middle income,1,1
+2015,URY,High income,1,1
+2015,VUT,Lower middle income,1,1
+2015,XKX,Upper middle income,1,1
+2016,CZE,High income,130,130
+2016,USA,High income,75,75
+2016,DEU,High income,38,38
+2016,GBR,High income,29,29
+2016,RUS,Upper middle income,28,28
+2016,CHN,Upper middle income,24,24
+2016,FRA,High income,22,22
+2016,POL,High income,15,15
+2016,AUT,High income,14,14
+2016,BRA,Upper middle income,13,13
+2016,ITA,High income,12,12
+2016,SYR,Low income,11,11
+2016,TUR,Upper middle income,10,10
+2016,GRC,High income,9,9
+2016,HUN,High income,9,9
+2016,IND,Lower middle income,9,9
+2016,SVK,High income,9,9
+2016,SWE,High income,9,9
+2016,UKR,Lower middle income,9,9
+2016,CHE,High income,8,8
+2016,JPN,High income,8,8
+2016,BGR,Upper middle income,7,7
+2016,LBY,Upper middle income,7,7
+2016,BEL,High income,5,5
+2016,CAN,High income,5,5
+2016,ESP,High income,5,5
+2016,IRL,High income,4,4
+2016,IRQ,Upper middle income,4,4
+2016,ROU,High income,4,4
+2016,DNK,High income,3,3
+2016,FJI,Upper middle income,3,3
+2016,GEO,Upper middle income,3,3
+2016,IRN,Lower middle income,3,3
+2016,NLD,High income,3,3
+2016,NOR,High income,3,3
+2016,CUB,Upper middle income,2,2
+2016,FIN,High income,2,2
+2016,GRL,High income,2,2
+2016,HRV,High income,2,2
+2016,ISL,High income,2,2
+2016,ISR,High income,2,2
+2016,JOR,Lower middle income,2,2
+2016,LBN,Lower middle income,2,2
+2016,MEX,Upper middle income,2,2
+2016,SAU,High income,2,2
+2016,SRB,Upper middle income,2,2
+2016,ZWE,Lower middle income,2,2
+2016,AFG,Low income,1,1
+2016,ATG,High income,1,1
+2016,AUS,High income,1,1
+2016,BGD,Lower middle income,1,1
+2016,BLR,Upper middle income,1,1
+2016,CAF,Low income,1,1
+2016,COL,Upper middle income,1,1
+2016,CYP,High income,1,1
+2016,DMA,Upper middle income,1,1
+2016,EGY,Lower middle income,1,1
+2016,ERI,Low income,1,1
+2016,EST,High income,1,1
+2016,ETH,Low income,1,1
+2016,KEN,Lower middle income,1,1
+2016,LTU,High income,1,1
+2016,LVA,High income,1,1
+2016,MDV,Upper middle income,1,1
+2016,MKD,Upper middle income,1,1
+2016,MLI,Low income,1,1
+2016,MLT,High income,1,1
+2016,NAM,Upper middle income,1,1
+2016,NGA,Lower middle income,1,1
+2016,NRU,High income,1,1
+2016,PAK,Lower middle income,1,1
+2016,SDN,Low income,1,1
+2016,SSD,Low income,1,1
+2016,TUV,Upper middle income,1,1
+2016,VNM,Lower middle income,1,1
+2016,XKX,Upper middle income,1,1
+2016,ZMB,Lower middle income,1,1
+2017,CZE,High income,218,218
+2017,USA,High income,132,132
+2017,DEU,High income,68,68
+2017,RUS,Upper middle income,63,63
+2017,FRA,High income,44,44
+2017,CHN,Upper middle income,40,40
+2017,GBR,High income,39,39
+2017,POL,High income,24,24
+2017,SYR,Low income,23,23
+2017,ITA,High income,22,22
+2017,IND,Lower middle income,17,17
+2017,IRN,Lower middle income,15,15
+2017,JPN,High income,14,14
+2017,AUT,High income,12,12
+2017,PRK,Low income,12,12
+2017,SVK,High income,12,12
+2017,TUR,Upper middle income,12,12
+2017,ISR,High income,11,11
+2017,CAN,High income,9,9
+2017,DNK,High income,9,9
+2017,ESP,High income,9,9
+2017,FIN,High income,9,9
+2017,CHE,High income,8,8
+2017,NOR,High income,8,8
+2017,AUS,High income,7,7
+2017,GRC,High income,7,7
+2017,LBY,Upper middle income,7,7
+2017,SWE,High income,7,7
+2017,HUN,High income,6,6
+2017,IRL,High income,6,6
+2017,KOR,High income,6,6
+2017,SAU,High income,6,6
+2017,NIC,Lower middle income,5,5
+2017,UKR,Lower middle income,5,5
+2017,DMA,Upper middle income,4,4
+2017,EGY,Lower middle income,4,4
+2017,MEX,Upper middle income,4,4
+2017,BEL,High income,3,3
+2017,CHL,High income,3,3
+2017,GEO,Upper middle income,3,3
+2017,HRV,High income,3,3
+2017,IRQ,Upper middle income,3,3
+2017,PER,Upper middle income,3,3
+2017,PRI,High income,3,3
+2017,BGR,Upper middle income,2,2
+2017,CUB,Upper middle income,2,2
+2017,EST,High income,2,2
+2017,JAM,Upper middle income,2,2
+2017,JOR,Lower middle income,2,2
+2017,KGZ,Lower middle income,2,2
+2017,MLI,Low income,2,2
+2017,NLD,High income,2,2
+2017,PRT,High income,2,2
+2017,SRB,Upper middle income,2,2
+2017,SVN,High income,2,2
+2017,VAT,Unknown,2,2
+2017,VNM,Lower middle income,2,2
+2017,AFG,Low income,1,1
+2017,BLR,Upper middle income,1,1
+2017,BOL,Lower middle income,1,1
+2017,BRA,Upper middle income,1,1
+2017,DZA,Lower middle income,1,1
+2017,ETH,Low income,1,1
+2017,FJI,Upper middle income,1,1
+2017,FSM,Lower middle income,1,1
+2017,GRL,High income,1,1
+2017,HTI,Lower middle income,1,1
+2017,ISL,High income,1,1
+2017,KNA,High income,1,1
+2017,LBN,Lower middle income,1,1
+2017,MAR,Lower middle income,1,1
+2017,MDA,Upper middle income,1,1
+2017,MDV,Upper middle income,1,1
+2017,MMR,Lower middle income,1,1
+2017,MSR,Unknown,1,1
+2017,PHL,Lower middle income,1,1
+2017,PSE,Upper middle income,1,1
+2017,ROU,High income,1,1
+2017,SGP,High income,1,1
+2017,TJK,Lower middle income,1,1
+2017,TWN,High income,1,1
+2017,UZB,Lower middle income,1,1
+2017,VIR,High income,1,1
+2017,ZAF,Upper middle income,1,1
+2018,CZE,High income,252,252
+2018,USA,High income,76,76
+2018,DEU,High income,62,62
+2018,GBR,High income,51,51
+2018,POL,High income,42,42
+2018,RUS,Upper middle income,39,39
+2018,FRA,High income,29,29
+2018,CHN,Upper middle income,24,24
+2018,ESP,High income,20,20
+2018,ITA,High income,19,19
+2018,SVK,High income,19,19
+2018,AUT,High income,17,17
+2018,SWE,High income,16,16
+2018,SAU,High income,15,15
+2018,JPN,High income,14,14
+2018,AUS,High income,13,13
+2018,HUN,High income,13,13
+2018,IND,Lower middle income,12,12
+2018,UKR,Lower middle income,12,12
+2018,DNK,High income,11,11
+2018,GRC,High income,11,11
+2018,TUR,Upper middle income,10,10
+2018,BRA,Upper middle income,9,9
+2018,CAN,High income,9,9
+2018,FIN,High income,9,9
+2018,KOR,High income,9,9
+2018,MEX,Upper middle income,9,9
+2018,HRV,High income,8,8
+2018,LUX,High income,8,8
+2018,NLD,High income,8,8
+2018,SYR,Low income,8,8
+2018,BEL,High income,7,7
+2018,CHE,High income,7,7
+2018,BGR,Upper middle income,6,6
+2018,PRK,Low income,6,6
+2018,ISR,High income,5,5
+2018,NOR,High income,5,5
+2018,SRB,Upper middle income,5,5
+2018,IRL,High income,4,4
+2018,IRN,Lower middle income,4,4
+2018,KWT,High income,4,4
+2018,ROU,High income,4,4
+2018,AFG,Low income,3,3
+2018,DMA,Upper middle income,3,3
+2018,EGY,Lower middle income,3,3
+2018,FJI,Upper middle income,3,3
+2018,LBY,Upper middle income,3,3
+2018,MAR,Lower middle income,3,3
+2018,PHL,Lower middle income,3,3
+2018,CUB,Upper middle income,2,2
+2018,ERI,Low income,2,2
+2018,EST,High income,2,2
+2018,ETH,Low income,2,2
+2018,IDN,Upper middle income,2,2
+2018,LAO,Lower middle income,2,2
+2018,MDV,Upper middle income,2,2
+2018,MLT,High income,2,2
+2018,PAN,High income,2,2
+2018,PRI,High income,2,2
+2018,SDN,Low income,2,2
+2018,SVN,High income,2,2
+2018,ZWE,Lower middle income,2,2
+2018,ARM,Upper middle income,1,1
+2018,BLR,Upper middle income,1,1
+2018,CHL,High income,1,1
+2018,CMR,Lower middle income,1,1
+2018,DZA,Lower middle income,1,1
+2018,IRQ,Upper middle income,1,1
+2018,KEN,Lower middle income,1,1
+2018,LVA,High income,1,1
+2018,MDG,Low income,1,1
+2018,MKD,Upper middle income,1,1
+2018,MLI,Low income,1,1
+2018,MUS,Upper middle income,1,1
+2018,NGA,Lower middle income,1,1
+2018,PAK,Lower middle income,1,1
+2018,QAT,High income,1,1
+2018,TCA,High income,1,1
+2018,TUN,Lower middle income,1,1
+2018,TWN,High income,1,1
+2018,VAT,Unknown,1,1
+2018,VNM,Lower middle income,1,1
+2018,ZAF,Upper middle income,1,1
+2018,ZMB,Lower middle income,1,1
+2019,CZE,High income,514,514
+2019,USA,High income,177,177
+2019,GBR,High income,176,176
+2019,DEU,High income,158,158
+2019,RUS,Upper middle income,96,96
+2019,FRA,High income,92,92
+2019,POL,High income,85,85
+2019,CHN,Upper middle income,78,78
+2019,SWE,High income,75,75
+2019,SVK,High income,55,55
+2019,AUT,High income,51,51
+2019,HUN,High income,49,49
+2019,ITA,High income,45,45
+2019,ESP,High income,41,41
+2019,IND,Lower middle income,36,36
+2019,AUS,High income,34,34
+2019,IRL,High income,34,34
+2019,GRC,High income,32,32
+2019,JPN,High income,31,31
+2019,BRA,Upper middle income,28,28
+2019,CHE,High income,28,28
+2019,DNK,High income,28,28
+2019,TUR,Upper middle income,25,25
+2019,IRN,Lower middle income,24,24
+2019,BEL,High income,22,22
+2019,CAN,High income,22,22
+2019,NOR,High income,20,20
+2019,ROU,High income,20,20
+2019,UKR,Lower middle income,19,19
+2019,SYR,Low income,18,18
+2019,ISR,High income,17,17
+2019,FIN,High income,16,16
+2019,NLD,High income,13,13
+2019,GRL,High income,12,12
+2019,HRV,High income,12,12
+2019,PRK,Low income,10,10
+2019,SAU,High income,10,10
+2019,SRB,Upper middle income,9,9
+2019,EST,High income,8,8
+2019,BHS,High income,7,7
+2019,CHL,High income,7,7
+2019,ISL,High income,6,6
+2019,MEX,Upper middle income,6,6
+2019,NZL,High income,6,6
+2019,PAK,Lower middle income,6,6
+2019,PSE,Upper middle income,6,6
+2019,BLR,Upper middle income,5,5
+2019,IDN,Upper middle income,5,5
+2019,AFG,Low income,4,4
+2019,BGR,Upper middle income,4,4
+2019,EGY,Lower middle income,4,4
+2019,LUX,High income,4,4
+2019,MKD,Upper middle income,4,4
+2019,MYS,Upper middle income,4,4
+2019,BGD,Lower middle income,3,3
+2019,BIH,Upper middle income,3,3
+2019,DMA,Upper middle income,3,3
+2019,ETH,Low income,3,3
+2019,FJI,Upper middle income,3,3
+2019,KOR,High income,3,3
+2019,LBN,Lower middle income,3,3
+2019,VNM,Lower middle income,3,3
+2019,ALB,Upper middle income,2,2
+2019,ARG,Upper middle income,2,2
+2019,BOL,Lower middle income,2,2
+2019,BTN,Lower middle income,2,2
+2019,CIV,Lower middle income,2,2
+2019,CYP,High income,2,2
+2019,GEO,Upper middle income,2,2
+2019,HKG,High income,2,2
+2019,LBY,Upper middle income,2,2
+2019,LTU,High income,2,2
+2019,MLI,Low income,2,2
+2019,MNG,Lower middle income,2,2
+2019,PER,Upper middle income,2,2
+2019,PRY,Upper middle income,2,2
+2019,RWA,Low income,2,2
+2019,SVN,High income,2,2
+2019,UGA,Low income,2,2
+2019,ZWE,Lower middle income,2,2
+2019,ARM,Upper middle income,1,1
+2019,BFA,Low income,1,1
+2019,COD,Low income,1,1
+2019,COL,Upper middle income,1,1
+2019,CUB,Upper middle income,1,1
+2019,GHA,Lower middle income,1,1
+2019,GIB,High income,1,1
+2019,GIN,Lower middle income,1,1
+2019,HND,Lower middle income,1,1
+2019,IMN,High income,1,1
+2019,KEN,Lower middle income,1,1
+2019,KIR,Lower middle income,1,1
+2019,KWT,High income,1,1
+2019,LVA,High income,1,1
+2019,MHL,Upper middle income,1,1
+2019,MLT,High income,1,1
+2019,MNE,Upper middle income,1,1
+2019,MWI,Low income,1,1
+2019,NGA,Lower middle income,1,1
+2019,NPL,Lower middle income,1,1
+2019,OMN,High income,1,1
+2019,PNG,Lower middle income,1,1
+2019,PRT,High income,1,1
+2019,QAT,High income,1,1
+2019,SOM,Low income,1,1
+2019,SYC,High income,1,1
+2019,TON,Upper middle income,1,1
+2019,TWN,High income,1,1
+2019,URY,High income,1,1
+2019,VAT,Unknown,1,1
+2019,VEN,Unknown,1,1
+2019,XKX,Upper middle income,1,1
+2020,CZE,High income,210,210
+2020,USA,High income,84,84
+2020,DEU,High income,63,63
+2020,GBR,High income,50,50
+2020,CHN,Upper middle income,37,37
+2020,POL,High income,37,37
+2020,AUT,High income,36,36
+2020,FRA,High income,34,34
+2020,RUS,Upper middle income,34,34
+2020,SVK,High income,28,28
+2020,AUS,High income,25,25
+2020,ITA,High income,21,21
+2020,ESP,High income,20,20
+2020,HUN,High income,20,20
+2020,SWE,High income,16,16
+2020,CHE,High income,15,15
+2020,IND,Lower middle income,9,9
+2020,JPN,High income,9,9
+2020,NOR,High income,9,9
+2020,GRC,High income,8,8
+2020,MEX,Upper middle income,8,8
+2020,CHL,High income,7,7
+2020,ISR,High income,7,7
+2020,UKR,Lower middle income,7,7
+2020,BEL,High income,6,6
+2020,BGR,Upper middle income,6,6
+2020,DNK,High income,6,6
+2020,IRN,Lower middle income,6,6
+2020,TUR,Upper middle income,6,6
+2020,CAN,High income,5,5
+2020,IRL,High income,5,5
+2020,TWN,High income,5,5
+2020,BRA,Upper middle income,4,4
+2020,ETH,Low income,4,4
+2020,FIN,High income,4,4
+2020,HRV,High income,4,4
+2020,LBY,Upper middle income,4,4
+2020,SAU,High income,4,4
+2020,SYR,Low income,4,4
+2020,AFG,Low income,3,3
+2020,ARM,Upper middle income,3,3
+2020,KOR,High income,3,3
+2020,NLD,High income,3,3
+2020,ROU,High income,3,3
+2020,YEM,Low income,3,3
+2020,ARE,High income,2,2
+2020,CYP,High income,2,2
+2020,EGY,Lower middle income,2,2
+2020,GRL,High income,2,2
+2020,PRK,Low income,2,2
+2020,ARG,Upper middle income,1,1
+2020,BHS,High income,1,1
+2020,BLR,Upper middle income,1,1
+2020,BWA,Upper middle income,1,1
+2020,CUB,Upper middle income,1,1
+2020,DJI,Lower middle income,1,1
+2020,EST,High income,1,1
+2020,IDN,Upper middle income,1,1
+2020,JOR,Lower middle income,1,1
+2020,KEN,Lower middle income,1,1
+2020,LTU,High income,1,1
+2020,LVA,High income,1,1
+2020,MAR,Lower middle income,1,1
+2020,MYS,Upper middle income,1,1
+2020,PER,Upper middle income,1,1
+2020,PRI,High income,1,1
+2020,PRT,High income,1,1
+2020,SDN,Low income,1,1
+2020,SOM,Low income,1,1
+2020,SRB,Upper middle income,1,1
+2020,THA,Upper middle income,1,1
+2020,TUN,Lower middle income,1,1
+2020,TZA,Lower middle income,1,1
+2020,VAT,Unknown,1,1
+2021,CZE,High income,304,304
+2021,USA,High income,174,174
+2021,DEU,High income,117,117
+2021,CHN,Upper middle income,102,102
+2021,RUS,Upper middle income,98,98
+2021,GBR,High income,86,86
+2021,POL,High income,51,51
+2021,FRA,High income,46,46
+2021,SVK,High income,39,39
+2021,AUT,High income,33,33
+2021,ITA,High income,33,33
+2021,IND,Lower middle income,32,32
+2021,TUR,Upper middle income,26,26
+2021,GRC,High income,24,24
+2021,HUN,High income,22,22
+2021,BRA,Upper middle income,20,20
+2021,BLR,Upper middle income,19,19
+2021,ESP,High income,19,19
+2021,JPN,High income,19,19
+2021,CAN,High income,17,17
+2021,CHE,High income,17,17
+2021,ISR,High income,14,14
+2021,SWE,High income,14,14
+2021,UKR,Lower middle income,14,14
+2021,IRN,Lower middle income,13,13
+2021,DNK,High income,12,12
+2021,SYR,Low income,11,11
+2021,AFG,Low income,10,10
+2021,AUS,High income,9,9
+2021,BEL,High income,9,9
+2021,FIN,High income,9,9
+2021,NLD,High income,9,9
+2021,NOR,High income,9,9
+2021,ROU,High income,9,9
+2021,IRL,High income,8,8
+2021,SRB,Upper middle income,8,8
+2021,DMA,Upper middle income,7,7
+2021,HRV,High income,7,7
+2021,MEX,Upper middle income,7,7
+2021,BGR,Upper middle income,6,6
+2021,SAU,High income,6,6
+2021,GEO,Upper middle income,5,5
+2021,CUB,Upper middle income,4,4
+2021,HTI,Lower middle income,4,4
+2021,SGP,High income,4,4
+2021,ARE,High income,3,3
+2021,BOL,Lower middle income,3,3
+2021,EGY,Lower middle income,3,3
+2021,JOR,Lower middle income,3,3
+2021,KOR,High income,3,3
+2021,LBN,Lower middle income,3,3
+2021,LTU,High income,3,3
+2021,LVA,High income,3,3
+2021,PER,Upper middle income,3,3
+2021,TUV,Upper middle income,3,3
+2021,COD,Low income,2,2
+2021,COL,Upper middle income,2,2
+2021,CYP,High income,2,2
+2021,EST,High income,2,2
+2021,ETH,Low income,2,2
+2021,HKG,High income,2,2
+2021,IDN,Upper middle income,2,2
+2021,IMN,High income,2,2
+2021,IRQ,Upper middle income,2,2
+2021,ISL,High income,2,2
+2021,KEN,Lower middle income,2,2
+2021,LUX,High income,2,2
+2021,MDA,Upper middle income,2,2
+2021,MKD,Upper middle income,2,2
+2021,MYS,Upper middle income,2,2
+2021,NZL,High income,2,2
+2021,PAN,High income,2,2
+2021,PRT,High income,2,2
+2021,SVN,High income,2,2
+2021,TWN,High income,2,2
+2021,VNM,Lower middle income,2,2
+2021,ARG,Upper middle income,1,1
+2021,ARM,Upper middle income,1,1
+2021,AZE,Upper middle income,1,1
+2021,BHS,High income,1,1
+2021,BRN,High income,1,1
+2021,BTN,Lower middle income,1,1
+2021,CHL,High income,1,1
+2021,DZA,Lower middle income,1,1
+2021,GIB,High income,1,1
+2021,GRL,High income,1,1
+2021,HND,Lower middle income,1,1
+2021,JAM,Upper middle income,1,1
+2021,KIR,Lower middle income,1,1
+2021,MAR,Lower middle income,1,1
+2021,MCO,High income,1,1
+2021,MLI,Low income,1,1
+2021,NER,Low income,1,1
+2021,NGA,Lower middle income,1,1
+2021,NPL,Lower middle income,1,1
+2021,OMN,High income,1,1
+2021,PHL,Lower middle income,1,1
+2021,PSE,Upper middle income,1,1
+2021,QAT,High income,1,1
+2021,SDN,Low income,1,1
+2021,SUR,Upper middle income,1,1
+2021,SYC,High income,1,1
+2021,TCD,Low income,1,1
+2021,THA,Upper middle income,1,1
+2021,VGB,High income,1,1
+2021,ZAF,Upper middle income,1,1
+2021,ZMB,Lower middle income,1,1
+2022,CZE,High income,156,156
+2022,RUS,Upper middle income,98,98
+2022,UKR,Lower middle income,79,79
+2022,POL,High income,69,69
+2022,USA,High income,66,66
+2022,DEU,High income,64,64
+2022,FRA,High income,51,51
+2022,SVK,High income,41,41
+2022,GBR,High income,35,35
+2022,CHN,Upper middle income,22,22
+2022,BLR,Upper middle income,21,21
+2022,AUT,High income,20,20
+2022,AUS,High income,18,18
+2022,HUN,High income,18,18
+2022,ESP,High income,17,17
+2022,SWE,High income,17,17
+2022,TUR,Upper middle income,16,16
+2022,JPN,High income,15,15
+2022,ITA,High income,14,14
+2022,ISR,High income,13,13
+2022,NOR,High income,13,13
+2022,IND,Lower middle income,12,12
+2022,BGR,Upper middle income,10,10
+2022,DNK,High income,10,10
+2022,GRC,High income,10,10
+2022,FIN,High income,9,9
+2022,ROU,High income,9,9
+2022,BRA,Upper middle income,7,7
+2022,LBN,Lower middle income,7,7
+2022,SYR,Low income,7,7
+2022,AFG,Low income,6,6
+2022,MDA,Upper middle income,6,6
+2022,NLD,High income,6,6
+2022,BEL,High income,5,5
+2022,CAN,High income,5,5
+2022,EGY,Lower middle income,5,5
+2022,HRV,High income,5,5
+2022,KOR,High income,5,5
+2022,SAU,High income,5,5
+2022,YEM,Low income,5,5
+2022,GEO,Upper middle income,4,4
+2022,IRQ,Upper middle income,4,4
+2022,SVN,High income,4,4
+2022,ARG,Upper middle income,3,3
+2022,AZE,Upper middle income,3,3
+2022,CHL,High income,3,3
+2022,IRN,Lower middle income,3,3
+2022,QAT,High income,3,3
+2022,RWA,Low income,3,3
+2022,BGD,Lower middle income,2,2
+2022,CHE,High income,2,2
+2022,COL,Upper middle income,2,2
+2022,CUB,Upper middle income,2,2
+2022,ECU,Upper middle income,2,2
+2022,HTI,Lower middle income,2,2
+2022,IDN,Upper middle income,2,2
+2022,ISL,High income,2,2
+2022,KAZ,Upper middle income,2,2
+2022,LBY,Upper middle income,2,2
+2022,LUX,High income,2,2
+2022,MDG,Low income,2,2
+2022,MNE,Upper middle income,2,2
+2022,PSE,Upper middle income,2,2
+2022,SDN,Low income,2,2
+2022,THA,Upper middle income,2,2
+2022,TON,Upper middle income,2,2
+2022,VNM,Lower middle income,2,2
+2022,ARE,High income,1,1
+2022,ARM,Upper middle income,1,1
+2022,DMA,Upper middle income,1,1
+2022,DOM,Upper middle income,1,1
+2022,DZA,Lower middle income,1,1
+2022,EST,High income,1,1
+2022,FJI,Upper middle income,1,1
+2022,GRL,High income,1,1
+2022,GUY,High income,1,1
+2022,IRL,High income,1,1
+2022,KWT,High income,1,1
+2022,LKA,Lower middle income,1,1
+2022,LTU,High income,1,1
+2022,LVA,High income,1,1
+2022,MCO,High income,1,1
+2022,MMR,Lower middle income,1,1
+2022,NCL,High income,1,1
+2022,NZL,High income,1,1
+2022,PRI,High income,1,1
+2022,PRK,Low income,1,1
+2022,PRY,Upper middle income,1,1
+2022,SRB,Upper middle income,1,1
+2022,TUN,Lower middle income,1,1
+2022,URY,High income,1,1
+2022,XKX,Upper middle income,1,1
+2022,ZAF,Upper middle income,1,1
