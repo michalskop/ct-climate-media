@@ -90,9 +90,9 @@ Andrea flagged errors caused by variant Czech country name forms (`Německo` vs 
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| P1.13 | Subcorpus size bar chart — absolute counts, all 5 subcorpora vs total corpus | 🔄 PARTIAL | R chart exists; redo in Python |
-| P1.14 | Time-series chart — % docs per month with climate/social/motor/terror/COVID terms, 2012–2022 | ✅ DONE | Shown in Poznan; reproduce in Python with corrected data |
-| P1.15 | Per-article frequency tables — CSV with doc-id, date, show name, term count per subcorpus | ⬜ TODO | Input for Phase 2 actor analysis |
+| P1.13 | Subcorpus size bar chart — absolute counts, all 5 subcorpora vs total corpus | ✅ DONE | `visualizations/article1/P1.13_subcorpus_sizes.png` |
+| P1.14 | Time-series chart — % docs per month with climate/social/motor/terror/COVID terms, 2012–2022 | ✅ DONE | `visualizations/article1/P1.14_monthly_timeseries.png` — peaks: Climate Sep 2019 (Greta/Global Strike), COVID Mar 2020 (lockdown), Motor Apr 2022 (fuel crisis); date decoded from article_id day-of-year |
+| P1.15 | Per-article frequency tables — CSV with doc-id, date, show name, term count per subcorpus | ⬜ TODO | Input for Phase 2 actor analysis; show names not in truncated corpora — needs full corpus |
 
 ---
 
