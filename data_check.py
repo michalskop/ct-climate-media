@@ -41,6 +41,8 @@ for name, path in CORPORA.items():
         continue
     try:
         df = pd.read_csv(path, nrows=5)
+        if len(df.columns) == 1 and ";" in df.columns[0]:
+            df = pd.read_csv(path, nrows=5, sep=";")
         total = sum(1 for _ in open(path, encoding="utf-8")) - 1  # fast line count
         cols = ", ".join(df.columns.tolist()[:6])
         if len(df.columns) > 6:

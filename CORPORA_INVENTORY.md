@@ -8,18 +8,17 @@
 
 | Corpus | Filename | Size | Docs | Status | Notes |
 |--------|----------|------|------|--------|-------|
-| Climate v4 | `climate_sub_corpus/climate_corpus_v4.csv` | ~32 MB | 2,914 | ✅ Verified | bi/trigram filtered; `klimatický podmínky*` (X-coded) excluded; **primary climate corpus** |
-| Climate v4 (dup) | `climate_corpus_v4.csv` *(root of transformations/)* | ~32 MB | 2,914 | ⚠️ Duplicate | Same file, different path — verify they are identical |
-| Climate string v2 | `climate_sub_corpus/climate_articles_string_v2.csv` | ~65 MB | ? | 🔄 Check | Earlier version; may have different columns |
-| Climate v4 2023 | `climate_sub_corpus/climate_corpus_v4_2023.csv` | ~24 MB | ? | 🔄 Check | 2023 variant — verify if superceded by main v4 |
-| Social/poverty | *(not found as separate file — check sic_sub_corpus)* | — | 4,853 | ⚠️ Q1 | Shown in Poznan with 4,853 docs; may be inside SIC |
-| Motorist | `motor_sub_corpus/motor_articles_v2_truncated.csv` | ~293 MB | 63,496 | ✅ Verified | Keywords: Dálnic\*, Silnic\*, Automobil\*, Spalovac\* Motor\*, Benzín\*, etc. |
-| COVID | `covid_sub_corpus/covid_articles_v2_truncated.csv` | ~153 MB | ? | 🔄 Check | Resolves Q2 — exists as separate file ✓ |
-| SIC / Terror | `sic_sub_corpus/sic_articles_truncated.csv` | ~40 MB | ? | ⚠️ Q1 | Verify: terrorism only, or social+terror combined? |
-| SIC v2 | `sic_sub_corpus/sic_articles_v2_truncated.csv` | ~40 MB | ? | ⚠️ Q1 | Second version — check difference from v1 |
-| SIC labelled | `sic_sub_corpus/sic_corpus_v2_labelled.csv` | ~35 MB | ? | 🔄 Check | Has labels — what kind? |
-| Terror/execution | `sic_sub_corpus/execution_articles_truncated.csv` | ~29 MB | ? | 🔄 Check | Separate terror/execution corpus? |
-| Terror dir | `terror_sub_corpus/` | — | ? | 🔄 Check | Separate directory exists — what's inside? |
+| **Climate v4 2023** | `climate_sub_corpus/climate_corpus_v4_2023.csv` | ~24 MB | **2,914** | ✅ **PRIMARY** | This is the Poznan version (2,914 matches presentation); semicolon-delimited |
+| Climate v4 (older) | `climate_sub_corpus/climate_corpus_v4.csv` | ~32 MB | 3,741 | ⚠️ Older build | 3,741 rows — older version, pre-dates 2023 filtering; do not use as primary |
+| Climate v4 (dup) | `climate_corpus_v4.csv` *(root of transformations/)* | ~32 MB | 3,741 | ⚠️ Duplicate | Identical to older v4 above, different path |
+| Climate string v2 | `climate_sub_corpus/climate_articles_string_v2.csv` | ~65 MB | 8,888 | 🔄 Earlier version | Semicolon-delimited; broader filtering, pre-bigram refinement |
+| **Social/poverty** | `sic_sub_corpus/sic_articles_truncated.csv` | ~40 MB | **4,853** | ✅ **Q1 RESOLVED** | SIC = social issues corpus (matches Poznan 4,853 exactly); NOT terrorism |
+| Social v2 | `sic_sub_corpus/sic_articles_v2_truncated.csv` | ~40 MB | 4,853 | ✅ Same count | Second version — check column differences |
+| Social labelled | `sic_sub_corpus/sic_corpus_v2_labelled.csv` | ~35 MB | 4,984 | 🔄 Check | Has labels column; tab-delimited; 131 extra rows — investigate |
+| **Terrorism** | `sic_sub_corpus/execution_articles_truncated.csv` | ~29 MB | **3,379** | ✅ Identified | Execution/terrorism corpus — separate from social; verify keyword list |
+| **Motorist** | `motor_sub_corpus/motor_articles_v2_truncated.csv` | ~293 MB | **63,496** | ✅ Verified | Keywords: Dálnic\*, Silnic\*, Automobil\*, Spalovac\* Motor\*, Benzín\*, etc. |
+| **COVID** | `covid_sub_corpus/covid_articles_v2_truncated.csv` | ~153 MB | **33,284** | ✅ **Q2 RESOLVED** | Exists as separate file; 33,284 docs |
+| Terror dir | `terror_sub_corpus/` | — | ? | 🔄 Check | Separate directory — check if different from execution corpus |
 
 ## NER / Named Entity Files
 
