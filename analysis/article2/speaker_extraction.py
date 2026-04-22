@@ -62,6 +62,15 @@ M3 = {  # scientist, academic expert
     'parazitolog','primář','primářka','odborník','odbornice','vědecký','vědecká',
     'glaciolog','hydrobiolog','toxikolog','endokrinolog','kardiolog',
     'onkolog','psychiatr','psychiatrka','genetik','genetička','polární','katedra',
+    'zoolog','zooložka','botanik','botanička',           # zoologist, botanist
+    'doktorand','doktorandka',                           # PhD student
+    'agronom','agronomka',                               # agronomist
+    'entomolog','entomološka',                           # entomologist
+    'dendrolog','dendroložka',                           # dendrologist
+    'limnolog','limnološka',                             # limnologist
+    'pedolog','pedoložka',                               # soil scientist
+    'ichtyolog','ichtyološka',                           # ichthyologist
+    'pracovník','pracovnice',                            # research worker (výzkumný pracovník)
 }
 M6 = {  # politician, official
     'ministr','ministryně','premiér','premiérka','prezident','prezidentka',
@@ -83,6 +92,8 @@ M6 = {  # politician, official
     'generál','admirál',                           # military rank
     'prokurátor','prokurátorka',
     'ombudsman','ombudsmanka',
+    'místostarosta','místostarostka',              # deputy mayor
+    'vicestarosta','vicestarostka',
 }
 M5 = {  # stakeholder: NGO, business, institution
     'ředitel','ředitelka','náměstek','náměstkyně','vedoucí','šéf','šéfová',
@@ -101,6 +112,20 @@ M5 = {  # stakeholder: NGO, business, institution
     'producent','producentka',
     'kouč',                                        # coach (lifestyle, sports)
     'trenér','trenérka',
+    'kurátor','kurátorka',                         # curator (museum/gallery)
+    'dramaturg','dramaturgyně',                    # dramaturg
+    'lesník','lesnice','lesmistr',                 # forester
+    'technik','technička',                         # technician
+    'proděkan','proděkanka',                       # vice-dean
+    'delegát','delegátka',                         # delegate (conference)
+    'spolupracovník','spolupracovnice',            # collaborator
+    'inspektor','inspektorka',                     # inspector
+    'auditor','auditorka',                         # auditor
+    'sekretář','sekretářka',                       # secretary (org role)
+    'referent','referentka',                       # clerk/officer
+    'projektový manažer',                          # project manager
+    'vědecký pracovník','vědecká pracovnice',      # research staff
+    'průvodce','průvodkyně',                       # guide (institutional)
 }
 M2 = {  # ordinary citizen
     'obyvatel','obyvatelka','občan','občanka','důchodce','důchodkyně',
@@ -108,6 +133,22 @@ M2 = {  # ordinary citizen
     'zemědělec','zemědělkyně','rodič','matka','otec','babička','dědeček',
     'živnostník','živnostnice','řidič','řidička','zákazník','zákaznice',
     'pacient','pacientka','herec','herečka',
+    'protestující','demonstrant','demonstrantka',        # protester
+    'divák','divačka',                                   # viewer/audience member
+    'rybář','rybářka',                                   # fisherman
+    'hasič','hasička',                                   # firefighter
+    'vinař','vinařka',                                   # winemaker / farmer
+    'pilot','pilotka',                                   # pilot
+    'učitel','učitelka',                                 # teacher
+    'dobrovolník','dobrovolnice',                        # volunteer
+    'návštěvník','návštěvnice',                          # visitor
+    'horník','hornice',                                  # miner
+    'záchranář','záchranářka',                           # rescue worker
+    'muž','žena',                                        # generic man/woman (citizen voice)
+    'účastník','účastnice',                              # participant
+    'průvodce',                                          # guide
+    'horolezec','horolezkyně',                           # mountaineer
+    'turista','turistka',                                # tourist
 }
 # Adjective/contextual modifiers stripped before lookup
 MODIFIERS = {
@@ -121,6 +162,19 @@ MODIFIERS = {
     'lesnický','lesnická','bezpečnostní','inženýrský','inženýrská',
     'programový','programová','pražský','pražská','brněnský','brněnská',
     'generální',   # strip so "generální ředitel" → "ředitel" → M5
+    # domain/field adjectives preceding role noun
+    'obchodní','výrobní','výzkumný','výzkumná',
+    'tiskový','tisková',                           # tiskový mluvčí → mluvčí → M1
+    'mořský','mořská',                             # mořský biolog → biolog → M3
+    'rostlinný','rostlinná',                       # rostlinný genetik → genetik → M3
+    'energetický','energetická',                   # energetický analytik → analytik → M5
+    'republikánský','republikánská',               # republikánský senátor → senátor → M6
+    'demokratický','demokratická',
+    'lidový','lidová',
+    'správní','finanční','personální','právní',
+    'projektový','projektová',
+    'územní','stavební','dopravní','kulturní',
+    'klimatický','klimatická',                     # klimatický expert → expert → M5
     # nationality adjectives preceding role noun
     'americký','americká','britský','britská','německý','německá','francouzský','francouzská',
     'ruský','ruská','čínský','čínská','australský','australská','kanadský','kanadská',
