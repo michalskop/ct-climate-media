@@ -73,6 +73,16 @@ M6 = {  # politician, official
     'kandidát','kandidátka','politik','politička','tajemník','tajemnice',
     'radní','zastupitel','zastupitelka','komisař','komisařka','člen','členka',
     'náčelník','náčelnice',
+    'kancléř','kancléřka',                        # chancellor (Merkel etc.)
+    'zmocněnec','zmocněnkyně',                    # special envoy
+    'vládní zmocněnec','zvláštní zmocněnec',      # full phrases
+    'generální tajemník','generální tajemnice',   # UN/NATO secretary general
+    'státní tajemník','státní tajemnice',
+    'předsedkyně','místopředsedkyně',
+    'velitel','velitelka',                         # military/police commander
+    'generál','admirál',                           # military rank
+    'prokurátor','prokurátorka',
+    'ombudsman','ombudsmanka',
 }
 M5 = {  # stakeholder: NGO, business, institution
     'ředitel','ředitelka','náměstek','náměstkyně','vedoucí','šéf','šéfová',
@@ -83,6 +93,14 @@ M5 = {  # stakeholder: NGO, business, institution
     'rektor','rektorka','děkan','děkanka','zakladatel','zakladatelka',
     'spoluzakladatel','spoluzakladatelka','majitel','majitelka',
     'jednatel','jednatelka','provozovatel','provozovatelka',
+    'generální ředitel','generální ředitelka',     # general director
+    'předseda představenstva',                     # board chair
+    'spisovatel','spisovatelka',                   # author (invited expert/guest)
+    'novinář','novinářka',                         # journalist not from ČT
+    'cestovatel','cestovatelka',                   # explorer/travel writer
+    'producent','producentka',
+    'kouč',                                        # coach (lifestyle, sports)
+    'trenér','trenérka',
 }
 M2 = {  # ordinary citizen
     'obyvatel','obyvatelka','občan','občanka','důchodce','důchodkyně',
@@ -102,6 +120,7 @@ MODIFIERS = {
     'sociální','agrární','přírodní','technický','technická',
     'lesnický','lesnická','bezpečnostní','inženýrský','inženýrská',
     'programový','programová','pražský','pražská','brněnský','brněnská',
+    'generální',   # strip so "generální ředitel" → "ředitel" → M5
     # nationality adjectives preceding role noun
     'americký','americká','britský','britská','německý','německá','francouzský','francouzská',
     'ruský','ruská','čínský','čínská','australský','australská','kanadský','kanadská',
@@ -109,7 +128,12 @@ MODIFIERS = {
     'izraelský','izraelská','italský','italská','švédský','švédská',
     'švýcarský','švýcarská','španělský','španělská','maďarský','maďarská',
     'turecký','turecká','indický','indická','íránský','íránská','egyptský','egyptská',
-    'syrský','syrská','irácký','irácká',
+    'syrský','syrská','irácký','irácká','norský','norská','finský','finská',
+    'dánský','dánská','belgický','belgická','nizozemský','nizozemská',
+    'korejský','korejská','jihoafrický','jihoafrická','brazilský','brazilská',
+    'mexický','mexická','argentinský','argentinská','kubánský','kubánská',
+    'řecký','řecká','srbský','srbská','chorvatský','chorvatská',
+    'afghánský','afghánská','pákistánský','pákistánská','libyjský','libyjská',
 }
 
 def classify_type(role_raw: str) -> str:
