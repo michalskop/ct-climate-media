@@ -1,0 +1,64 @@
+# ── Raw corpus data (large CSV files — keep local only) ──────────────────────
+/corpora/*
+!/corpora/.gitkeep
+/data/raw/*
+!/data/raw/.gitkeep
+
+# Specific corpus CSVs wherever they live
+*_truncated.csv
+*_sub_corpus*.csv
+climate_corpus_v4*.csv
+motor_articles*.csv
+covid_articles*.csv
+sic_articles*.csv
+sic_corpus*.csv
+execution_articles*.csv
+climate_articles_string*.csv
+annotated_articles*.csv
+
+# Large analysis data files
+Country_counts_per_doc.csv
+other_terms.csv
+
+# ── Large archives ────────────────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# ── R binary data (large .rds files) ─────────────────────────────────────────
+*.rds
+*.RData
+*.Rhistory
+
+# ── Backup data directory (migrate code out during P0.3, data stays local) ───
+/Climate change TV/
+/Climate change TV.zip
+/compressed.pdf
+
+# ── macOS noise ───────────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+*.ea.archive_version
+*.$ea.archive_version
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Output data (keep small analysis outputs, ignore large ones) ──────────────
+/data/snapshots/
+*.parquet
+
+# ── Credentials ───────────────────────────────────────────────────────────────
+*.key
+secrets.json
+credentials.json
+service_account.json
