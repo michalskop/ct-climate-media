@@ -277,6 +277,78 @@ After running, create `data/topic_labels_nmf{k}.csv` manually with columns: `top
 
 ---
 
+## 12. Visualization Style Unification (Phase 5)
+
+### Shared style module
+Create `analysis/viz_style.py` as a single source of truth for all chart styling:
+```python
+from viz_style import apply_style, COLORS, PALETTE, STANCE_COLORS, TYPE_COLORS
+apply_style()  # sets matplotlib rcParams once per script
+```
+Key palette values:
+- Primary: `#8B1A1A` (dark red) — main bars, lines
+- Background: `#FFFAF5` (cream) — figure + axes facecolor, savefig facecolor
+- Grid: `#E0D8CF` (warm grey)
+- Positive: `#2E6B3E` (dark green) — informer/S6
+
+To apply the cream background to polar (radar) axes, set both `fig` and `ax` facecolor:
+```python
+fig, ax = plt.subplots(subplot_kw=dict(polar=True), facecolor=COLORS['background'])
+ax.set_facecolor(COLORS['background'])
+```
+
+### Versioned output pattern
+Save restyled charts with a `_v2` suffix to avoid overwriting originals before review:
+```python
+SUFFIX = '_v2'
+fig.savefig(OUT5 / f'chart_name{SUFFIX}.png', bbox_inches='tight')
+```
+After review, the suffix convention lets you compare old vs. new side by side.
+
+### Plotly choropleth map — working recipe
+```python
+import plotly.express as px
+import numpy as np
+
+agg['log_docs'] = np.log1p(agg['n_docs'])
+fig = px.choropleth(agg, locations='iso_alpha', color='log_docs',
+    color_continuous_scale=[
+        [0.0, '#FFFAF5'], [0.2, '#E8A090'], [0.5, '#C44E52'], [1.0, '#8B1A1A']
+    ])
+fig.update_layout(paper_bgcolor='#FFFAF5', geo=dict(
+    bgcolor='#FFFAF5', showframe=False, showcoastlines=True,
+    landcolor='#F0EAE2', oceancolor='#E8F0F8', projection_type='natural earth'))
+fig.write_image('map.png', scale=1.5)  # kaleido 0.2.1 already installed
+```
+Note: `scale=1.5` improves text readability at export size.
+
+---
+
+## 13. Self-Contained HTML Public Page
+
+### Base64 chart embedding
+To produce a page with no external asset dependencies:
+```python
+import base64
+def b64img(path):
+    data = base64.b64encode(path.read_bytes()).decode()
+    return f'data:image/png;base64,{data}'
+
+# In HTML template:
+f'<img src="{b64img(chart_path)}" alt="...">'
+```
+For 9 charts (~100–200 KB each PNG), the resulting HTML is ~985 KB — acceptable for a public research page and trivially hostable on any static server (GitHub Pages, FAMU server).
+
+### Template approach
+Keep the HTML body as a Python f-string with `{charts.get('key', '')}` placeholders.
+Build the charts dict in `main()` so paths can be overridden without touching the template.
+This lets you regenerate the page any time new charts are produced.
+
+### FAMU hosting contact
+Tomáš Šín, +420 234 244 308 — FAMU technical contact for hosting `public/index.html`.
+
+---
+
 ## 9. Project Conventions
 
 - **Output data** → `data/` (never committed to git — corpus files are large and private)
