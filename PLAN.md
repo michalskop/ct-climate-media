@@ -10,8 +10,8 @@ Andrea Culková (PI) | Michal (analyst/developer) | March 2026
 
 | ID | Question | Affects |
 |----|----------|---------|
-| Q1 | What exactly is in `sic_articles_truncated.csv`? Terrorism only, or combined terror+social? Andrea's comment: combined for comparison. Needs verification by opening the file. | P0.5, P1.5, P1.6 |
-| Q2 | Is the COVID subcorpus a separate file locally, or must it be extracted from the full corpus? | P1.4 |
+| ~~Q1~~ | ~~What exactly is in `sic_articles_truncated.csv`?~~ **RESOLVED:** SIC = social issues corpus (4,853 docs). Terrorism = `execution_articles_truncated.csv` (3,379 docs). | ✅ |
+| ~~Q2~~ | ~~Is the COVID subcorpus a separate file locally?~~ **RESOLVED:** Yes — `covid_articles_v2_truncated.csv` (33,284 docs). | ✅ |
 | Q3 | Named entity/NER lists format (CSV/JSON/plain text)? Per subcorpus or whole corpus? Irene Elmerot did this work — likely keyword-separated. | P2.1 |
 | Q4 | Does Andrea still have Sketch Engine access? | P3.16 |
 | Q5 | FAMU public page — existing infrastructure or build from scratch? Contact: Tomáš Šín +420 234 244 308 | P5.3, P5.4 |
@@ -38,17 +38,23 @@ Purpose: Organize everything before any new analysis. No research output, but ma
 
 | ID | Task | Status | Output |
 |----|------|--------|--------|
-| P0.1 | Set up GitHub repository — folders: `/data`, `/corpora`, `/analysis/article1`, `/analysis/article2`, `/analysis/article3`, `/visualizations`, `/utils`; commit all existing code | ⬜ TODO | GitHub repo |
-| P0.2 | Document all corpus files — filenames, sizes, versions, creation dates, cleaning steps applied | ⬜ TODO | `CORPORA_INVENTORY.md` |
-| P0.3 | Audit all existing R and Python scripts — annotate what each does, flag broken/outdated; convert R to Python where feasible | ⬜ TODO | Code audit notes |
-| P0.4 | Verify all corpora load in Python — test `climate_corpus_v4.csv`, `sic_articles_truncated.csv`, and all others | ⬜ TODO | `data_check.py` with row counts |
-| P0.5 | Identify what SIC subcorpus actually contains — open file, check keywords → resolve Q1 | ⬜ TODO | Annotation in `CORPORA_INVENTORY.md` |
+| P0.1 | Set up GitHub repository — folders: `/data`, `/corpora`, `/analysis/article1`, `/analysis/article2`, `/analysis/article3`, `/visualizations`, `/utils`; commit all existing code | ✅ DONE | https://github.com/michalskop/ct-climate-media |
+| P0.2 | Document all corpus files — filenames, sizes, versions, creation dates, cleaning steps applied | ✅ DONE | `CORPORA_INVENTORY.md` |
+| P0.3 | Audit all existing R and Python scripts — annotate what each does, flag broken/outdated; convert R to Python where feasible | ✅ DONE | 29 files migrated to repo (see below) |
+| P0.4 | Verify all corpora load in Python — test `climate_corpus_v4.csv`, `sic_articles_truncated.csv`, and all others | ✅ DONE | `data_check.py` — all 10 files load OK |
+| P0.5 | Identify what SIC subcorpus actually contains — open file, check keywords → resolve Q1 | ✅ DONE | **SIC = social issues corpus** (4,853 rows); terrorism = `execution_articles_truncated.csv` (3,379 rows) |
 
-**Existing code to audit** (in `Climate change TV/BackupClimateChangeData/`):
-- `4.data_analysis/topic_modeling/` — BERTopic notebooks (cloud + prototype)
-- `4.data_analysis/sentiment_analysis/` — Kaggle sentiment workflow
-- `climate_change_web/` — LDA/NMF interactive HTML (lda_50.html, nmf_50.html, nmf_20.json)
-- R scripts: location TBD during audit
+**Code migrated to repo:**
+- `utils/data_extraction/` — 8 R scripts (Newton Media Archive API)
+- `utils/data_transformation/` — 7 R/Rmd + 1 Python (regex, UDPipe, subcorpus building)
+- `utils/czech_stemmer.py` — Czech stemmer utility
+- `analysis/article1/frequency_analysis/` — 5 R/Rmd keyword frequency scripts
+- `analysis/article3/topic_modeling/` — BERTopic notebooks (cloud + prototype)
+- `analysis/article3/sentiment_analysis/` — Kaggle sentiment workflow
+- `visualizations/climate_change_web/` — LDA/NMF interactive HTML
+
+**Open questions resolved:** Q1 ✅ (SIC=social), Q2 ✅ (COVID=33,284 docs as separate file)
+**Still open:** Q3 (NER format), Q4 (Sketch Engine), Q5 (FAMU page infrastructure)
 
 ---
 
@@ -250,7 +256,7 @@ Purpose: Unify all chart aesthetics; build public-facing page at FAMU.
 
 | Phase | ✅ Done | 🔄 Partial | ⬜ TODO | 🆕 New |
 |-------|---------|-----------|--------|--------|
-| 0 | 0 | 0 | 5 | 0 |
+| 0 | 5 | 0 | 0 | 0 |
 | 1A | 1 | 2 | 2 | 0 |
 | 1B | 1 | 3 | 2 | 0 |
 | 1C | 1 | 1 | 1 | 0 |
