@@ -1,0 +1,21 @@
+topic,label,category,frame
+T00,Discourse filler,OTHER,other
+T01,Ukraine/Russia geopolitics,GEOPOLITICS,other
+T02,US presidents & climate,US POLICY,policy
+T03,EU institutions,EU POLICY,policy
+T04,Czech environment ministry,CZ POLICY,policy
+T05,Trump / US Paris withdrawal,US POLICY,policy
+T06,UN climate summits / Guterres,INTERNATIONAL,policy
+T07,Energy transition (coal→renewables),MITIGATION,energy
+T08,Czech climate research institute,SCIENCE,science
+T09,Weather & meteorology,SCIENCE,science
+T10,Drought water agriculture,ADAPTATION,adaptation
+T11,Greenhouse gas emissions / Paris,MITIGATION,policy
+T12,Forest crisis / bark beetle,ADAPTATION,adaptation
+T13,Polar & glacial science,SCIENCE,science
+T14,Youth climate movement / Greta,ACTIVISM,civil society
+T15,Health & wildfires,ADAPTATION,adaptation
+T16,COP conferences / negotiations,INTERNATIONAL,policy
+T17,Czech domestic politics,CZ POLICY,policy
+T18,Floods & extreme weather,ADAPTATION,adaptation
+T19,Nuclear energy debate,MITIGATION,energy
