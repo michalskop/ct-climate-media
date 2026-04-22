@@ -66,12 +66,12 @@ Purpose: Clean, verified subcorpora + corrected geographic analysis. Article 1 (
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| P1.1 | Review climate subcorpus v4 (2,914 docs) — verify bi/trigram keyword list matches Poznan presentation; confirm `klimatický podmínky` exclusion (X-coded docs) was applied | 🔄 PARTIAL | |
-| P1.2 | Confirm social/poverty subcorpus (4,853 docs) — verify keywords (`chudoba*`, `bezdomovectví`, `sociální vyloučení`…); check consistency with Irene Elmerot's results | 🔄 PARTIAL | |
-| P1.3 | Confirm motorist subcorpus (63,496 docs) — keywords verified in Poznan (`Dálnic*`, `Automobil*`, `Spalovac* Motor*`…) | ✅ DONE | Verify Python load |
-| P1.4 | Confirm COVID subcorpus — load from local drive or extract from full corpus using keyword matching | ⬜ TODO | Resolves Q2 |
-| P1.5 | Confirm terrorism/SIC subcorpus — open `sic_articles_truncated.csv`, check keyword list, verify matches NMF Topic 16 | ⬜ TODO | Resolves Q1 |
-| P1.6 | Build subcorpus size comparison table — counts + % of total corpus for all 5 subcorpora | 🔄 PARTIAL | R chart exists; needs Python reproducible script |
+| P1.1 | Review climate subcorpus v4 (2,914 docs) — verify bi/trigram keyword list matches Poznan presentation; confirm `klimatický podmínky` exclusion (X-coded docs) was applied | ✅ DONE | Active keywords verified (top: klimatický změna=2538, změna klima=1855, globální oteplování=632). ⚠️ 12 docs where `klimatický podmínka` is the ONLY match (should be X-coded; they're motorway/weather-conditions articles). Minor data quality issue (0.4%). |
+| P1.2 | Confirm social/poverty subcorpus (4,853 docs) — verify keywords (`chudoba*`, `bezdomovectví`, `sociální vyloučení`…); check consistency with Irene Elmerot's results | ✅ DONE | 7 active keywords: chudoba (4382), bezdomovec (4234), sociální začleňování (1022), bezdomovectví (332), sociální vyloučení (276), člověk bez přístřeší (120), člověk bez domova (2). `hmotná nouze`, `chudá domácnost`, `bytová nouze`, `sociální dávky` had zero hits — likely lemma-based matching in original. |
+| P1.3 | Confirm motorist subcorpus (63,496 docs) — keywords verified in Poznan (`Dálnic*`, `Automobil*`, `Spalovac* Motor*`…) | ✅ DONE | Python load verified |
+| P1.4 | Confirm COVID subcorpus — load from local drive or extract from full corpus using keyword matching | ✅ DONE | 33,284 docs; keywords: covid, korona*, koronavir*. ⚠️ Pre-2020 docs exist (korona* matches koronace/koronární) — false positives but bulk is 2020–2022 |
+| P1.5 | Confirm terrorism/SIC subcorpus — check keyword list | ✅ DONE | **NOT terrorism** — `execution_articles_truncated.csv` keywords are `exekuce`, `exekutor`, `exekutorský` = Czech debt-enforcement/bailiff proceedings. Renamed in inventory. |
+| P1.6 | Build subcorpus size comparison table — counts + % of total corpus for all 5 subcorpora | ✅ DONE | `analysis/article1/subcorpus_sizes.py` |
 
 ### 1B — Geographic / Country Analysis *(fix errors from Poznan)*
 
@@ -80,7 +80,7 @@ Andrea flagged errors caused by variant Czech country name forms (`Německo` vs 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
 | P1.7 | Build country name lookup table — all Czech variant forms per country (official, adjective, demonym, abbreviations, historical); use LLM API | ✅ DONE | `analysis/article1/country_variants.csv` — 491 rows (453 literals + 47 adj stems); word-boundary matching; false positives removed (COM "Komory"=chambers, IMN "Man", MLI "Mali") |
-| P1.8 | Re-run country detection on whole corpus with corrected table — map to canonical names + World Bank GNI 2022 categories | ⬜ TODO | Script ready: `analysis/article1/country_detection.py --corpus climate/social/motor/covid/terror`; ~33s per 3k docs |
+| P1.8 | Re-run country detection on whole corpus with corrected table — map to canonical names + World Bank GNI 2022 categories | ✅ DONE | All 5 subcorpora: `data/country_counts_{climate,social,terror,covid,motor}.csv`. Motor top: CZE=44118, DEU=7796, USA=5982, POL=4381. COVID top: CZE=21667, DEU=3845. Social top: CZE=3789, DEU=673. |
 | P1.9 | Re-run country detection on climate subcorpus v4 — same process | ✅ DONE | `data/country_counts_climate.csv` — 9,973 rows; CZE=2076, USA=951, DEU=647, GBR=530, RUS=520; High income=7538, UpperMid=1577, LowerMid=599, Low=252 |
 | P1.10 | Special check: Palestine vs Israel disproportion — verify counts, flag explicitly | ✅ DONE | ISR=79 docs vs PSE=13 docs in climate subcorpus — 6:1 ratio; Andrea's noted finding confirmed |
 | P1.11 | Produce geographic blind-spots map — global map, countries with <100 mentions over 10 years; separate for whole corpus + climate subcorpus | ✅ DONE | `visualizations/article1/P1.11_world_map_climate.png` — 173 countries detected; 101 appear in <10 docs; Global South nearly invisible (SSA, LatAm, Pacific) |
@@ -92,7 +92,7 @@ Andrea flagged errors caused by variant Czech country name forms (`Německo` vs 
 |----|------|--------|-------|
 | P1.13 | Subcorpus size bar chart — absolute counts, all 5 subcorpora vs total corpus | ✅ DONE | `visualizations/article1/P1.13_subcorpus_sizes.png` |
 | P1.14 | Time-series chart — % docs per month with climate/social/motor/terror/COVID terms, 2012–2022 | ✅ DONE | `visualizations/article1/P1.14_monthly_timeseries.png` — peaks: Climate Sep 2019 (Greta/Global Strike), COVID Mar 2020 (lockdown), Motor Apr 2022 (fuel crisis); date decoded from article_id day-of-year |
-| P1.15 | Per-article frequency tables — CSV with doc-id, date, show name, term count per subcorpus | ⬜ TODO | Input for Phase 2 actor analysis; show names not in truncated corpora — needs full corpus |
+| P1.15 | Per-article frequency tables — CSV with doc-id, date, show name, term count per subcorpus | ⬜ BLOCKED | Show names absent from all truncated corpus files and monthly .rds files (only article_id + text). Requires re-extraction from Newton Media Archive API or finding original metadata file. |
 
 ---
 

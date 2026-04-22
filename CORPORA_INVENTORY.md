@@ -15,9 +15,9 @@
 | **Social/poverty** | `sic_sub_corpus/sic_articles_truncated.csv` | ~40 MB | **4,853** | ✅ **Q1 RESOLVED** | SIC = social issues corpus (matches Poznan 4,853 exactly); NOT terrorism |
 | Social v2 | `sic_sub_corpus/sic_articles_v2_truncated.csv` | ~40 MB | 4,853 | ✅ Same count | Second version — check column differences |
 | Social labelled | `sic_sub_corpus/sic_corpus_v2_labelled.csv` | ~35 MB | 4,984 | 🔄 Check | Has labels column; tab-delimited; 131 extra rows — investigate |
-| **Terrorism** | `sic_sub_corpus/execution_articles_truncated.csv` | ~29 MB | **3,379** | ✅ Identified | Execution/terrorism corpus — separate from social; verify keyword list |
+| **Debt enforcement** | `sic_sub_corpus/execution_articles_truncated.csv` | ~29 MB | **3,379** | ✅ **P1.5 RESOLVED** | Keywords: `exekuce`, `exekutor`, `exekutorský` — Czech bailiff/debt-enforcement proceedings, NOT terrorism. Social hardship comparison topic. |
 | **Motorist** | `motor_sub_corpus/motor_articles_v2_truncated.csv` | ~293 MB | **63,496** | ✅ Verified | Keywords: Dálnic\*, Silnic\*, Automobil\*, Spalovac\* Motor\*, Benzín\*, etc. |
-| **COVID** | `covid_sub_corpus/covid_articles_v2_truncated.csv` | ~153 MB | **33,284** | ✅ **Q2 RESOLVED** | Exists as separate file; 33,284 docs |
+| **COVID** | `covid_sub_corpus/covid_articles_v2_truncated.csv` | ~153 MB | **33,284** | ✅ **Q2 RESOLVED** | Keywords: `covid`, `korona*`, `koronavir*`. ⚠️ Pre-2020 docs (2012–2019) exist because `korona*` matches "koronace" (coronation) and "koronární" (coronary) — ~handful of false positives. COVID-19 bulk starts 2020. |
 | Terror dir | `terror_sub_corpus/` | — | ? | 🔄 Check | Separate directory — check if different from execution corpus |
 
 ## NER / Named Entity Files
@@ -52,6 +52,10 @@
 `chudoba*`, `hmotná nouze`, `chudá domácnost`, `bezdomovectví`, `bezdomovec`, `lidé bez domova`,
 `člověk bez domova`, `člověk bez přístřeší`, `sociální vyloučení`, `sociální začleňování`,
 `znevýhodněná osoba`, `znevýhodněné osoby`, `bytová nouze`, `sociální dávky`
+⚠️ *Verified active keywords (P1.2): only `chudoba` (4382), `bezdomovec` (4234), `sociální začleňování` (1022), `bezdomovectví` (332), `sociální vyloučení` (276), `člověk bez přístřeší` (120), `člověk bez domova` (2) produced matches. `hmotná nouze`, `chudá domácnost`, `znevýhodněná osoba`, `bytová nouze`, `sociální dávky` had zero hits — either these forms don't appear in corpus or keyword matching used lemmatised forms.*
+
+### Debt enforcement (execution subcorpus)
+`exekuce`, `exekutor`, `exekutorský` — Czech bailiff/debt-enforcement proceedings
 
 ### Motorist
 `Dálnic*`, `Dálničn*`, `Silnic*`, `Silničn*`, `Aut*`, `Automobil*`, `Motorist*`,
