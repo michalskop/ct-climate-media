@@ -1,0 +1,429 @@
+# This R Markdown file contains code for analyzing the frequency of key words related to climate change,
+# including "klima", "globální oteplování", "skleníkový efekt", and "uhlíková stopa". 
+# The code loads necessary libraries, specifies paths, defines term counting functions, runs the function on a chunk-to-chunk basis, 
+# summarizes the key term count per year, and visualizes the terms and their frequencies. 
+# The code also includes a visualization of just the main four terms.
+# The output of the code includes a table of the term counts per year and two plots showing the frequency of the key terms over time.
+
+# Question 1: What was the frequency of the following key words per year and the whole period?
+
+„klima“, „globální oteplování“, „skleníkový efekt“, „uhlíková stopa“.
+
+## Load necessary libraries and specify paths
+```{r}
+packages <-
+  c(
+    "dplyr",
+    "stringr",
+    "purrr",
+    "tidyr",
+    "parallel",
+    "lubridate",
+    "ggplot2"
+  )
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+
+doc_id_by_date <- readRDS("data/doc_id_by_date.rds")
+
+list_of_processed_chunks <- list.files(path = "~/Rprojekt/Climate/2.data_transformations/data/udpipe_processed", pattern = "*.rds", full.names = TRUE)
+
+```
+
+## Specify term counting function
+```{r}
+# This function counts the frequency of a given term in a vector of text.
+# Args:
+#   text_vector: A vector of text to search for the given term.
+#   term: A string representing the term to search for.
+# Returns:
+#   An integer representing the frequency of the given term in the text vector.
+# Example:
+#   count_terms_of_interest(c("The quick brown fox", "jumps over the lazy dog"), "the")
+#   # Output: 2
+
+count_terms_of_interest <- function(text_vector, term) {
+  str_count(text_vector, regex(term))
+}
+
+# This function reads in a chunk of data from a specified path and performs text analysis on it.
+# It filters the text by parts of speech (ADJ, NOUN, ADV, PRON, VERB), converts all lemmas to lowercase, and joins the data with a document ID by date. 
+# It then calculates the frequency of various climate-related terms in the text, 
+# including "klima", "oteplování", "globální oteplování", "skleníkový efekt", "uhlíkový stopa", "ekologický", "klimatický", "uhlí", and "počasí". 
+# The function returns a data frame with the document ID, year, and the frequency of each term in the text.
+get_term_counts <- function(chunk_path) {
+  text_stats <- chunk_path %>%
+    readRDS() %>%
+    filter(upos %in% c("ADJ", "NOUN", "ADV", "PRON", "VERB")) %>%
+    transmute(doc_id, lemma = tolower(lemma)) %>%
+    inner_join(doc_id_by_date, by = "doc_id") %>%
+    mutate(date = as.character(year(date))) %>%
+    group_by(doc_id) %>%
+    summarize(
+      text = str_flatten(lemma, collapse = " ", na.rm = TRUE),
+      year = first(date),
+      climate_count = count_terms_of_interest(text, "(?<!společenské |politické )klima\\b"),
+      warming_count = count_terms_of_interest(text, "\\boteplování"),
+      global_warming_count = count_terms_of_interest(text, "\\bglobální oteplování"),
+      greenhouse_effect_count = count_terms_of_interest(text, "\\bskleníkový efekt"),
+      carbon_footprint_count = count_terms_of_interest(text, "\\buhlíkový stopa"),
+      ecological_count = count_terms_of_interest(text, "\\bekologický"),
+      climatic_count = count_terms_of_interest(text, "\\bklimatický"),
+      coal_count = count_terms_of_interest(text, "\\buhlí"),
+      weather_count = count_terms_of_interest(text, "\\bpočasí"),
+      combined_count = climate_count + warming_count + global_warming_count + greenhouse_effect_count + carbon_footprint_count + ecological_count + climatic_count + coal_count + weather_count
+    ) %>%
+    ungroup() %>%
+    filter(combined_count > 0) %>%
+    select(-c("text"))
+}
+```
+
+## Run the function on chunk-to-chunk basis
+```{r}
+
+# If we are using Linux or MacOS, we can use multiple CPUs to make the whole
+# process much faster. Each core handles different chunk at the same time.
+
+if (Sys.info()[['sysname']] == "Windows") {
+  # Use normal apply with Windows
+  term_counts_df <-
+    lapply(list_of_processed_chunks, get_term_counts) %>% bind_rows()
+
+} else {
+  term_counts_df <-
+    mclapply(list_of_processed_chunks, get_term_counts, mc.cores = detectCores() - 2) %>% bind_rows()
+}
+
+saveRDS(term_counts_df, "data/term_counts_df.rds")
+```
+
+## Summarize the key term count per year
+```{r}
+# This code chunk groups the term counts by year and summarizes the counts for each term.
+# The resulting data frame has one row for each year, with columns for each term and the count of that term for that year.
+term_counts_per_year <- term_counts_df %>%
+  group_by(year) %>%
+  summarise(
+    n_climate_noun = sum(climate_count),
+    n_warming = sum(warming_count),
+    n_global_warming = sum(global_warming_count),
+    n_greenhouse_effect = sum(greenhouse_effect_count),
+    n_carbon_footprint = sum(carbon_footprint_count),
+    n_ecological = sum(ecological_count),
+    n_climate_adj = sum(climatic_count),
+    n_coal = sum(coal_count),
+    n_weather = sum(weather_count)
+  ) %>%
+  ungroup() %>%
+  # Add a row with the total counts for each term across all years
+  bind_rows(summarise(
+    ., across(where(is.numeric), sum),
+    across(where(is.character), ~"Total")
+  ))
+
+# This code chunk uses the kable function from the knitr package to create a table of the term counts per year in markdown format.
+# The resulting table is printed below the code chunk in the R Markdown document.
+knitr::kable(term_counts_per_year, format = "pipe")
+
+```
+
+## Visualize all of the terms and their frequencies
+```{r}
+# This code reads in a data frame of term counts per year, filters out the "Total" row, 
+# pivots the data frame to a longer format, removes the "n_" prefix from the term column, 
+# and creates a grouped bar chart using ggplot2 to display the lemma occurrences per year. 
+# The x-axis represents the year, the y-axis represents the count of lemma occurrences, 
+# and the fill represents the lemma term. The chart is displayed with a minimal theme, 
+# a continuous y-axis with breaks and labels every 500 counts, and a color palette from 
+# the RColorBrewer package. The x-axis label is hidden, the y-axis label is "Lemma occurrences per year", 
+# and the fill legend is blank.
+
+term_counts_per_year %>%
+  filter(year != "Total") %>% 
+  pivot_longer(where(is.numeric), values_to = "count", names_to = "term") %>% 
+  mutate(year = as.factor(year),
+         term = str_remove(term, "^n_")) %>% 
+  ggplot(aes(x = year, y = count, fill = term)) +
+  geom_col() +
+   theme_minimal() +
+    scale_y_continuous(
+      breaks = seq(0, 10000, 500),
+      labels = seq(0, 10000, 500)
+    ) +
+    scale_fill_brewer(palette = "Set1")+ 
+    labs(x = element_blank(),
+             y = "Lemma occurences per year",
+             fill = "")
+ggsave("term_counts_plot.png", width = 15, height = 10, dpi = 600)
+```
+
+## Visualize Just the main 4 terms
+```{r}
+term_counts_per_year %>%
+  filter(year != "Total") %>% 
+  pivot_longer(where(is.numeric), values_to = "count", names_to = "term") %>% 
+  mutate(year = as.factor(year),
+         term = str_remove(term, "^n_")) %>% 
+  filter(term %in% c("global_warming", "climate_noun", "climate_adj", "greenhouse_effect", "carbon_footprint")) %>% 
+  ggplot(aes(x = year, y = count, fill = term)) +
+  geom_col() +
+   theme_minimal() +
+    scale_y_continuous(
+      breaks = seq(0, 10000, 100),
+      labels = seq(0, 10000, 100)
+    ) +
+    scale_fill_brewer(palette = "Set1")+ 
+    labs(x = element_blank(),
+             y = "Lemma occurences per year",
+             fill = "")
+ggsave("4term_counts_plot.png", width = 15, height = 10, dpi = 600)
+```
+#Now we want to see the total amount of mentions of the focus climate terms (the ones used to create Climate corpus version 4). Let's see if ~/Rprojekt/Climate is needed.
+```{r Climate corpus terms in total}
+climate_terms <- c("změna klima\\b", "\\bklima\\b\\s+se\\s+měnit\\b", "\\bměnící\\s+se\\s+klima", "\\bglobální oteplování", "\\boteplování planeta", "klimatický\\b(?= změna|podmínka|dopad|důsledek|model|opatření|krize|kolaps|katastrofa|neutrální|neutralita|plán|rozvrat|zákon|závazek|žaloba|vzdělávání)")
+
+count_terms_of_interest <- function(text_vector, term) {
+  str_count(text_vector, regex(term))
+}
+
+get_climate_term_counts <- function(chunk_path) {
+  # Ensure doc_id_by_date is available
+  if (!exists("doc_id_by_date")) {
+    stop("doc_id_by_date not found in the environment.")
+  }
+  
+  # Ensure count_terms_of_interest() function is available
+  if (!exists("count_terms_of_interest")) {
+    stop("count_terms_of_interest() function not found in the environment.")
+  }
+  
+  # Read the RDS file
+  chunk_data <- readRDS(chunk_path)
+  
+  # Check if the necessary columns exist in the data
+  necessary_columns <- c("upos", "doc_id", "lemma")
+  if (!all(necessary_columns %in% names(chunk_data))) {
+    stop(paste("The following necessary columns are missing from the data:", 
+               paste(necessary_columns[!(necessary_columns %in% names(chunk_data))], collapse = ", ")))
+  }
+  
+  # Process the data <-  NB 
+  text_stats <- chunk_data %>%
+    filter(upos %in% c("ADJ", "NOUN", "PUNCT", "PRON", "VERB")) %>%
+    transmute(doc_id, lemma = tolower(lemma)) %>%
+    inner_join(doc_id_by_date, by = "doc_id") %>%
+    mutate(date = as.character(year(date))) %>%
+    group_by(doc_id) %>%
+    summarize(
+      text = str_flatten(lemma, collapse = " ", na.rm = TRUE),
+      year = first(date),
+      climate_change_count = count_terms_of_interest(text, "změna klima\\b"),
+      climate_is_changing_count = count_terms_of_interest(text, "\\bklima\\b\\s+se\\s+měnit\\b"),
+      changing_climate_count = count_terms_of_interest(text, "\\bměnící\\s+se\\s+klima"),
+      global_warming_count = count_terms_of_interest(text, "\\bglobální oteplování"),
+      heating_planet_count = count_terms_of_interest(text, "\\boteplování planeta"),
+      climatic_count = count_terms_of_interest(text, "klimatický\\b(?= změna|podmínka|dopad|důsledek|model|opatření|krize|kolaps|katastrofa|neutrální|neutralita|plán|rozvrat|zákon|závazek|žaloba|vzdělávání)"),
+      combined_climate_count = climate_change_count + climate_is_changing_count + changing_climate_count + global_warming_count + heating_planet_count + climatic_count
+    ) %>%
+    ungroup() %>%
+    filter(combined_climate_count > 0) %>%
+    select(-c("text"))
+  
+  return(text_stats)
+}
+  
+```
+
+##Run the climate terms on a chunk-to-chunk basis
+```{r Create RDS file of the climate terms}
+
+ # If we are using Linux or MacOS, we can use multiple CPUs to make the whole
+  # process much faster. Each core handles different chunk at the same time.
+  
+  if (Sys.info()[['sysname']] == "Windows") {
+    # Use normal apply with Windows
+    climate_term_counts_df <-
+      lapply(list_of_processed_chunks, get_climate_term_counts) %>% bind_rows()
+    
+  } else {
+    climate_term_counts_df <-
+      mclapply(list_of_processed_chunks, get_climate_term_counts, mc.cores = detectCores() - 2) %>% bind_rows()
+  }
+  
+  saveRDS(climate_term_counts_df, "~/Rprojekt/Climate/3.data_exploration/data/climate_term_counts_df.rds")
+```
+## Summarize the key climate term count per year
+```{r}
+# This code chunk groups the climate term counts by year and summarizes the counts for each term. The resulting data frame has one row for each year, with columns for each term and the count of that term for that year.
+climate_term_counts_per_year <- climate_term_counts_df %>%
+  group_by(year) %>%
+  summarise(
+    n_climate_change_count <- sum(climate_change_count), 
+    n_climate_is_changing_count <- sum(climate_is_changing_count),
+    n_changing_climate_count <- sum(changing_climate_count), 
+    n_global_warming_count <- sum(global_warming_count), 
+    n_heating_planet_count <- sum(heating_planet_count), 
+    n_climatic_count <- sum(climatic_count)
+  ) %>%
+  ungroup() %>%
+  # Add a row with the total counts for each term across all years
+  bind_rows(summarise(
+    ., across(where(is.numeric), sum),
+    across(where(is.character), ~"Total")
+  ))
+
+# This code chunk uses the kable function from the knitr package to create a table of the term counts per year in markdown format.
+# The resulting table is printed below the code chunk in the R Markdown document.
+knitr::kable(climate_term_counts_per_year, format = "pipe")
+
+```
+
+##Visualisation of climate terms per year
+```{r}
+# This code reads in a data frame of term counts per year, filters out the "Total" row, 
+# pivots the data frame to a longer format, removes the "n_" prefix from the term column, 
+# and creates a grouped bar chart using ggplot2 to display the lemma occurrences per year. 
+# The x-axis represents the year, the y-axis represents the count of lemma occurrences, 
+# and the fill represents the lemma term. The chart is displayed with a minimal theme, 
+# a continuous y-axis with breaks and labels every 500 counts, and a color palette from 
+# the RColorBrewer package. The x-axis label is hidden, the y-axis label is "Lemma occurrences per year", 
+# and the fill legend is blank.
+
+climate_term_counts_per_year %>%
+  filter(year != "Total") %>% 
+  pivot_longer(where(is.numeric), values_to = "count", names_to = "term") %>% 
+  mutate(year = as.factor(year),
+         term = str_remove(term, "^n_")) %>% 
+  ggplot(aes(x = year, y = count, fill = term)) +
+  geom_col() +
+   theme_classic() + #Previously: theme_minimal()
+    scale_y_continuous(
+      breaks = seq(0, 2000, 200),
+      labels = seq(0, 2000, 200)
+    ) +
+    scale_fill_brewer(palette = "Set1", name="Lemmata and translation", labels=c("Changing climate / měnící se klima", "Climate change / změna klima", "Climate is changing / klima se měnit", "Climatic count / klimatický + seznam slov", "Global warming / globální oteplování", "Heating of the planet / oteplování planeta"))+ 
+    labs(x = element_blank(),
+             y = "Lemma occurences per year",
+             fill = "")
+ggsave("climate_term_counts_plot.png", width = 15, height = 10, dpi = 600)
+```
+```{r Counting the final string of terms for the Climate corpus v4}
+climate_terms <- c("změna klima\\b", "\\bklima\\b\\s+se\\s+měnit\\b", "\\bměnící\\s+se\\s+klima", "\\bglobální oteplování", "\\boteplování planeta", "klimatický\\b(?= změna|podmínka|dopad|důsledek|model|opatření|krize|kolaps|katastrofa|neutrální|neutralita|plán|rozvrat|zákon|závazek|žaloba|vzdělávání)")
+
+get_climate_term_counts <- function(chunk_path) {
+  message("Processing chunk: ", chunk_path)
+  
+  data <- readRDS(chunk_path)
+  
+  matches <- sapply(climate_terms, function(term) {
+    sapply(tolower(data$lemma), function(lemma) {
+      str_detect(lemma, term)
+    })
+  })
+
+  # Filter the data based on the matches
+  data <- data[any(matches), ]
+
+ 
+  # If the word is not present, print a message and return an empty data frame with the correct columns
+  if (nrow(data) == 0) {
+    message("No climate terms found in chunk: ", chunk_path)
+    return(data.frame(doc_id = integer(), lemma = character(), year = integer(), climate_terms_count = integer()))
+  }
+
+  # Join with doc_id_by_date to get the date of each occurrence
+  data <- data %>%
+    left_join(doc_id_by_date, by = "doc_id") %>%
+    mutate(year = as.character(year(date)))
+
+  # Count the occurrences of each term
+  data <- data %>%
+    group_by(doc_id, year) %>%
+    summarize(climate_terms_count = n()) %>%
+    ungroup()
+
+  return(data)
+}
+# Apply function to each file
+climate_term_counts_list <- if (Sys.info()[['sysname']] == "Windows") {
+  lapply(list_of_processed_chunks, get_climate_term_counts)
+} else {
+  mclapply(list_of_processed_chunks, get_climate_term_counts, mc.cores = detectCores() - 2)
+}
+
+# Bind results together into one data frame
+climate_term_counts_df <- bind_rows(climate_term_counts_list)
+```
+
+```{r}
+# Run the function on chunk-to-chunk basis
+if (Sys.info()[['sysname']] == "Windows") {
+  # Use normal apply with Windows
+  climate_term_counts_df <- lapply(list_of_processed_chunks, get_climate_term_counts) %>% bind_rows()
+} else {
+  climate_term_counts_df <- mclapply(list_of_processed_chunks, get_climate_term_counts, mc.cores = detectCores() - 2) %>% bind_rows()
+}
+
+saveRDS(climate_term_counts_df, "data/climate_term_counts_df.rds")
+
+# Summarize the key term count per year
+climate_term_counts_per_year <- climate_term_counts_df %>%
+  group_by(year) %>%
+  summarise(n_climate_terms = sum(climate_terms_count)) %>%
+  ungroup() %>%
+  # Add a row with the total counts for each term across all years
+  bind_rows(summarise(., across(where(is.numeric), sum), across(where(is.character), ~"Total")))
+
+knitr::kable(climate_term_counts_per_year, format = "pipe")
+
+```
+```{r Visualize all of the terms and their frequencies, NB see frequencies_new.Rmd}
+# Install devtools if not already installed
+if (!require(devtools)) {
+  install.packages("devtools")
+}
+
+# Install bbcstyle from GitHub
+devtools::install_github("bbc/bbplot")
+
+# Create plot
+# Load necessary library
+library(bbcstyle)
+
+# Create plot
+plot_counts_terms <- term_counts_df %>%
+  ggplot(aes(x = term, y = count / 1000)) +
+  geom_col(fill = "#009087") +
+  coord_flip() +
+  ylab(element_blank()) +
+  xlab(element_blank()) +
+  scale_y_continuous(
+    breaks = seq(0, max(term_counts_df$count) / 1000, max(term_counts_df$count) / 50000),
+    labels = seq(0, max(term_counts_df$count) / 1000, max(term_counts_df$count) / 50000)
+  ) +
+  labs(
+    title = "Decade of Czech Television news",
+    subtitle = "Most frequent climate term occurrences in thousands"
+  ) +
+  bbc_style() +
+  theme(
+    panel.grid.major.x = element_line(color = "#cbcbcb"),
+    panel.grid.major.y = element_blank(),
+    axis.text = element_text(margin = margin(t = 14, b = 10))
+  )
+
+# Finalize and save plot
+finalise_plot(plot_counts_terms, source_name = paste0("Source: Newton Media Archive, January 2012-April 2022. N=", sum(term_counts_df$count)), save_filepath = "visuals/term_counts.png", height_pixels = 850)
+
+ggsave("climate_term_counts_plot.png", width = 15, height = 10, dpi = 600)
+
+```
+

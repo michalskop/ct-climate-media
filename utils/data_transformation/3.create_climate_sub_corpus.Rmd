@@ -1,0 +1,145 @@
+---
+title: "Sub-corpus creation"
+---
+# This R Markdown file creates a sub-corpus of articles related to climate change. 
+# It loads necessary packages, defines a regex search string based on suggestions from area experts,
+# identifies UDPIPE-processed chunks of interest, extracts all of the documents that match the regex search string, 
+# and exports the sub-corpus with texts (optional). 
+# The exported sub-corpus is saved as a CSV file (when with texts) or RDS (when without) in the specified directory.
+# The CSV file can be uploaded to Google Sheets and used for manual annotation and review.
+
+# Load necessary packages
+```{r include=FALSE}
+# Package names
+packages <- c("dplyr", "stringr", "readr")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+
+# Regex search string based on suggestions from area experts. \\S* (NB capital S) means the word form could be exactly what's in here. \\S+ means there has to be one or more non-whitespace characters after the form here. (Double slash in R, in e.g. Python only one slash.)
+climate_regex_string <- "\\bklima\\S*|\\bantropocén|\\bpermafrost|\\bIPCC|\\bUNFCCC" 
+
+# Optionally specify negative regex search string to improve performance
+negative_climate_regex_string <- "klimatiza\\S*|povětrn\\S*"
+
+path_to_input <- "data/udpipe_processed"
+
+```
+
+# Identify UDPIPE-processed chunks of interest and define function, 
+# which extracts all of the documents that match the regex search string
+```{r}
+# Identify UPIPE-processed chunks of interest
+udpipe_chunks_path <- list.files(path = file.path(path_to_input),
+                              pattern = "*.rds",
+                              full.names = TRUE)
+
+# Define function, which loads every chunk and extracts all of the documents that 
+# match the regex search string
+get_climate_articles <- function(udpipe_chunk_path) {
+  
+  readRDS(udpipe_chunk_path) %>%
+    mutate(lemma = str_to_lower(lemma, locale = "cs")) %>%
+    filter(
+      str_detect(lemma, climate_regex_string) &
+        str_detect(lemma, negative_climate_regex_string, negate = TRUE)
+    ) %>%
+    pull(doc_id) %>%
+    unique()
+  
+}
+```
+
+# Iterate over the list of UDPIPE chunks and extract all of the documents that match the regex search string
+```{r}
+# Iterate over the list of UDPIPE chunks
+# If on Linux, we use the parallelized version of lapply
+if (Sys.info()[['sysname']] == "Linux") {
+  
+library(parallel)
+
+climate_article_ids <- mclapply(udpipe_chunks_path, get_climate_articles,  mc.cores = detectCores() - 2) %>% unlist()
+
+} else {
+# If not Linux - non-parallelized lapply
+
+climate_article_ids <- lapply(udpipe_chunks_path, get_climate_articles) %>% unlist()
+
+}
+
+saveRDS(climate_article_ids, "data/climate_sub_corpus/climate_article_ids.rds")
+
+```
+
+Optional: Export sub-corpus with texts to upload to Google Sheets for manual annotation and review
+```{r}
+
+climate_article_ids <- readRDS("data/climate_sub_corpus/climate_article_ids.rds")
+
+#The regex_processed contains the actual articles, but is located on the google drive, https://drive.google.com/drive/folders/15cJUzg9VUyi9C33x8aVD8mruCVyi91P0 and should perhaps be moved from there :)
+path_to_input_regex <- "data/regex_processed"
+
+# Identify Regex-processed chunks of interest
+regex_chunks_path <- list.files(path = file.path(path_to_input_regex),
+                              pattern = "*.rds",
+                              full.names = TRUE)
+
+get_climate_texts <- function(regex_chunks_path) {
+  readRDS(regex_chunks_path) %>%
+    filter(article_id %in% climate_article_ids)
+}
+
+
+if (Sys.info()[['sysname']] == "Linux") {
+  
+library(parallel)
+
+climate_articles <- mclapply(regex_chunks_path, get_climate_texts,  mc.cores = detectCores() - 2) %>% bind_rows()
+
+} else {
+# If not Linux - non-parallelized lapply
+climate_articles  <- lapply(regex_chunks_path, get_climate_texts) %>% bind_rows()
+}
+
+# We probably need to observe the Google Sheets 50k character limit, otherwise the text of the article will not appear.
+climate_articles$text <- str_trunc(str_squish(climate_articles$text), width = 49997, side = "right", ellipsis = "...")
+
+write_csv(climate_articles, "data/climate_sub_corpus/climate_articles.csv")
+
+```
+
+NOTE: Google Sheets formula that tries to replicate the same results as in R
+
+`=iferror(trim(regexreplace(join(" ", filter(regexextract(split(lower(B2), " "), "klima\S*|antropocén|permafrost|nízkoemisn\S+|uhlíkov\S*|větrn\S+|IPCC|UNFCCC|fosiln\S+"), len(regexextract(split(lower(B2), " "), "klima\S*|antropocén|permafrost|nízkoemisn\S+|uhlíkov\S*|větrn\S+|IPCC|UNFCCC|fosiln\S+")))), "klimatiza\S*|povětrn\S*|\.", "")), "")`
+
+This formula is used in Google Sheets to extract specific keywords from a text string in cell B2 and join them together into a single string. 
+It then removes any unwanted characters and spaces from the resulting string.
+
+Here is a breakdown of the formula:
+
+=iferror( - This function checks if an error occurs in the formula and returns a blank cell if there is an error.
+
+trim( - This function removes any extra spaces from the resulting string.
+
+regexreplace( - This function replaces a regular expression with a specified text.
+
+join(" ", - This function joins the resulting keywords together into a single string, separated by a space.
+
+filter( - This function filters the text string to only include keywords that match the specified regular expression.
+
+`regexextract(split(lower(B2), " "), "klima\S*|antropocén|permafrost|nízkoemisn\S+|uhlíkov\S*|větrn\S+|IPCC|UNFCCC|fosiln\S+")` - This function splits the text string into individual words, converts them to lowercase, and then extracts only the words that match the specified regular expression.
+
+, `len(regexextract(split(lower(B2), " "), "klima\S*|antropocén|permafrost|nízkoemisn\S+|uhlíkov\S*|větrn\S+|IPCC|UNFCCC|fosiln\S+")))), "klimatiza\S*|povětrn\S*|.", ""))` - This function removes any unwanted characters and spaces from the resulting string by replacing them with an empty string.
+```{r To finalise the corpus version 4 including tv shows}
+climate_corpus_v4 <- read_delim("2.data_transformations/data/climate_sub_corpus/climate_corpus_v4.csv", 
+    delim = ";", escape_double = FALSE, trim_ws = TRUE)
+climate_corpus_v4 <- climate_corpus_v4 %>% left_join(Tvshows, by = c("doc_id" = "code"))
+write_csv2(climate_corpus_v4, file = "climate_corpus_v4.csv", quote = "none")
+```
+

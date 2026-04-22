@@ -1,0 +1,53 @@
+---
+title: "UDPIPE Processing"
+---
+# This R Markdown file contains code for processing regex-cleaned chunks with UDPIPE model (via API) using RStudio jobs to parallelize. 
+# It loads necessary packages and sets up parameters for the job. 
+# The already processed files are identified and the dataset chunks of interest are filtered.
+# Finally, the script is run as an RStudio job, which is saved in the file udpipe_rstudio_jobs.R.
+
+Load necessary packages
+```{r include=FALSE}
+# Package names
+packages <- c("dplyr")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+
+```
+
+# Processing regex-cleaned chunks with UDPIPE model (via API)
+# Using RStudio jobs to parallelize 
+```{r}
+# Set up parameters for this job
+udpipe_period <- "*"
+udpipe_exclude <- FALSE
+
+already_processed <-
+  list.files(
+    path = file.path("data", "udpipe_processed"),
+    pattern = "*.rds",
+    full.names = TRUE
+  ) %>% basename()
+
+# Identify dataset chunks of interest
+all_regex_chunks <-
+  list.files(
+    path = file.path("data", "regex_processed"),
+    pattern = "*.rds",
+    full.names = TRUE
+  ) %>%
+  .[grep(pattern = udpipe_period, ., invert = udpipe_exclude)]
+  
+# Filter for already existing files
+all_regex_chunks <- file.path("data", "regex_processed", setdiff(basename(all_regex_chunks), gsub("udpipe_", "", already_processed, fixed = TRUE)))
+
+# Run the script as a RStudio job
+rstudioapi::jobRunScript(path = "udpipe_rstudio_jobs.R", importEnv = TRUE)
+```

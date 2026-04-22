@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>
+            Climate NMF topic model with 50 topics, TF-IDF adjustment.
+        </title>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.2.7/d3.min.js"
+            integrity="sha512-lliFwjP7CcBm+GnXXJJ6bJo+n2i/KiP83ONs/+6RLIdl9DzddlGnsdWehJJHgWVoq6/9FAG2IX+zwcU7tslW4g=="
+            crossorigin="anonymous"
+        ></script>
+        <script src="./js/ldavis.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/style.min.css" />
+        <!-- Favicon -->
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="./images/favicon.ico"
+        />
+    </head>
+
+    <body>
+        <div id="nmf"></div>
+        <script>
+            var vis = new LDAvis("#nmf", "./data/nmf_50.json");
+        </script>
+    </body>
+</html>
