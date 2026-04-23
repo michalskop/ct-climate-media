@@ -12,6 +12,7 @@ from pathlib import Path
 REPO   = Path(__file__).parent.parent.parent
 VIZ5   = REPO / 'visualizations/article5'
 VIZ3   = REPO / 'visualizations/article3'
+VIZ6   = REPO / 'visualizations/article6'
 OUT    = REPO / 'docs'
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -242,6 +243,29 @@ transformativní žurnalistiky: urgentnost bez řešení, marginalisation občan
 a globálního jihu, genderová nerovnost a neviditelná klimatická spravedlnost.
 </div>
 
+<h2>Nalezení č. 10 — Zarámování EU klimatické politiky: neutrální, ale negativní při sporech</h2>
+<p>
+131 dokumentů (4,5 % klimatického korpusu) zmiňuje konkrétní nástroje EU klimatické politiky:
+Zelená dohoda (70 dokumentů), emisní povolenky ETS (35), zákaz spalovacích motorů (34),
+Fit for 55 (14). Z těch, které EU politiku substantivně pokrývají (nikoli jen zmiňují):
+</p>
+<table>
+<tr><th>Postoj</th><th>Počet</th><th>%</th></tr>
+<tr><td>EU_NEU — faktické zpravodajství</td><td>71</td><td class="score-mid">79 %</td></tr>
+<tr><td>EU_NEG — EU jako nadměrný zásah</td><td>13</td><td class="score-bad">14 %</td></tr>
+<tr><td>EU_POS — EU klimatická politika jako řešení</td><td>6</td><td class="score-good">7 %</td></tr>
+</table>
+
+{charts.get('eu_sentiment', '')}
+
+<div class="finding-box">
+<strong>Klíčový závěr:</strong> Negativní zarámování převyšuje pozitivní v poměru 2:1.
+Dominantní negativní rámec není popírání — je to suverenita: EU klimatická politika jako
+něco vnuceného Česku, nikoli spolubudovaného. Typické fráze: „diktát z Bruselu",
+„zelená ideologie", „zelené tsunami". Vrcholy negativního zarámování: 2018 (odpor V4
+vůči 40% cíli CO₂) a 2021 (debata o zákazu spalovacích motorů / Fit for 55).
+</div>
+
 <h2>Metodologie</h2>
 <ul>
 <li><strong>Korpus:</strong> 531 593 přepisů zpravodajství ČT (2012–2022); klimatický podkorpus: 2 914 dokumentů</li>
@@ -250,6 +274,7 @@ a globálního jihu, genderová nerovnost a neviditelná klimatická spravedlnos
 <li><strong>Tématické modelování:</strong> NMF (sklearn), k=20, 5 000 vlastností TF-IDF; bez lemmatizace</li>
 <li><strong>Geografická detekce:</strong> Tříprůchodový regex (tokeny, víceslovné fráze, adjektivní kmeny)</li>
 <li><strong>Genderová klasifikace:</strong> Koncovka příjmení (-á → F) + korekce cizích mužských jmen</li>
+<li><strong>Sentiment EU politiky:</strong> Klasifikace na úrovni dokumentu (EU_POS/NEU/NEG/SKIP), LLM Claude Haiku, 131 dokumentů</li>
 </ul>
 
 <footer>
@@ -288,9 +313,12 @@ def main():
         'radar':    img_tag(VIZ5 / 'P3.9_tj_radar_v2.png',
                             'Transformative journalism radar',
                             'Hodnocení transformativní žurnalistiky (0–10)'),
-        'worldmap': img_tag(VIZ5 / 'P1.11_world_map_climate_v2.png',
-                            'World map of country mentions in ČT climate coverage',
-                            'Počet dokumentů zmiňujících danou zemi (logaritmická škála, 2012–2022)'),
+        'worldmap':    img_tag(VIZ5 / 'P1.11_world_map_climate_v2.png',
+                               'World map of country mentions in ČT climate coverage',
+                               'Počet dokumentů zmiňujících danou zemi (logaritmická škála, 2012–2022)'),
+        'eu_sentiment': img_tag(VIZ6 / 'P6.1_eu_sentiment_by_year.png',
+                                'EU climate policy framing by year',
+                                'Zarámování EU klimatické politiky dle roku (absolutní počty a procentuální podíl)'),
     }
 
     html = html_body(charts)
