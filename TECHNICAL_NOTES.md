@@ -277,6 +277,35 @@ After running, create `data/topic_labels_nmf{k}.csv` manually with columns: `top
 
 ---
 
+## 14. LLM JSON Parsing with Czech Text (Phase 6)
+
+Czech transcripts contain characters that break JSON parsing when the LLM includes them in rationale strings. Two fixes required:
+
+1. **Increase `max_tokens`** — 512 is too small for 10-doc batches; use 1024.
+2. **Strip non-ASCII from rationale via regex** before `json.loads()`:
+
+```python
+import re, json
+
+def parse_response(text: str) -> list[dict]:
+    text = text.strip()
+    if text.startswith('```'):
+        text = '\n'.join(text.split('\n')[1:-1])
+    # Extract JSON array if surrounded by prose
+    m = re.search(r'\[.*\]', text, re.DOTALL)
+    if m:
+        text = m.group(0)
+    # Strip non-ASCII from rationale values (Czech diacritics break JSON)
+    text = re.sub(r'("rationale"\s*:\s*")([^"]*?)(")',
+                  lambda m: m.group(1) + m.group(2).encode('ascii','ignore').decode() + m.group(3),
+                  text)
+    return json.loads(text)
+```
+
+Reduce batch size to 5 (not 10) when text snippets are 250+ words each — prevents truncation.
+
+---
+
 ## 12. Visualization Style Unification (Phase 5)
 
 ### Shared style module

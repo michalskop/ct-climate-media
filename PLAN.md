@@ -132,11 +132,14 @@ Andrea Culková (PI) | Michal (analyst/developer) | Updated: 2026-04-23
 
 ---
 
-## PHASE 6 — Optional: Brussels / EU Climate Policy
+## PHASE 6 — EU Climate Policy Sentiment ✅ COMPLETE
 
-| ID | Task | Status |
-|----|------|--------|
-| P6.1–P6.4 | EU Green Deal sentiment subcorpus analysis | 🆕 Not started — potential 4th article |
+| ID | Task | Status | Output |
+|----|------|--------|--------|
+| P6.1 | Build EU climate policy subcorpus | ✅ | `data/eu_subcorpus.csv` — 131 docs (4.5%) |
+| P6.2 | LLM sentiment classification EU_POS/NEU/NEG/SKIP | ✅ | `data/eu_sentiment.csv` — EU_NEU 54%, EU_NEG 10%, EU_POS 5% |
+| P6.3 | Temporal sentiment analysis | ✅ | Negative peaks: 2018 (V4 opposition), 2021 (combustion ban debate) |
+| P6.4 | Actor analysis | ✅ | `visualizations/article6/P6.2_eu_actors.png` |
 
 ---
 
@@ -149,7 +152,7 @@ Andrea Culková (PI) | Michal (analyst/developer) | Updated: 2026-04-23
 | 2 Speaker classification | ✅ Complete (validation CSV pending manual fill) |
 | 3 Stance + topics + TJ | ✅ Complete (validation CSV + T13–T19 labels pending) |
 | 4 Case studies | ✅ Complete (Key Observations need Andrea review) |
-| 5 Style + public page | ✅ Complete (FAMU deployment pending) |
-| 6 EU policy | 🆕 Optional future work |
+| 5 Style + public page | ✅ Complete (FAMU/GitHub Pages deployment pending) |
+| 6 EU policy sentiment | ✅ Complete |
 
 *Last updated: 2026-04-23*

@@ -229,6 +229,52 @@ Only 17 of 2,914 climate documents explicitly link climate change to human healt
 
 ---
 
+## Finding 10 — EU Climate Policy: Predominantly Neutral, Negative When Contested
+
+### Subcorpus: 131 documents (4.5% of climate corpus)
+
+| Policy area | Docs |
+|-------------|-----:|
+| Green Deal (Zelená dohoda) | 70 |
+| ETS / emisní povolenky | 35 |
+| Combustion engine ban | 34 |
+| Fit for 55 | 14 |
+| EU climate law / neutrality 2050 | 7 |
+| EU taxonomy | 2 |
+| CBAM / carbon border | 1 |
+
+### Sentiment distribution (document-level)
+
+| Label | Docs | % of all | % of substantive |
+|-------|-----:|--------:|----------------:|
+| EU_NEU — factual/procedural | 71 | 54.2% | 79.0% |
+| SKIP — incidental mention | 41 | 31.3% | — |
+| EU_NEG — overreach/harmful framing | 13 | 9.9% | **14.4%** |
+| EU_POS — necessary/effective framing | 6 | 4.6% | **6.7%** |
+
+**EU negative framing outweighs positive 2:1** among substantive documents (excluding incidental mentions).
+
+### Temporal pattern: negative framing concentrated in moments of Czech resistance
+
+| Year | EU_NEG | EU_POS | Key driver |
+|------|-------:|-------:|-----------|
+| 2018 | 3 | 0 | V4 opposition to EU 40% CO₂ reduction target |
+| 2019 | 1 | 1 | Green Deal launch; mixed Czech reception |
+| 2020 | 2 | 1 | Czech Senate president denounces "green ideology" |
+| 2021 | 5 | 3 | Fit for 55 debate; combustion ban; Czech EU Presidency preparation |
+| 2022 | 0 | 1 | Ukraine energy crisis reframes EU climate policy |
+
+### Key negative frames (from LLM rationales)
+- **"Diktát z Bruselu"** / "EU dictates" language — frames EU policy as imposed, not adopted
+- **V4 solidarity against Brussels** — Czech opposition presented within Central European bloc resistance
+- **"Zelená ideologie"** / "green tsunami" — delegitimises the policy as ideological rather than scientific (2020 Senate president)
+- **Economic threat framing** — EU CO₂ targets presented as risk to Czech industry, jobs, competitiveness
+
+### Conclusion
+ČT does not itself editorially endorse or oppose EU climate policy — most coverage is procedural. But when political actors push back against EU climate ambitions (which they do regularly in Czech politics), ČT gives those frames prominent space. The result is a subtle but consistent pattern: EU climate policy appears as something imposed on Czechia, not something Czechia is building together with Europe. Positive framing (EU policy as necessary climate action) is present but consistently rare.
+
+---
+
 ## Data Quality Notes
 
 1. **12 climate false positives** — documents where `klimatický podmínka` was the only keyword (motorway conditions). Impact: 0.4%.
@@ -269,4 +315,8 @@ Only 17 of 2,914 climate documents explicitly link climate change to human healt
 | `analysis/article5/restyle_charts.py` | Regenerates all 9 key charts with unified style |
 | `analysis/article5/generate_public_page.py` | Builds self-contained HTML from base64-embedded charts |
 | `visualizations/article5/` | 9 restyled charts (suffix `_v2`) + choropleth world map |
-| `public/index.html` | 985 KB Czech-language public summary page, all charts embedded |
+| `docs/index.html` | 985 KB Czech-language public summary page (GitHub Pages) |
+| `data/eu_subcorpus.csv` | 131 EU climate policy docs with matched keyword groups |
+| `data/eu_sentiment.csv` | LLM sentiment labels (EU_POS/NEU/NEG/SKIP) per doc |
+| `data/eu_analysis_summary.csv` | Merged sentiment + metadata for analysis |
+| `visualizations/article6/` | EU sentiment by year, actor breakdown, topic group charts |
