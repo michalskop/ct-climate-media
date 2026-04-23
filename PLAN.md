@@ -12,7 +12,7 @@ Andrea Culková (PI) | Michal (analyst/developer) | Updated: 2026-04-23
 |------|---------|----------|
 | `FINDINGS.md` | **All research findings** — 9 findings with numbers, tables, interpretations | Andrea, co-authors |
 | `analysis/article4/CS{1,2,3}_analysis.md` | Case study discourse analyses | Andrea (review Key Observations) |
-| `public/index.html` | Czech public summary page, open in browser | FAMU public |
+| `docs/index.html` | Czech public summary page — GitHub Pages at michalskop.github.io/ct-climate-media | FAMU public |
 | `TECHNICAL_NOTES.md` | Implementation traps and recipes | Developer |
 
 ## Pending Manual Work
@@ -126,8 +126,9 @@ Andrea Culková (PI) | Michal (analyst/developer) | Updated: 2026-04-23
 |----|------|--------|--------|
 | P5.1 | Unified style module | ✅ | `analysis/viz_style.py` — #8B1A1A, cream #FFFAF5 |
 | P5.2 | Restyle all key charts | ✅ | `visualizations/article5/` — 9 charts with `_v2` suffix |
-| P5.3–P5.5 | Czech public page with captions | ✅ | `public/index.html` (985 KB, all charts embedded) |
-| Deploy | Deploy to FAMU server | ⬜ | Contact Tomáš Šín +420 234 244 308; resolves Q5 |
+| P5.3–P5.5 | Czech public page with captions | ✅ | `docs/index.html` (985 KB, all charts embedded) |
+| Deploy GitHub Pages | Enable Pages in repo settings | ⬜ | Settings → Pages → main branch → /docs → Save |
+| Deploy FAMU | Mirror to FAMU server if needed | ⬜ | Contact Tomáš Šín +420 234 244 308 |
 
 ---
 

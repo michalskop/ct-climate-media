@@ -12,7 +12,7 @@ from pathlib import Path
 REPO   = Path(__file__).parent.parent.parent
 VIZ5   = REPO / 'visualizations/article5'
 VIZ3   = REPO / 'visualizations/article3'
-OUT    = REPO / 'public'
+OUT    = REPO / 'docs'
 OUT.mkdir(parents=True, exist_ok=True)
 
 
