@@ -1,0 +1,132 @@
+article_id,year,matched_groups,sentiment,conf,rationale
+2012E059T088,2012,ets,EU_NEU,2,Factual reporting on EU emission allowance withdrawal mechanism with expert commentary on market effects; no clear editorial stance on policy merit.
+2012E047T084,2012,ets,EU_NEU,2,Procedural coverage of EU aviation emissions fee with international opposition; presents both EU justification and criticism without endorsing either side.
+2012E072T015,2012,ets,EU_NEG,2,Uses language like 'diktuje' (dictates) and frames industry opposition prominently; presents EU policy as contested and economically risky rather than environmentally justified.
+2012E067T087,2012,ets,SKIP,3,Focuses on Czech domestic pollution fee debate; EU climate policy not substantively discussed.
+2012E175A015,2012,combustion_ban,SKIP,3,Car review of Infiniti hybrid; incidental mention of climate change and 'ecological cars' but not about EU climate policy.
+2012E270T108,2012,ets,EU_NEU,2,"Factual reporting on Czech parliamentary debate about emissions allowances and renewable energy subsidies, with balanced quotes from industry and government; no clear editorial judgment on EU climate policy merit."
+2013E205A038,2013,combustion_ban,SKIP,3,"Report about regional drought and fire danger declarations; contains no reference to EU climate policy, Green Deal, ETS, or related EU initiatives."
+2015E109T008,2015,ets,EU_NEU,2,"Discussion of Czech energy strategy formation comparing to EU members (France, Germany); reports on positions without clear editorial stance on EU climate policy itself."
+2015E261T062,2015,ets,EU_NEU,2,Factual reporting on EU ministers' agreement on climate targets for Paris conference and mention of costs to Czech firms; presents information procedurally without clear evaluative framing.
+2016E327A041,2016,ets,EU_NEG,2,Reports EC reform of emissions trading as 'great threat' to regional industry with 'billions' in new costs; frames policy as economically damaging with risk of job losses and company viability.
+2017E049A017,2017,ets,EU_NEU,2,"Reports EU Parliament's vote on emissions trading reform and Czech steel industry concerns; presents both the EU rationale (low-carbon economy, climate mitigation) and industry opposition (high CO2 payment costs) without editorial judgment."
+2017E046A026,2017,ets,EU_NEU,2,"Nearly identical to first document; factual coverage of emissions permit reform and steel sector anxiety, presenting EU policy goals and Czech industry fears without clear advocacy."
+2017E214T062,2017,ets,SKIP,3,Budget negotiations for health and environment ministries; no substantive discussion of EU climate policy or the Green Deal/ETS framework.
+2017E268T055,2017,combustion_ban,SKIP,3,Coverage of German federal election results and coalition negotiations; EU climate policy does not feature in the content.
+2018E133T026,2018,combustion_ban,EU_NEU,2,Reports extreme heat waves in spring 2018 and attributes them to climate change per World Meteorological Organization; no discussion of EU policy responses or climate mitigation measures.
+2018E127T065,2018,combustion_ban,SKIP,3,Document focuses on extreme weather events and climate impacts; EU climate policy is not discussed or framed.
+2018E282A039,2018,combustion_ban,EU_NEG,3,Czechia and V4 countries actively oppose EU's 40% CO2 reduction proposal; framed as problematic for Czech economy and industry.
+2018E283T049,2018,combustion_ban,EU_NEU,2,"Expert debate on EU emission limits with balanced arguments; no clear editorial stance, though expert challenges industry lobbying claims."
+2018E282T070,2018,combustion_ban,EU_NEG,3,Czechia described as strongly opposing EU's 40% CO2 reduction; framed as problematic for Czech republic with repeated emphasis on Czechia's resistance.
+2018E282T058,2018,combustion_ban,EU_NEG,3,Headline frames V4/Czechia as 'revolting' against EU emission regulations; portrays EU proposal as risky threat to Czech economy.
+2018E340T081,2018,combustion_ban,EU_NEU,2,Factual reporting on global climate conference in Katowice and emissions data; mentions Paris Agreement goals and expert warnings but focuses on empirical facts rather than evaluating EU policy merits.
+2019E076T003,2019,ets,EU_POS,2,"Frames climate action positively through student activism demanding faster emission cuts; presents climate protection as morally necessary and urgent, aligning with pro-climate policy sentiment."
+2019E139A033,2019,combustion_ban,EU_NEU,2,"Reports on German election campaign climate debate and Green Party's rise; presents both pro-climate positions (Timmermans) and economic concerns (Weber) without endorsing either, maintaining factual tone."
+2019E176T067,2019,combustion_ban,EU_NEG,2,"Frames EU carbon neutrality initiative negatively by highlighting Czech resistance; emphasizes that Czechia blocked the commitment, positioning Czech national interests against EU climate ambitions."
+2019E171T068,2019,combustion_ban,SKIP,3,Document focuses on EU leadership appointments and political negotiations; mentions are procedural/incidental with no substantive discussion of EU climate policy itself.
+2019E165T052,2019,combustion_ban,EU_NEU,2,"Factual description of European climate campaign examples (e-bikes, e-cars, green buildings) without editorial stance on EU policy merits or criticism."
+2019E211A028,2019,ets,EU_NEU,2,"Reports on Czech government coal commission creation and coal plant operations; no substantive EU climate policy framing, though climate context is present."
+2019E204T034,2019,combustion_ban; eu_climate_law,EU_NEU,2,"Mentions EU climate commitments and Greta Thunberg's call for political action, but frames discussion as open question (ideology vs. necessity) without clear editorial position on EU policy."
+2019E197T061,2019,eu_climate_law,SKIP,3,Document focuses on Ursula von der Leyen's appointment as Commission president; EU climate policy is not substantively discussed.
+2019E224A074,2019,combustion_ban,EU_NEU,2,"Reports Prague's hybrid bus deployment as response to climate commitment, but focuses on technical details and local implementation; mentions European subsidies without evaluating EU policy itself."
+2019E263A048,2019,ets,EU_NEU,0,
+2019E252A082,2019,combustion_ban,EU_NEU,0,
+2019E263T078,2019,ets,EU_NEU,0,
+2019E255T056,2019,combustion_ban,EU_NEU,0,
+2019E253T054,2019,green_deal,EU_NEU,0,
+2019E347A057,2019,green_deal,EU_NEU,2,"Factual reporting of EU climate summit agreement with balanced coverage of Czech position on nuclear energy, Polish exemption, and tensions between East-West economic concerns."
+2019E345A052,2019,green_deal,EU_NEU,2,Neutral reporting of Green Deal announcement with factual detail on measures; quotes critical Czech/Polish/Hungarian positions on costs without editorial judgment on their merit.
+2019E354T064,2019,ets,SKIP,3,"Document focuses on weather extremes and Australian bushfires; EU climate policy is not substantively discussed, only incidental mentions in broader climate context."
+2019E349T008,2019,green_deal,EU_NEU,2,Procedural reporting of EU summit climate neutrality commitment with contrasting global positions; frames outcome as progress but notes East-West divisions without clear editorial stance.
+2019E347T031,2019,eu_climate_law,EU_NEU,2,Factual summary of EU 2050 climate neutrality decision with Babi statement linking Czech compliance to nuclear energy concessions; purely informational tone.
+2019E347T062,2019,green_deal,EU_NEU,2,"Factual reporting of EU climate neutrality agreement with balanced coverage of both achievements (ambitious goal, von der Leyen's framing) and tensions (Poland's exception, East-West divide on economic burden)."
+2019E347T010,2019,eu_climate_law,EU_NEU,2,Straightforward procedural reporting of EU 2050 climate neutrality decision and Babi's conditional support contingent on nuclear energy recognition.
+2019E345T089,2019,green_deal,EU_NEU,2,"Describes the Green Deal's scope and measures neutrally, but includes Czech government criticism (Petek, Babi) that these changes impose disproportionate costs on Central Europe without editorial endorsement of either position."
+2019E336T084,2019,combustion_ban,EU_NEU,2,"Reports on EU climate targets and scientific urgency factually, including Czech government resistance to 2050 neutrality targets, presented as procedural dispute rather than editorial judgment on policy merit."
+2020E026T008,2020,green_deal,EU_POS,2,"Frames EU climate action as necessary and urgent for health, economy, and competitiveness; von der Leyen's framing is presented as authoritative; contrasts with absent criticism of EU policy itself (criticism comes from external sources like Zeman)."
+2020E019T003,2020,green_deal,EU_NEU,2,Factual reporting on EU climate targets and nuclear energy debate; presents pro-nuclear Czech position without framing EU policy itself as good or bad.
+2020E005T009,2020,green_deal,SKIP,3,Document focuses on Czech-Russian relations and security threats; EU appears only incidentally in context of Czech sovereignty and Chinese economic interests.
+2020E002T044,2020,green_deal,SKIP,3,Interview with EU Commissioner about Brexit and European values; does not substantively address EU climate policy.
+2020E002T060,2020,combustion_ban,EU_NEG,2,"Senate president warns against 'green ideology' and 'green tsunami', criticizing electromobility push as hysteria-driven rather than scientifically grounded."
+2020E002T092,2020,green_deal,SKIP,3,News report on Brexit negotiations and timeline; no substantive discussion of EU climate policy.
+2020E065T107,2020,combustion_ban,EU_NEU,2,"Factual reporting on EU climate transition fund compensation for coal regions and carbon neutrality by 2050, with balanced expert discussion of costs and benefits, without editorial judgment on policy merit."
+2020E119T047,2020,green_deal,SKIP,3,EU climate policy appears only incidentally (mention of solar overcompensation); document focuses on emergency state extension and unrelated domestic policy.
+2020E149T050,2020,green_deal,SKIP,3,No substantive EU climate policy content; document concerns domestic nuclear power plant expansion funding and government budgeting.
+2020E131T006,2020,green_deal; ets,SKIP,3,Document reports EU pandemic crisis financial support package; no EU climate policy is discussed.
+2020E171T024,2020,green_deal,EU_NEU,2,Factual reporting that a parliamentary motion supporting the EU Green Deal and 2030 emission targets failed to pass; neutral procedural framing without editorial stance.
+2020E171T065,2020,green_deal,EU_NEU,2,"Factual reporting on EU Recovery Fund mechanism, allocation criteria, and Czech government's negotiating position without editorial judgment on EU policy merit."
+2020E171T012,2020,green_deal,EU_NEG,2,"Reports failed Pirate proposal to support EU Green Deal and 2030 emissions reduction targets, implying lack of government support for EU climate ambitions."
+2020E240T046,2020,green_deal; ets,EU_NEU,1,Interview on drought and climate change with environmental minister; discusses weather patterns and water deficit without substantive EU policy framing.
+2020E264T006,2020,green_deal; ets,SKIP,2,Mentions 'klimatick hrozba' (climate threat) in passing during broad discussion of coronavirus and various policy topics; EU climate policy not substantively addressed.
+2020E314T081,2020,eu_climate_law,SKIP,3,Focused entirely on US presidential election debate between Czech politicians; no EU climate policy content.
+2020E339T075,2020,ets,EU_NEU,2,"Factual reporting on Czech coal commission's 2038 coal exit decision with balanced expert commentary, no editorial stance on EU policy merits."
+2021E147A001,2021,ets,EU_NEU,2,Procedural reporting on a specific dispute over EU ETS emission allowances allocation; explains the system factually without judging EU policy effectiveness.
+2021E146T087,2021,ets,EU_NEU,1,Interview on EZ's corporate strategy and coal phase-out; mentions EU context but focuses on company decisions rather than EU policy evaluation.
+2021E153T068,2021,green_deal; ets,EU_POS,2,"Describes EU as 'global leader' in climate action while noting its emissions are only one-tenth of global total, framing EU commitment to Paris Agreement positively."
+2021E196A070,2021,combustion_ban,EU_NEG,2,"Reports Czech government and opposition as 'restrained' and cautious toward EC emission reduction plan, with premier calling targets 'too ambitious,' framing EU proposal skeptically."
+2021E200T062,2021,green_deal,EU_NEU,2,"Factual reporting on EU Recovery Plan approval and funding allocation for Czech projects, with procedural details about conditions and governance requirements, without editorial judgment on policy merit."
+2021E196T071,2021,fit_for_55; combustion_ban,EU_NEU,2,"Descriptive coverage of the 2035 combustion engine ban under Fit for 55, presenting multiple perspectives (cautious government, industry preparations) without clear editorial stance on the policy's merits."
+2021E196T017,2021,eu_climate_law,EU_NEU,2,"Procedural reporting on the EU Commission's climate strategy with mixed stakeholder views (environmental activist supportive, auto industry critical), balanced without strong editorial positioning."
+2021E195T079,2021,green_deal,SKIP,3,Documentary about a student's one-day ambassador experience; EU climate policy does not appear substantively and document is unrelated to climate or environmental policy.
+2021E195T072,2021,green_deal; combustion_ban; cbam,EU_NEG,3,"ODS europoslanec Vondra explicitly frames EU climate package as harmful ('cesta k dramu ivotu'), ideologically driven ('ekologicko ideologick inenrstv'), and economically damaging with ineffective results."
+2021E230T053,2021,green_deal; fit_for_55; combustion_ban; eu_climate_law,EU_NEU,2,Factual reporting on Germany's support for e-mobility transition and EU's direction toward electric vehicles; debate frames it as both natural and policy-driven without clear editorial judgment on merits.
+2021E222T050,2021,ets,EU_NEU,2,Procedural reporting on Czech coal phase-out timeline aligned with EU recommendations and electricity price impacts; factual discussion without framing EU policy as positive or negative.
+2021E221T071,2021,fit_for_55,EU_NEU,2,"Scientific reporting on IPCC climate findings and observed climate impacts; EU climate policy not substantively discussed, focus is on climate science rather than EU regulatory response."
+2021E268A034,2021,combustion_ban,SKIP,2,German election coverage where environmental protection emerges as a voter priority; EU climate policy itself is not substantively addressed.
+2021E272T061,2021,green_deal,EU_NEG,2,Orbn's criticism of EU's climate targets and energy price consequences frames Green Deal negatively; interview context emphasizes EU overreach on climate policy.
+2021E271T048,2021,green_deal,EU_NEG,2,"Senate President Vystril expresses concern about 'green politics' (Green Deal) being overemphasized, stating he fears it and prefers a 'more rational approach,' framing EU climate policy skeptically."
+2021E270T057,2021,green_deal,SKIP,3,Factual reporting on German federal election results and coalition negotiations; EU climate policy is not discussed or substantively addressed.
+2021E270T063,2021,green_deal; ets; combustion_ban,EU_NEU,2,"Regional debate mentions extreme weather and climate change as context for preparedness discussion, but does not substantively address EU climate policy or its merits."
+2021E267T063,2021,fit_for_55; ets,EU_NEU,2,Reports on Czech-Polish dispute over Turw coal mine involving the European Court; EU involvement is procedural/legal rather than evaluative of climate policy itself.
+2021E265T068,2021,green_deal; fit_for_55; combustion_ban,SKIP,3,Regional election debate preview with no substantive discussion of EU climate policy; EU terms do not appear.
+2021E263T060,2021,green_deal,SKIP,3,Interview focuses on public sector wages and labor market policy; no substantive discussion of EU climate policy.
+2021E263T066,2021,combustion_ban,SKIP,3,"Pre-election interview covers COVID measures, budget deficit, and taxation; no mention of EU climate policy."
+2021E259T066,2021,combustion_ban,SKIP,3,Pre-election debate introduction presenting regional candidates; no substantive content on EU climate policy.
+2021E258T067,2021,green_deal,SKIP,3,"Pre-election interview opening with Trikolra candidate; discussion of school testing and public television fairness, not EU climate policy."
+2021E255T009,2021,green_deal; combustion_ban,EU_NEU,2,"Factually reports EU Green Deal adoption, climate scientists' findings, and Czech government concerns about costs without editorial judgment on EU policy merits."
+2021E252T082,2021,green_deal; combustion_ban,SKIP,3,Interview with SPD leader Tomio Okamura about 2021 elections focuses on Babi family dispute; EU climate policy is not discussed.
+2021E290A001,2021,green_deal,SKIP,3,Discussion of inflation and energy prices in context of 2021 Czech elections and VAT policy; no substantive engagement with EU climate policy.
+2021E279A084,2021,green_deal; ets,EU_NEU,2,Factual reporting on EU's 55% emissions reduction target by 2030 and energy transition in context of coal phase-out; describes EU goal without editorial judgment on its merits or drawbacks.
+2021E304T025,2021,green_deal; ets,EU_NEU,2,"Expert discussion of energy crisis, supply/demand imbalances, and Europe's push to phase out coal and nuclear; procedural explanation of EU decarbonization efforts without clear advocacy or criticism."
+2021E294T064,2021,fit_for_55; ets,EU_NEU,1,Interview on economic impacts of energy prices and supply chain issues; brief mention of 'klimatickou zmnou' (climate change) but no substantive framing of EU climate policy itself.
+2021E290T008,2021,green_deal; fit_for_55,EU_NEU,2,"Green Deal mentioned as one of several challenges facing the new government (alongside energy crisis, industrial collapse, fiscal consolidation) without editorial framing of its merits or problems."
+2021E285T060,2021,green_deal,SKIP,3,"Discussion of post-election government formation with focus on health, finance, and environment ministries; no substantive engagement with EU climate policy."
+2021E276T009,2021,green_deal; ets,SKIP,3,"Discussion centers on Viktor Orbn, Bene Decrees, and EU-Hungary tensions; EU climate policy is not addressed."
+2021E274T069,2021,green_deal,SKIP,3,"Pre-election debate in Central Bohemia focusing on democracy, legal state, and COVID-19; no substantive discussion of EU climate policy."
+2021E328A058,2021,combustion_ban,EU_POS,3,German coalition agreement on phasing out combustion engines and massive renewable expansion is framed as positive 'leadership' (pedvoj) in climate protection with no countervailing criticism.
+2021E322A031,2021,green_deal,EU_NEU,2,Mentions Green Deal incidentally in context of a candidate's interview; no substantive framing of EU climate policy itself.
+2021E328T069,2021,combustion_ban,EU_POS,2,Germany's coalition agreement on phasing out combustion engines and expanding renewables is presented as forward-looking climate leadership with positive framing of 'Vorrei in Klimafragen'.
+2021E309T085,2021,green_deal; fit_for_55,EU_NEU,2,Senate discussion of Fit for 55 renewable energy directives focuses on pragmatic regulatory debate and impact assessment rather than evaluative stance on the policy's merits.
+2021E306T077,2021,green_deal; ets,EU_NEU,1,Mentions climate change debate in context of energy prices and government formation; no clear editorial position on EU climate policy specifics.
+2021E360A015,2021,green_deal,EU_NEG,3,President explicitly frames Green Deal as threatening to economy ('ohrouje ekonomiku'); describes it as risky despite climate goal.
+2021E354T059,2021,green_deal; fit_for_55,EU_NEU,2,"Interview presents balanced discussion of Fit for 55 combustion ban criticism from Czech PM Fiala, with MEP Niedermayer explaining the EU decision rationale without strong editorial endorsement or condemnation."
+2021E351T030,2021,green_deal,SKIP,3,"News bulletin covering government appointments and COVID variants; EU climate policy is not substantively discussed, only a brief mention of Commission president's statement on EU recovery."
+2021E349T064,2021,fit_for_55,EU_NEU,2,"Interview about EU building heating proposal (2040 gas ban, hydrogen transition) is presented as procedural/factual discussion of an EU Commission proposal without clear positive or negative framing of its merits."
+2021E336T001,2021,green_deal,EU_NEU,2,News report on ministerial appointments mentions Green Deal as a priority for environment ministry candidate without editorial judgment on its merits or implications.
+2021E336T038,2021,green_deal,EU_NEU,2,Extended coverage of same ministerial appointments; environment candidate mentions Green Deal as a major challenge requiring implementation without positive or negative framing of EU policy itself.
+2021E336T027,2021,green_deal,EU_NEU,2,"Green Deal mentioned as a policy priority to be discussed and implemented by the environment minister candidate; no editorial judgment on its merits, purely procedural."
+2021E336T040,2021,green_deal,EU_NEU,2,Green Deal referenced as a major challenge requiring discussion and implementation; straightforward reporting of candidate's policy priorities without evaluative framing.
+2021E336T046,2021,green_deal,EU_NEU,2,Green Deal mentioned as a priority for the environment ministry candidate; factual description of policy agenda without positive or negative editorial stance.
+2021E336T014,2021,green_deal,EU_NEU,2,Green Deal cited as a major challenge and policy priority for the future environment minister; neutral reporting of candidate's stated agenda.
+2021E336T012,2021,green_deal,EU_NEU,2,Green Deal mentioned as a key challenge requiring discussion and implementation by the environment minister candidate; procedural reporting without evaluative judgment.
+2021E336T025,2021,green_deal,EU_NEU,0,
+2022E006A091,2022,ets,EU_NEU,0,
+2022E031T013,2022,green_deal,EU_NEU,0,
+2022E031T027,2022,green_deal,EU_NEU,0,
+2022E031T051,2022,green_deal,EU_NEU,0,
+2022E023T007,2022,green_deal,EU_NEU,2,Factual reporting presenting both supporters (new government views Green Deal as opportunity) and critics (President Zeman) of EU climate policy without editorial judgment on merits.
+2022E015T028,2022,green_deal,SKIP,3,"Interview about democracy, social media, and Italian/Czech politics with no substantive discussion of EU climate policy."
+2022E014T070,2022,green_deal; ets,EU_NEU,2,Discussion frames Green Deal as presenting both risks and opportunities; energy official characterizes it as 'both risk and chance' without clear editorial stance on its merits.
+2022E013T051,2022,fit_for_55,EU_NEU,2,"Procedural reporting on Czech EU presidency priorities mentioning Green Deal and Fit for 55 as topics to address, without evaluating their merits."
+2022E011T059,2022,green_deal,SKIP,3,Interview about Pirate Party leadership and internal politics; EU climate policy does not appear substantively in the text.
+2022E007T060,2022,green_deal,EU_NEU,2,Factual discussion of climate change impacts and scientific debate; no explicit framing of EU climate policy as positive or negative.
+2022E003T069,2022,green_deal; fit_for_55; ets; eu_taxonomy,EU_POS,3,EU Commission proposal to include nuclear and gas as sustainable energy is framed positively as 'very good for Czechia' and a 'significant positive shift' by Czech political and business leaders.
+2022E058T008,2022,green_deal,SKIP,3,"Discussion focuses on Russian energy dependence, EU sanctions on Russia, and energy security; EU climate policy is not substantively addressed."
+2022E033T071,2022,fit_for_55; eu_taxonomy,EU_NEU,3,Factual reporting of the EU Commission's taxonomy decision including nuclear and gas; explains what the policy does without editorializing on its merits or drawbacks.
+2022E068T093,2022,green_deal,SKIP,3,Discussion of sanctions on Russia and their economic impact; EU climate policy is not addressed.
+2022E064T032,2022,green_deal,SKIP,3,Document covers Ukrainian refugee assistance centers in Czechia; no mention of EU climate policy.
+2022E119T073,2022,ets,SKIP,3,"Document reports US military and financial aid to Ukraine; EU appears only incidentally as 'partners' in NATO alliance, not substantively about EU climate policy."
+2022E118T058,2022,green_deal; fit_for_55,SKIP,3,"Document covers UN general secretary visit to Ukraine, war updates, and Holocaust memorial; no EU climate policy content."
+2022E115T097,2022,green_deal,SKIP,3,Document reports French presidential election results and Macron's victory; no substantive discussion of EU climate policy.
+2022E115T050,2022,green_deal,SKIP,2,"Commentary on Macron's election as positive for EU integration; mentions EU but focuses on political leadership and institutional continuity, not climate policy."
+2022E110T059,2022,green_deal,SKIP,3,"Document is a TV news transcript covering basketball, war casualties, and a mining accident; EU climate policy is not mentioned or discussed."
