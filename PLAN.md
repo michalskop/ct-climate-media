@@ -1,278 +1,154 @@
 # Climate Media Project — Master Analysis Plan
 **"Klimatický rozvrat a média veřejné služby"**
-Andrea Culková (PI) | Michal (analyst/developer) | March 2026
+Andrea Culková (PI) | Michal (analyst/developer) | Updated: 2026-04-23
 
-> Legend: ✅ DONE · 🔄 PARTIAL (code/data exists, needs work) · ⬜ TODO · 🆕 NEW (out of original scope)
-
----
-
-## Open Questions (resolve before starting affected tasks)
-
-| ID | Question | Affects |
-|----|----------|---------|
-| ~~Q1~~ | ~~What exactly is in `sic_articles_truncated.csv`?~~ **RESOLVED:** SIC = social issues corpus (4,853 docs). Terrorism = `execution_articles_truncated.csv` (3,379 docs). | ✅ |
-| ~~Q2~~ | ~~Is the COVID subcorpus a separate file locally?~~ **RESOLVED:** Yes — `covid_articles_v2_truncated.csv` (33,284 docs). | ✅ |
-| Q3 | Named entity/NER lists format (CSV/JSON/plain text)? Per subcorpus or whole corpus? Irene Elmerot did this work — likely keyword-separated. | P2.1 |
-| Q4 | Does Andrea still have Sketch Engine access? | P3.16 |
-| Q5 | FAMU public page — existing infrastructure or build from scratch? Contact: Tomáš Šín +420 234 244 308 | P5.3, P5.4 |
+> Legend: ✅ DONE · 🔄 PARTIAL (built, needs follow-up) · ⬜ TODO/BLOCKED · 🆕 NEW (out of original scope)
 
 ---
 
-## Critical Path
+## Key Documents
 
-```
-P0 → everything else. Do not start any phase until P0 is complete.
+| File | Purpose | Audience |
+|------|---------|----------|
+| `FINDINGS.md` | **All research findings** — 9 findings with numbers, tables, interpretations | Andrea, co-authors |
+| `analysis/article4/CS{1,2,3}_analysis.md` | Case study discourse analyses | Andrea (review Key Observations) |
+| `public/index.html` | Czech public summary page, open in browser | FAMU public |
+| `TECHNICAL_NOTES.md` | Implementation traps and recipes | Developer |
 
-Article 1:  P0 → P1A → P1B → P1C → write
-Article 2:  P0 → P1A → P2A → P2B → write
-Article 3:  P0 → P1A → P2A → P3A → P3B → P3C → P3D → P4 → write
-FAMU page:  P1–P4 → P5
-Brussels:   P2A → P6 (optional)
-```
+## Pending Manual Work
+
+| File | Who | What |
+|------|-----|------|
+| `data/stance_validation_sample.csv` (182 rows) | Michal/Andrea | Fill `correct_stance` column → LLM accuracy score |
+| `data/validation_sample_p26.csv` (80 rows) | Michal | Fill `correct_type` column → Phase 2 accuracy score |
+| `data/topic_labels_nmf20.csv` | Andrea | Verify T13–T19 labels look right |
+| `analysis/article4/CS{1,2,3}_analysis.md` | Andrea | Review/edit Key Observations sections |
+| `public/index.html` | Andrea + Tomáš Šín | Review Czech text; deploy to FAMU server (contact: +420 234 244 308) |
 
 ---
 
-## PHASE 0 — Infrastructure & Audit *(do this first)*
+## Open Questions
 
-Purpose: Organize everything before any new analysis. No research output, but makes everything else reproducible and hand-off-ready.
+| ID | Question | Status |
+|----|----------|--------|
+| ~~Q1~~ | What is `sic_articles_truncated.csv`? | ✅ **RESOLVED:** SIC = social issues (4,853 docs); terrorism = debt enforcement (`exekuce`) |
+| ~~Q2~~ | Is COVID subcorpus a separate file? | ✅ **RESOLVED:** `covid_articles_v2_truncated.csv` (33,284 docs) |
+| ~~Q3~~ | NER lists format from Irene Elmerot? | ✅ **RESOLVED:** Not needed — built own speaker extraction pipeline |
+| ~~Q4~~ | Sketch Engine access? | ✅ **RESOLVED:** Not used — collocate analysis done in Python |
+| Q5 | FAMU page hosting infrastructure? | 🔄 HTML built (`public/index.html`); deployment pending — Tomáš Šín +420 234 244 308 |
+
+---
+
+## PHASE 0 — Infrastructure & Audit ✅ COMPLETE
+
+| ID | Task | Status |
+|----|------|--------|
+| P0.1 | GitHub repository setup | ✅ https://github.com/michalskop/ct-climate-media |
+| P0.2 | Document all corpus files | ✅ `CORPORA_INVENTORY.md` |
+| P0.3 | Audit existing R/Python scripts | ✅ 29 files migrated |
+| P0.4 | Verify all corpora load in Python | ✅ `data_check.py` — all 10 files load OK |
+| P0.5 | Identify SIC subcorpus content | ✅ SIC = social issues; debt enforcement ≠ terrorism |
+
+---
+
+## PHASE 1 — Data Foundations ✅ COMPLETE
 
 | ID | Task | Status | Output |
 |----|------|--------|--------|
-| P0.1 | Set up GitHub repository — folders: `/data`, `/corpora`, `/analysis/article1`, `/analysis/article2`, `/analysis/article3`, `/visualizations`, `/utils`; commit all existing code | ✅ DONE | https://github.com/michalskop/ct-climate-media |
-| P0.2 | Document all corpus files — filenames, sizes, versions, creation dates, cleaning steps applied | ✅ DONE | `CORPORA_INVENTORY.md` |
-| P0.3 | Audit all existing R and Python scripts — annotate what each does, flag broken/outdated; convert R to Python where feasible | ✅ DONE | 29 files migrated to repo (see below) |
-| P0.4 | Verify all corpora load in Python — test `climate_corpus_v4.csv`, `sic_articles_truncated.csv`, and all others | ✅ DONE | `data_check.py` — all 10 files load OK |
-| P0.5 | Identify what SIC subcorpus actually contains — open file, check keywords → resolve Q1 | ✅ DONE | **SIC = social issues corpus** (4,853 rows); terrorism = `execution_articles_truncated.csv` (3,379 rows) |
-
-**Code migrated to repo:**
-- `utils/data_extraction/` — 8 R scripts (Newton Media Archive API)
-- `utils/data_transformation/` — 7 R/Rmd + 1 Python (regex, UDPipe, subcorpus building)
-- `utils/czech_stemmer.py` — Czech stemmer utility
-- `analysis/article1/frequency_analysis/` — 5 R/Rmd keyword frequency scripts
-- `analysis/article3/topic_modeling/` — BERTopic notebooks (cloud + prototype)
-- `analysis/article3/sentiment_analysis/` — Kaggle sentiment workflow
-- `visualizations/climate_change_web/` — LDA/NMF interactive HTML
-
-**Open questions resolved:** Q1 ✅ (SIC=social), Q2 ✅ (COVID=33,284 docs as separate file)
-**Still open:** Q3 (NER format), Q4 (Sketch Engine), Q5 (FAMU page infrastructure)
+| P1.1 | Verify climate subcorpus v4 keywords | ✅ | 12 motorway false positives (0.4%) noted |
+| P1.2 | Confirm social/poverty subcorpus | ✅ | 4,853 docs, 7 active keywords |
+| P1.3 | Confirm motorist subcorpus | ✅ | 63,496 docs |
+| P1.4 | Confirm COVID subcorpus | ✅ | 33,284 docs; pre-2020 false positives noted |
+| P1.5 | Confirm debt enforcement subcorpus | ✅ | Not terrorism — Czech bailiff proceedings |
+| P1.6 | Subcorpus size comparison table | ✅ | `analysis/article1/subcorpus_sizes.py` |
+| P1.7 | Country name lookup table (Czech variants) | ✅ | `country_variants.csv` — 491 rows |
+| P1.8 | Country detection — all 5 subcorpora | ✅ | `data/country_counts_*.csv` |
+| P1.9 | Country detection — climate subcorpus | ✅ | CZE=2076, USA=951, High income=75.6% |
+| P1.10 | Palestine vs Israel check | ✅ | ISR=79, PSE=13 → 6:1 ratio confirmed |
+| P1.11 | World map — climate subcorpus | ✅ | `visualizations/article5/P1.11_world_map_climate_v2.png` |
+| P1.12 | GNI yearly trend charts | ✅ | `visualizations/article1/P1.12_gni_trends_climate.png` |
+| P1.13 | Subcorpus size bar chart | ✅ | `visualizations/article5/P1.13_subcorpus_sizes_v2.png` |
+| P1.14 | Monthly time-series chart | ✅ | `visualizations/article1/P1.14_monthly_timeseries.png` |
+| P1.15 | Per-article tables with show names | ⬜ BLOCKED | Show names absent from corpus files; needs Newton Media API |
 
 ---
 
-## PHASE 1 — Data Foundations *(feeds Articles 1 & 3 + FAMU page)*
+## PHASE 2 — Actor Detection & Classification ✅ COMPLETE
 
-Purpose: Clean, verified subcorpora + corrected geographic analysis. Article 1 (Triple Silences) is fully completable here.
-
-### 1A — Subcorpora Audit & Completion
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P1.1 | Review climate subcorpus v4 (2,914 docs) — verify bi/trigram keyword list matches Poznan presentation; confirm `klimatický podmínky` exclusion (X-coded docs) was applied | ✅ DONE | Active keywords verified (top: klimatický změna=2538, změna klima=1855, globální oteplování=632). ⚠️ 12 docs where `klimatický podmínka` is the ONLY match (should be X-coded; they're motorway/weather-conditions articles). Minor data quality issue (0.4%). |
-| P1.2 | Confirm social/poverty subcorpus (4,853 docs) — verify keywords (`chudoba*`, `bezdomovectví`, `sociální vyloučení`…); check consistency with Irene Elmerot's results | ✅ DONE | 7 active keywords: chudoba (4382), bezdomovec (4234), sociální začleňování (1022), bezdomovectví (332), sociální vyloučení (276), člověk bez přístřeší (120), člověk bez domova (2). `hmotná nouze`, `chudá domácnost`, `bytová nouze`, `sociální dávky` had zero hits — likely lemma-based matching in original. |
-| P1.3 | Confirm motorist subcorpus (63,496 docs) — keywords verified in Poznan (`Dálnic*`, `Automobil*`, `Spalovac* Motor*`…) | ✅ DONE | Python load verified |
-| P1.4 | Confirm COVID subcorpus — load from local drive or extract from full corpus using keyword matching | ✅ DONE | 33,284 docs; keywords: covid, korona*, koronavir*. ⚠️ Pre-2020 docs exist (korona* matches koronace/koronární) — false positives but bulk is 2020–2022 |
-| P1.5 | Confirm terrorism/SIC subcorpus — check keyword list | ✅ DONE | **NOT terrorism** — `execution_articles_truncated.csv` keywords are `exekuce`, `exekutor`, `exekutorský` = Czech debt-enforcement/bailiff proceedings. Renamed in inventory. |
-| P1.6 | Build subcorpus size comparison table — counts + % of total corpus for all 5 subcorpora | ✅ DONE | `analysis/article1/subcorpus_sizes.py` |
-
-### 1B — Geographic / Country Analysis *(fix errors from Poznan)*
-
-Andrea flagged errors caused by variant Czech country name forms (`Německo` vs `německý`, `USA` vs `Spojené státy` vs `americký`).
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P1.7 | Build country name lookup table — all Czech variant forms per country (official, adjective, demonym, abbreviations, historical); use LLM API | ✅ DONE | `analysis/article1/country_variants.csv` — 491 rows (453 literals + 47 adj stems); word-boundary matching; false positives removed (COM "Komory"=chambers, IMN "Man", MLI "Mali") |
-| P1.8 | Re-run country detection on whole corpus with corrected table — map to canonical names + World Bank GNI 2022 categories | ✅ DONE | All 5 subcorpora: `data/country_counts_{climate,social,terror,covid,motor}.csv`. Motor top: CZE=44118, DEU=7796, USA=5982, POL=4381. COVID top: CZE=21667, DEU=3845. Social top: CZE=3789, DEU=673. |
-| P1.9 | Re-run country detection on climate subcorpus v4 — same process | ✅ DONE | `data/country_counts_climate.csv` — 9,973 rows; CZE=2076, USA=951, DEU=647, GBR=530, RUS=520; High income=7538, UpperMid=1577, LowerMid=599, Low=252 |
-| P1.10 | Special check: Palestine vs Israel disproportion — verify counts, flag explicitly | ✅ DONE | ISR=79 docs vs PSE=13 docs in climate subcorpus — 6:1 ratio; Andrea's noted finding confirmed |
-| P1.11 | Produce geographic blind-spots map — global map, countries with <100 mentions over 10 years; separate for whole corpus + climate subcorpus | ✅ DONE | `visualizations/article1/P1.11_world_map_climate.png` — 173 countries detected; 101 appear in <10 docs; Global South nearly invisible (SSA, LatAm, Pacific) |
-| P1.12 | Yearly GNI category trend charts — line charts by income category (whole corpus + climate subcorpus) | ✅ DONE | `visualizations/article1/P1.12_gni_trends_climate.png` — High income 67–83%; spike in Upper middle 2014+2022 (Russia/Ukraine); Low income never exceeds 6% |
-
-### 1C — Subcorpus Frequency & Time Trend Visualizations *(core Article 1 charts)*
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P1.13 | Subcorpus size bar chart — absolute counts, all 5 subcorpora vs total corpus | ✅ DONE | `visualizations/article1/P1.13_subcorpus_sizes.png` |
-| P1.14 | Time-series chart — % docs per month with climate/social/motor/terror/COVID terms, 2012–2022 | ✅ DONE | `visualizations/article1/P1.14_monthly_timeseries.png` — peaks: Climate Sep 2019 (Greta/Global Strike), COVID Mar 2020 (lockdown), Motor Apr 2022 (fuel crisis); date decoded from article_id day-of-year |
-| P1.15 | Per-article frequency tables — CSV with doc-id, date, show name, term count per subcorpus | ⬜ BLOCKED | Show names absent from all truncated corpus files and monthly .rds files (only article_id + text). Requires re-extraction from Newton Media Archive API or finding original metadata file. |
+| ID | Task | Status | Output |
+|----|------|--------|--------|
+| P2.1–P2.3 | Speaker extraction (regex, ALL CAPS surname pattern) | ✅ | `analysis/article2/speaker_extraction.py` |
+| P2.4 | LLM classification M1–M6 (Claude Haiku, ~$0.20) | ✅ | 95.2% rule-based; 1,168 pairs via LLM |
+| P2.5 | Gender classification (suffix rule + correction pass) | ✅ | `analysis/article2/gender_correction.py` |
+| P2.6 | Validation sample (80 rows) | 🔄 | `data/validation_sample_p26.csv` — **fill `correct_type` column** |
+| P2.7 | Master speaker table | ✅ | `data/speakers_final.csv` — 4,960 unique (name, role) pairs |
+| P2.8–P2.9 | Salience scores + marginalization analysis | ✅ | Finding 3: citizens=2.0%, scientists outnumbered 2.6:1 by politicians |
+| P2.10 | Speaker type distribution chart | ✅ | `visualizations/article5/P2.1_speaker_types_by_year_v2.png` |
+| P2.11 | Gender breakdown by type chart | ✅ | `visualizations/article5/P2.2_gender_by_type_v2.png` |
+| P2.12 | Top 20 speakers chart | ✅ | `visualizations/article2/P2.3_top20_speakers.png` |
 
 ---
 
-## PHASE 2 — Actor Detection & Classification *(core of Article 2)*
+## PHASE 3 — Stance, Topics & TJ Assessment ✅ COMPLETE
 
-Purpose: Identify and classify all speakers in the climate subcorpus into M1–M6 types. Requires LLM API calls.
-
-**Speaker types:**
-- M1 = Moderátor (anchor/host)
-- M2 = Občan (ordinary citizen)
-- M3 = Vědec (scientist)
-- M4 = Popularizátor / Pseudovědec
-- M5 = Stakeholder (NGO, business, activist)
-- M6 = Politik (politician/official)
-
-### 2A — Speaker Detection
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P2.1 | Review existing NER results — load entity/proper noun lists; document format, coverage, quality for climate subcorpus | 🔄 PARTIAL | Irene Elmerot did NER on whole corpus; resolves Q3 |
-| P2.2 | Re-run/validate speaker detection on climate subcorpus v4 — extract `Jméno PŘÍJMENÍ` patterns (ALL CAPS surname format used in transcripts); regex + NER | 🔄 PARTIAL | |
-| P2.3 | For each speaker, extract 5 fields: doc-id, full name, profession/org (from transcript), speaker type M1–M6, gender | ⬜ TODO | |
-| P2.4 | Classify speakers into M1–M6 via LLM API — send name + profession/org description; batch calls to minimize cost (~2,914 docs) | ⬜ TODO | Prompt must include full category definitions |
-| P2.5 | Classify gender via LLM API — Czech names usually obvious; flag ambiguous cases for manual review | ⬜ TODO | |
-| P2.6 | Validate ~100 speaker classifications manually — calculate agreement; adjust prompt if <85% | ⬜ TODO | Quality gate |
-| P2.7 | Produce master speaker table — `speakers_climate.csv`; deduplicated by person name | ⬜ TODO | Key input for all Article 2 visualizations and Phase 3 |
-
-### 2B — Actor Salience & Marginalization Analysis
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P2.8 | Calculate speaker salience scores — mentions per speaker, per type (M1–M6), per year | ⬜ TODO | Output: `salience_by_speaker.csv`, `salience_by_type_year.csv` |
-| P2.9 | Identify marginalized actors — under-represented types (citizens M2, scientists M3 vs politicians M6?) | ⬜ TODO | Key Article 2 finding: is ČT coverage elitist? |
-| P2.10 | Visualize speaker type distribution — stacked bar + yearly trend | ⬜ TODO | 2 charts |
-| P2.11 | Visualize gender breakdown by speaker type — M/F ratio within each M1–M6 | ⬜ TODO | 1 chart |
-| P2.12 | Visualize top 20 most mentioned speakers — horizontal bar chart | ⬜ TODO | 1 chart |
+| ID | Task | Status | Output |
+|----|------|--------|--------|
+| P3.1–P3.2 | Stance prompt + LLM classification S0–S6 (~$2.15) | ✅ | `data/stance_results.csv` — 5,928 segments |
+| P3.3 | Stance validation sample (182 rows) | 🔄 | `data/stance_validation_sample.csv` — **fill `correct_stance` column** |
+| P3.4 | Stance distribution analysis | ✅ | S6=82.2%, S1=2.3%, no M3 ever S1 |
+| P3.5 | False balance detection | ✅ | 10.2% of non-neutral articles show false balance |
+| P3.6 | Stance visualizations | ✅ | `visualizations/article3/P3.4–P3.6_stance_*.png` |
+| P3.7–P3.8 | NMF topic modeling (k=10,15,20,25) | ✅ | `data/topics_nmf_20.csv` — k=20 selected |
+| P3.9 | LDA comparison | ⬜ NOT DONE | Skipped — NMF sufficient for publication |
+| P3.10 | Topic labels | 🔄 | `data/topic_labels_nmf20.csv` — **verify T13–T19** |
+| P3.11–P3.12 | Mitigation vs adaptation; link topics to speakers | ✅ | Finding 7: science topics 33%→13% (2012→2022) |
+| P3.13 | Topic visualizations (static) | ✅ | `visualizations/article3/P3.7–P3.8_topic_*.png` |
+| P3.13 | Interactive topic model (pyLDAvis) | ⬜ NOT DONE | Existing `climate-topics.netlify.app` can serve this |
+| P3.14–P3.17 | Frequency + collocate analysis | ✅ | `data/frequency_combined.csv`; `visualizations/article3/P3.1–P3.3_*.png` |
+| P3.18–P3.19 | TJ assessment | ✅ | `data/tj_assessment.csv`; scores: De-polar 7, Urgency 3, Just 1.5 |
 
 ---
 
-## PHASE 3 — Stance, Topic Modeling & Transformative Journalism *(core of Article 3)*
+## PHASE 4 — Case Studies ✅ COMPLETE
 
-Purpose: Add stance coding (S1–S6) to speakers, run topic modeling on climate subcorpus, analyze against TJ criteria.
-
-**Stance categories:**
-- S1 = Denier · S2 = Manipulator · S3 = Delayer · S4 = Techno-optimist · S5 = Market fundamentalist · S6 = Informer
-
-### 3A — Stance Coding (S1–S6)
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P3.1 | Define stance classification prompt — detailed LLM prompt for S1–S6 with full category definitions; test on 20 manually coded examples | ⬜ TODO | Include Czech-language examples |
-| P3.2 | Run stance classification on all speakers — send: doc-id + speaker name + profession + ±200 words context to LLM | ⬜ TODO | Output: 6th column added to master speaker table; same person may have different stances in different docs |
-| P3.3 | Validate 150 cases (25 per category) manually — adjust prompt if precision <80% | ⬜ TODO | Quality gate before publication use |
-| P3.4 | Analyze stance distribution — frequency table S1–S6 × speaker type M1–M6 | ⬜ TODO | Key finding: proportion of deniers vs informers |
-| P3.5 | Polarization analysis — for each doc, flag if contradictory stances co-occur (S1 Denier + S6 Informer = 'false balance') | ⬜ TODO | Key Article 3 finding: false equivalence? |
-| P3.6 | Visualize stance distribution — stacked bar + M-type × S-type heatmap | ⬜ TODO | 2 charts |
-
-### 3B — Topic Modeling on Climate Subcorpus
-
-Note: whole-corpus NMF 20 found **no climate topic** — the key finding. Climate subcorpus modeling reveals *what* climate coverage is actually about.
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P3.7 | Prepare climate subcorpus for topic modeling — Czech lemmatization (MorfFlex), doc-term matrix, stopwords filter; reuse existing 2,910-word library | 🔄 PARTIAL | |
-| P3.8 | Run NMF (20, 25, 30, 35, 40, 50 topics) on climate subcorpus — compute coherence scores | ⬜ TODO | Reference: climate-topics.netlify.app approach |
-| P3.9 | Run LDA (same range) — compute coherence at λ=0.6; compare with NMF | ⬜ TODO | |
-| P3.10 | Select best model — validate manually; label each topic; priority labels: nuclear/renewables, drought/floods, health, EU Green Deal | ⬜ TODO | |
-| P3.11 | Classify topics as mitigation vs adaptation | ⬜ TODO | Key finding: is ČT more focused on adaptation (floods) than mitigation (decarbonization)? |
-| P3.12 | Link topics to speakers — join topic output (doc-id → topic) with speaker table (doc-id → speaker, type, stance) | ⬜ TODO | Crucial cross-phase linkage |
-| P3.13 | Visualize topic model — interactive pyLDAvis / Flourish; topic × speaker-type heatmap; topic × stance heatmap | ⬜ TODO | 3 visualizations; adapt climate-topics.netlify.app |
-
-### 3C — Urgency, Mitigation, Planetary Limits (Frequency Analysis)
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P3.14 | Extend frequency analysis code — add keyword groups: urgency terms (`naléhavost`, `krize`, `hrozba`, `kolaps`), planetary limits, fossil fuel terms, net-zero/carbon neutral terms | 🔄 PARTIAL | Existing code needs extension |
-| P3.15 | Run extended frequency analysis on climate subcorpus — yearly counts per keyword group | ⬜ TODO | Output: `frequency_urgency.csv`, `frequency_mitigation.csv` (absolute + normalized) |
-| P3.16 | Collocate analysis — co-occurrences with `klimatická změna`, `globální oteplování`, `riziko`, `krize` | ⬜ TODO | Use Python NLTK/spaCy or Sketch Engine (resolves Q4) |
-| P3.17 | Visualize urgency/mitigation trends — line chart, yearly urgency term frequency | ⬜ TODO | 1 chart |
-
-### 3D — Transformative Journalism Assessment
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P3.18 | Operationalize TJ criteria as measurable indicators — map 3 TJ principles to outputs from Phases 2 & 3 (e.g., De-polarization = % false balance docs; Urgency = urgency term frequency; Just Transformation = proportion of M2/M3 + social justice framing) | ⬜ TODO | |
-| P3.19 | Produce TJ assessment summary table — per criterion: finding + evidence + meets/partially meets/does not meet | ⬜ TODO | Drives Article 3 conclusions |
+| ID | Task | Status | Output |
+|----|------|--------|--------|
+| P4.1 | CS1: Nuclear & renewables (88 docs) | ✅ | `analysis/article4/CS1_analysis.md` |
+| P4.2 | CS2: Drought & floods (586 docs) | ✅ | `analysis/article4/CS2_analysis.md` |
+| P4.3 | CS3: Health impacts — silence (17 docs) | ✅ | `analysis/article4/CS3_analysis.md` |
+| P4.4 | Discourse analysis + excerpts for each | 🔄 | Key Observations written; **Andrea to review/edit** |
 
 ---
 
-## PHASE 4 — Case Studies *(Article 3, qualitative)*
+## PHASE 5 — Visual Unification & Public Page ✅ COMPLETE
 
-Purpose: Three in-depth discourse analyses using doc-ids from Phase 3 topic model.
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P4.1 | Case Study 1: Nuclear energy & renewables (OZE) — identify docs via topic model/keywords; analyze framing, speaker types, stances | ⬜ TODO | Is nuclear presented as climate solution? Are renewables framed negatively? |
-| P4.2 | Case Study 2: Drought and floods — analyze whether extreme weather is linked to climate change or treated as isolated events | ⬜ TODO | Key TJ criterion: restorative narrative — adaptation + mitigation mentioned together? |
-| P4.3 | Case Study 3: Health impacts — keyword `zdraví` + climate context; expected to be nearly absent — the absence is the finding | ⬜ TODO | |
-| P4.4 | For each case study: discourse analysis narrative with 3–5 illustrative excerpts; apply TJ framework | ⬜ TODO | Output: 3–6 pages each for Article 3 |
+| ID | Task | Status | Output |
+|----|------|--------|--------|
+| P5.1 | Unified style module | ✅ | `analysis/viz_style.py` — #8B1A1A, cream #FFFAF5 |
+| P5.2 | Restyle all key charts | ✅ | `visualizations/article5/` — 9 charts with `_v2` suffix |
+| P5.3–P5.5 | Czech public page with captions | ✅ | `public/index.html` (985 KB, all charts embedded) |
+| Deploy | Deploy to FAMU server | ⬜ | Contact Tomáš Šín +420 234 244 308; resolves Q5 |
 
 ---
 
-## PHASE 5 — Visual Unification & FAMU Public Page
+## PHASE 6 — Optional: Brussels / EU Climate Policy
 
-Purpose: Unify all chart aesthetics; build public-facing page at FAMU.
-
-**Visual style** (from Poznan presentation): dark red `#8B1A1A`, cream background, bold sans-serif.
-
-### 5A — Visual Style Guide
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P5.1 | Define unified style — color palette, typography, matplotlib/seaborn template, Flourish theme | ⬜ TODO | Output: `style_guide.md` + Python template file |
-| P5.2 | Reproduce all existing Poznan charts in new unified Python style | 🔄 PARTIAL | Charts exist as images; need reproducible Python code |
-
-### 5B — Visualization Inventory
-
-| ID | Chart | Status | Article |
-|----|-------|--------|---------|
-| V1 | Subcorpus size comparison bar chart | 🔄 PARTIAL | Art. 1 / FAMU |
-| V2 | Time series: % docs/month by topic (climate/social/motor/terror/COVID) | ✅ DONE | Art. 1 / FAMU |
-| V3 | World map: country blind spots — whole corpus | ⬜ TODO | Art. 1 / FAMU |
-| V4 | World map: country blind spots — climate subcorpus | ⬜ TODO | Art. 1 / FAMU |
-| V5 | GNI yearly trend — whole corpus | ✅ DONE | Art. 1 / FAMU |
-| V6 | GNI yearly trend — climate subcorpus | ✅ DONE | Art. 1 / FAMU |
-| V7 | GNI total mentions bar — whole corpus | ✅ DONE | Art. 1 / FAMU |
-| V8 | GNI total mentions bar — climate subcorpus (normalized) | ✅ DONE | Art. 1 / FAMU |
-| V9 | Speaker type distribution (M1–M6) overall | ⬜ TODO | Art. 2 / FAMU |
-| V10 | Speaker type yearly evolution | ⬜ TODO | Art. 2 / FAMU |
-| V11 | Gender breakdown by speaker type | ⬜ TODO | Art. 2 / FAMU |
-| V12 | Top 20 most mentioned speakers | ⬜ TODO | Art. 2 / FAMU |
-| V13 | Stance distribution (S1–S6) overall | ⬜ TODO | Art. 3 / FAMU |
-| V14 | M-type × S-type heatmap | ⬜ TODO | Art. 3 / FAMU |
-| V15 | Interactive topic model (pyLDAvis / Flourish) | ⬜ TODO | Art. 3 / FAMU |
-| V16 | Topic × speaker-type heatmap | ⬜ TODO | Art. 3 / FAMU |
-| V17 | Urgency/mitigation keyword frequency over time | ⬜ TODO | Art. 3 / FAMU |
-| V18 | Mitigation vs adaptation topic proportions | ⬜ TODO | Art. 3 / FAMU |
-
-### 5C — FAMU Public Page
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P5.3 | Design page structure — sections, visualization order, narrative text in Czech | ⬜ TODO | Story arc: how much does ČT cover climate? Who speaks? What stances? What silences? |
-| P5.4 | Build/configure FAMU subpage — embed Flourish charts, Czech text, mobile-friendly layout | ⬜ TODO | Coordinate with Tomáš Šín +420 234 244 308; resolves Q5 |
-| P5.5 | Write Czech explanatory captions for each visualization (2–3 sentences, accessible to general public) | ⬜ TODO | |
+| ID | Task | Status |
+|----|------|--------|
+| P6.1–P6.4 | EU Green Deal sentiment subcorpus analysis | 🆕 Not started — potential 4th article |
 
 ---
 
-## PHASE 6 — Optional: Brussels / EU Climate Policy *(potential 4th article)*
+## Summary
 
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P6.1 | Build Brussels/EU Green Policy subcorpus — extract docs with terms: Green Deal, Fit for 55, ETS, EU taxonomy, combustion engine ban, `Brusel`, `Zelená dohoda`, etc. | 🆕 NEW | |
-| P6.2 | Sentiment analysis on EU climate policy subcorpus — positive/neutral/negative toward EU climate policy; LLM API | 🆕 NEW | Key question: is Brussels/Green Deal presented as friend or enemy? |
-| P6.3 | Temporal analysis — how does sentiment toward EU climate policy change over time? Does it shift with political cycles (e.g., after ODS/SPOLU election victory)? | 🆕 NEW | |
-| P6.4 | Actor analysis — who speaks in EU climate policy stories? Cross-reference with master speaker table from P2.7 | 🆕 NEW | |
+| Phase | Status |
+|-------|--------|
+| 0 Infrastructure | ✅ Complete |
+| 1 Data foundations | ✅ Complete (P1.15 blocked permanently) |
+| 2 Speaker classification | ✅ Complete (validation CSV pending manual fill) |
+| 3 Stance + topics + TJ | ✅ Complete (validation CSV + T13–T19 labels pending) |
+| 4 Case studies | ✅ Complete (Key Observations need Andrea review) |
+| 5 Style + public page | ✅ Complete (FAMU deployment pending) |
+| 6 EU policy | 🆕 Optional future work |
 
----
-
-## Summary Counts
-
-| Phase | ✅ Done | 🔄 Partial | ⬜ TODO | 🆕 New |
-|-------|---------|-----------|--------|--------|
-| 0 | 5 | 0 | 0 | 0 |
-| 1A | 1 | 2 | 2 | 0 |
-| 1B | 1 | 3 | 2 | 0 |
-| 1C | 1 | 1 | 1 | 0 |
-| 2A | 0 | 2 | 5 | 0 |
-| 2B | 0 | 0 | 5 | 0 |
-| 3A | 0 | 0 | 6 | 0 |
-| 3B | 0 | 1 | 6 | 0 |
-| 3C | 0 | 1 | 3 | 0 |
-| 3D | 0 | 0 | 2 | 0 |
-| 4 | 0 | 0 | 4 | 0 |
-| 5A-C | 0 | 1 | 7 | 0 |
-| Viz | 5 | 1 | 12 | 0 |
-| 6 | 0 | 0 | 0 | 4 |
-| **Total** | **8** | **12** | **60** | **4** |
-
----
-
-*Source: `Climate Media Task Plan.docx` (Andrea Culková, March 2026) + Poznan/CADAAD 2024 presentation.*
-*Update task statuses as work progresses.*
+*Last updated: 2026-04-23*
